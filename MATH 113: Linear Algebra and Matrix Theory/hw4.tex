@@ -1,0 +1,112 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+\usepackage{url}
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+
+\title{HW4}
+
+\author{sogapalag}
+
+\date{\normalsize\today}
+
+\begin{document}
+
+\maketitle 
+\url{http://web.stanford.edu/~mkemeny/113lectures/Homework4.pdf}
+
+1.\\
+if not, $\exists c\neq 0, cv=0$, then $0 = \phi(cv) = c\phi(v)$, conflicts.\qed
+
+2.\\
+(a) injective $\Leftrightarrow$ $V$ is homomorphic to $range\ (\phi)$ which is subspace of $W$, then matrix under basis $v_j$ and $\phi(v_j)$ is $id_V$. add extra 0s will done\qed\\
+(b) surjective $\Leftrightarrow$ $\phi(v_j)$ basis of $W$, implies $v_j$ is basis of subspace of $V$.\qed
+
+3.\\
+(a) $Ker(\psi\circ\phi)$ implies either $u\in Ker(\phi)$ or $\phi u \in Ker(\psi)$, that $\phi u = \sum_j c_jv_j = \phi(\sum_jc_j u_j)$, $v_j$ is basis of subspace $\{\phi u\in Ker(\psi): u\in U\}$ of $Ker(\psi)$.\qed\\
+(b) $dim\ Im(\psi\circ\phi)\leq dim\ Im(\psi)$ is trivial, and $Im(\psi\circ\phi)=Im(\psi_0)$, where $\psi_0$ is $\psi$ from $Im(\phi)\rightarrow W$.\qed
+
+4.\\
+(a) $(2,-x,0,0)$, $(0,2x,-x^2)$ and $(0,0,2x^2,-x^3)$;\\
+(b)(c) add $(0,0,0,x^3)$
+
+5.\\
+(a) note $\Gamma:U_1\times\dots\times U_m \rightarrow U_1+\dots+U_m$ is surjective, which dimension equals to right side.\qed\\
+(b) i.e. $\Gamma$ is injective.\qed
+
+6.\\
+(a)\begin{equation}
+\begin{bmatrix}
+	1 & 2 & 3 \\
+	4 & 5 & 6 \\
+	7 & 8 & 9
+\end{bmatrix}\end{equation}
+(b)\begin{equation}
+\begin{bmatrix}
+	1 & 0 & 0 \\
+	-4 & 1 & 0 \\
+	-7 & 0 & 1
+\end{bmatrix};
+\begin{bmatrix}
+	1 & 2 & 3 \\
+	0 & -3 & -6 \\
+	0 & -6 & -12
+\end{bmatrix}
+\end{equation}
+(c)\begin{equation}
+\begin{bmatrix}
+	1 & 2/3 & 0 \\
+	0 & -1/3 & 0 \\
+	0 & -2 & 1
+\end{bmatrix};
+\begin{bmatrix}
+	1 & 0 & -1 \\
+	0 & 1 & 2 \\
+	0 & 0 & 0
+\end{bmatrix}\end{equation}
+(4) $(1,4,7)$ and $(1,1,1)$; $(1,-2,1)$.
+
+Bonus\\
+let $v_1=w_1$, expand to $V$, $\forall v_j= c_jw_1+...$, $v_j'=v_j-c_jw_1$, then $\{v_1,..,v_j',..\}$ is still a basis of $V$.\qed
+\end{document}

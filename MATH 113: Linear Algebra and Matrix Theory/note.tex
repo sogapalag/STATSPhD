@@ -72,7 +72,7 @@ Def, degree of a polynomial, $deg\ p = m$, if $p(z)=a_0+a_1z+\dots+ a_mz^m$, $a_
 Def, $P_m(F)$ denotes the set of all polynomials with coefficients in $F$ and degree at most $m$. note $P_m(F)=span(1,z,...,z^m)$\\
 A vector space is called infinite-dimensional if it is not finite-dimensional.\\
 linearly independent, $a_1v_1+\dots+a_mv_m = 0$ only when $a_1=\dots=a_m=0$. Iff $\forall v\in span(v_1,...,v_m)$, only one representation as a linear combination of $v_1,...,v_m$.\\
-Length of linearly independent list $<=$ length of spanning list.\\
+Length of linearly independent list $\leq$ length of spanning list.\\
 Every subspace of a finite-dimensional vector space is finite-dimensional.
 
 Def, A basis of V is a list of vectors in V that is linearly independent and spans V.\\
@@ -89,17 +89,21 @@ additivity $T(u+v)=Tu+Tv, \forall u,v\in V$;\\
 homogeneity $T(\lambda v) = \lambda (Tv), \forall \lambda\in F, v\in V$.\\
 unique linear map for basis, $Tv_j = w_j,\forall j$, dim V = dim W.\\
 $L(V,W)$ is a vector space.\\
+%维度蜷缩, null
 null space of T, $null\ T = \{v\in V: Tv=0\}$, is a subspace of V.\\
 injective: maps distinct inputs to distinct outputs.\\
 T is injective iff $null\ T =\{0\}$\\
+%维度投影, range
 range T is a subspace of W.\\
 surjective: range T equals W.\\
+%总维度数等于蜷缩起来的维度数加上投影的维度数
 Fundamental Theorem of Linear Maps: V, range T is finite dim, then 
 \begin{equation}
 dim\ V = dim\ null\ T + dim\ range\ T
 \end{equation}
 if $dim\ V > dim\ W$, no linear map is injective.\\
 if $dim\ V < dim\ W$, no linear map is surjective.\\
+%投影变换，对应两组基 Matrix
 Def matrix of T,  $Tv_k = A_{1,k}w_1+\dots+A_{m,k} w_m$\\
 notation, set of all m-by-n matrices with entries in F, denoted by $F^{m,n}$, $dim\ F^{m,n} = mn$\\
 $M(ST)$ with entries $\sum_{r=1}^n A_{j,r}C_{r,k}$. $(AC)_{j,k}=A_{j,\cdot} C_{\cdot,k}$\\
@@ -107,6 +111,7 @@ Def, invertible, $ST=I_V, TS=I_W$\\
 An invertible linear map has a unique inverse., notation $T^{-1}$\\
 invertible $\Leftrightarrow$ injective and surjective.\\
 Def, an isomorphism is an invertible linear map. Two vector spaces are called isomorphic if there is an isomorphism from one vector space onto the other one.\\
+%同维度数则同构
 Two finite-dimensional vector spaces over F are isomorphic if and only if they have the same dimension. implies isomorphic to $F^n$.\\
 $L(V,W)$ and $F^{m,n}$ are isomorphic. finite $dim\ L = (dim\ V)(dim\ W)$.\\
 Def, matrix of vector, $M(v) = (c_1,...,c_n)$ coeff of basis.\\
@@ -118,12 +123,43 @@ Def, product $V_1 \times\dots\times V_m = \{(v_1,...,v_m): v_j\in V_j \forall j\
 $R^2\times R^3$, $R^5$, not equal but isomorphic.\\
 finite $dim(V_1 \times\dots\times V_m) = dim\ V_1 + \dots + dim\ V_m$.\\
 $U_j$ subspace of $V$, define a linear map $\Gamma: U_1 \times \dots\times U_m \rightarrow U_1+\dots +U_m$ by $\Gamma(u_1,...,u_m)=u_1+\dots+u_m$. Then direct sum iff $\Gamma$ is injective.\\
+%直和，维度互不干涉
 direct sum $\Leftrightarrow$ $dim(U_1+\dots +U_m) = dim\ U_1+ \dots + dim\ U_m$.\\
 affine subset, $v+U =\{v+u: u\in U\}$, is said to be parallel to $U$.\\
 quotient space $V/U = \{v+U: v\in V\}$.\\
 Two affine subsets parallel to U are equal or disjoint: $v-w\in U$ $\Leftrightarrow$ $v+U=w+U$ $\Leftrightarrow$ $(v+U)\cap (w+U)\neq\emptyset$.
+%将U维度蜷缩，剩余维度的扩张 quotient
 quotient space $V/U$ with the operations of addition and scalar multiplication as defined as $(v+U) +(w+U) = (v+w) +U, \lambda(v+U) = (\lambda v) +U$, is vector space.\\
 quotient map $\pi: V\rightarrow V/U$ defined by $\pi(v)=v+U$.\\
 Finite, $dim\ V/U = dim\ V - dim\ U$.\\
-Define $\tilde{T}: V/(null\ T) \rightarrow W$ by $\tilde{T}(v+null\ T)= Tv$. Then $\tilde{T}$ is a linear map, injective, $range\ \tilde{T} = range\ T$, $V/(null\ T)$ is isomorphic to $range\ T$.
+%将null蜷缩与广义蜷缩对应
+Define $\tilde{T}: V/(null\ T) \rightarrow W$ by $\tilde{T}(v+null\ T)= Tv$. Then $\tilde{T}$ is a linear map, injective, $range\ \tilde{T} = range\ T$, $V/(null\ T)$ is isomorphic to $range\ T$.\\
+linear functional, $\in L(V,F)$.\\
+%单维度投影空间同构于原空间,对偶基，使得坐标等值对应
+dual space of V, denoted $V' = L(V,F)$\\
+dual basis $\varphi_j(v_k)=1$ if $k=j$, otherwise $0$. is basis of $V'$\\
+%单维度投影空间之间的投影,V->W 存活维度的反射
+dual map $T'\in L(W', V')$ defined by $T'(\varphi) = \varphi\circ T$ for $\varphi\in W'$.\\
+$(S+T)'=S'+T'$, $(\lambda T)'=\lambda T'$, $(ST)'=T'S'$.\\
+%使得U所有维度蜷缩的投影空间，即投影空间下缺少的维度,蜷缩成蜷缩投影
+$U\subset V$, annihilator $U^0=\{\varphi\in V': \varphi(u)=0\ for\ all\ u\in U\}$, is subspace of $V'$\\
+finite, $dim\ U+dim\ U^0 = dim\ V$.\\
+finite, $null\ T' = (range\ T)^0$,  $dim\ null\ T'= dim\ null\ T+dim\ W -dim\ V$.\\
+%显然，不缺少维度
+finite, $T$ is surjective iff $T'$ is injective.\\
+finite, $T$ is injective iff $T'$ is surjective.\\
+%使得蜷缩维度蜷缩起来的投影
+finite, $dim\ range\ T' = dim\ range\ T = rank$, $range\ T' =(null\ T)^0$\\
+transpose properties, $(A+C)^t = A^t+C^t,\ (\lambda A)^t=\lambda A^t,\ (AC)^t=C^tA^t$\\
+$M(T')=(M(T))^t$
+
+\section{Polynomials}
+complex conjugate $\bar{z}=Re\ z - (Im\ z)i$, properties, $z+\bar{z}=2Re\ z$, $z-\bar{z}=2i(Im\ z)$, $z\bar{z}=|z|^2$, $|wz|=|w||z|$, $|w+z|\leq|w|+|z|$\\
+Uniqueness of Coefficients for Polynomials.\\
+Division Algorithm for Polynomials, $p,s\in P(F)$, $s\neq 0$, then $\exists q,r\in P(F)$ unique, s.t. $p=sq+r$ and $deg\ r < deg\ s$.\\
+$p(\lambda)=0$ iff $z-\lambda$ is a factor of $p$.\\
+Fundamental Theorem of Algebra: Every nonconstant polynomial with complex coefficients has a zero.\\
+nonconstant polynomial $p\in P(C)$ has a unique factorization, $p(z)=c(z-\lambda_1)\dots(z-\lambda_m)$.\\
+real coefficients, if $\lambda$ is root, so is $\bar{\lambda}$.\\
+nonconstant polynomial $p\in P(R)$ has a unique factorization, $p(x)=c(x-\lambda_1)\dots(x-\lambda_m)(x^2+b_1x+c_1)\dots(x^2+b_Mx+c_M)$, $b_j^2<4c_j$
 \end{document}
