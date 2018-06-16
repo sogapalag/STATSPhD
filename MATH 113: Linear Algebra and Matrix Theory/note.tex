@@ -61,4 +61,46 @@ $U_1 + \dots + U_m$ is smallest subspaces of $V$  containing $U_1$,...,$U_m$.\\
 direct sum, $u_1 + \dots + u_m$ expressed in only one way, use $\bigoplus$ notation, $U_1 \bigoplus \dots \bigoplus U_m$. iff only way write $u_1 + \dots + u_m = 0$, is each $u_j = 0$.\\
 for Two subspace, $U+W$ is direct sum iff $U\bigcap W = \{0\}$.\\
 odd, even functions, $R^R = U_e \bigoplus U_o$, proof $f_e(x) = \frac{1}{2} [f(x) +  f(-x)]$ , $f_o(x) = \frac{1}{2} [f(x) -  f(-x)]$.
+
+
+\section{Finite Dimensional Vector Space}
+Def, $span(v_1,...,v_m) = \{a_1v_1+\dots +a_mv_m: a_1,...,a_m\in F\}$. $span() = \{0\}$\\
+Thm, span is the smallest containing subspace.\\
+A vector space is called finite-dimensional if some list of vectors in it spans the space.\\
+polynomial $P(F)$ is a subspace of $F^F$.\\
+Def, degree of a polynomial, $deg\ p = m$, if $p(z)=a_0+a_1z+\dots+ a_mz^m$, $a_m\neq 0$. $p = 0$ with degree $-\infty$.\\
+Def, $P_m(F)$ denotes the set of all polynomials with coefficients in $F$ and degree at most $m$. note $P_m(F)=span(1,z,...,z^m)$\\
+A vector space is called infinite-dimensional if it is not finite-dimensional.\\
+linearly independent, $a_1v_1+\dots+a_mv_m = 0$ only when $a_1=\dots=a_m=0$. Iff $\forall v\in span(v_1,...,v_m)$, only one representation as a linear combination of $v_1,...,v_m$.\\
+Length of linearly independent list $<=$ length of spanning list.\\
+Every subspace of a finite-dimensional vector space is finite-dimensional.
+
+Def, A basis of V is a list of vectors in V that is linearly independent and spans V.\\
+iff $\forall v\in V$, unique form, $v=a_1v_1+\dots+a_nv_n$. \\
+Every finite-dimensional vector space has a basis.\\
+U is subspace of finite-dimensional V, Then there is a subspace W of V such that $V=U\oplus W$.\\
+The dimension of a finite-dimensional vector space is the length of any basis of the vector space.\\
+subspace, $dim(U_1+U_2) = dim\ U_1 +dim\ U_2 - dim(U_1\cap U_2)$.
+
+
+\section{Linear Maps}
+Def, linear map $T:V\rightarrow W$ with:\\
+additivity $T(u+v)=Tu+Tv, \forall u,v\in V$;\\
+homogeneity $T(\lambda v) = \lambda (Tv), \forall \lambda\in F, v\in V$.\\
+unique linear map for basis, $Tv_j = w_j,\forall j$, dim V = dim W.\\
+$L(V,W)$ is a vector space.\\
+null space of T, $null\ T = \{v\in V: Tv=0\}$, is a subspace of V.\\
+injective: maps distinct inputs to distinct outputs.\\
+T is injective iff $null\ T =\{0\}$\\
+range T is a subspace of W.\\
+surjective: range T equals W.\\
+Fundamental Theorem of Linear Maps: V, range T is finite dim, then 
+\begin{equation}
+dim\ V = dim\ null\ T + dim\ range\ T
+\end{equation}
+if $dim\ V > dim\ W$, no linear map is injective.\\
+if $dim\ V < dim\ W$, no linear map is surjective.\\
+Def matrix of T,  $Tv_k = A_{1,k}w_1+\dots+A_{m,k} w_m$\\
+notation, set of all m-by-n matrices with entries in F, denoted by $F^{m,n}$, $dim\ F^{m,n} = mn$\\
+$M(ST)$ with entries $\sum_{r=1}^n A_{j,r}C_{r,k}$. $(AC)_{j,k}=A_{j,\cdot} C_{\cdot,k}$
 \end{document}
