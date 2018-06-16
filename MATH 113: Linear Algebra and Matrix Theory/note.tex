@@ -102,5 +102,28 @@ if $dim\ V > dim\ W$, no linear map is injective.\\
 if $dim\ V < dim\ W$, no linear map is surjective.\\
 Def matrix of T,  $Tv_k = A_{1,k}w_1+\dots+A_{m,k} w_m$\\
 notation, set of all m-by-n matrices with entries in F, denoted by $F^{m,n}$, $dim\ F^{m,n} = mn$\\
-$M(ST)$ with entries $\sum_{r=1}^n A_{j,r}C_{r,k}$. $(AC)_{j,k}=A_{j,\cdot} C_{\cdot,k}$
+$M(ST)$ with entries $\sum_{r=1}^n A_{j,r}C_{r,k}$. $(AC)_{j,k}=A_{j,\cdot} C_{\cdot,k}$\\
+Def, invertible, $ST=I_V, TS=I_W$\\
+An invertible linear map has a unique inverse., notation $T^{-1}$\\
+invertible $\Leftrightarrow$ injective and surjective.\\
+Def, an isomorphism is an invertible linear map. Two vector spaces are called isomorphic if there is an isomorphism from one vector space onto the other one.\\
+Two finite-dimensional vector spaces over F are isomorphic if and only if they have the same dimension. implies isomorphic to $F^n$.\\
+$L(V,W)$ and $F^{m,n}$ are isomorphic. finite $dim\ L = (dim\ V)(dim\ W)$.\\
+Def, matrix of vector, $M(v) = (c_1,...,c_n)$ coeff of basis.\\
+then ${M(T)}_{\cdot,k} = M(Tv_k)$, here with resopect to basis of $W$.\\
+$M(Tv) = M(T)M(v)$, means, $Tv$ coeff under basis of W equals to coeff of v under basis of V multiplied by matrix A.\\
+Def, operators, $L(V) = L(V,V)$.\\
+finite-dim V, for operator T: invertible $\Leftrightarrow$ injective $\Leftrightarrow$ surjective.\\
+Def, product $V_1 \times\dots\times V_m = \{(v_1,...,v_m): v_j\in V_j \forall j\}$; is vector space over $F$.\\
+$R^2\times R^3$, $R^5$, not equal but isomorphic.\\
+finite $dim(V_1 \times\dots\times V_m) = dim\ V_1 + \dots + dim\ V_m$.\\
+$U_j$ subspace of $V$, define a linear map $\Gamma: U_1 \times \dots\times U_m \rightarrow U_1+\dots +U_m$ by $\Gamma(u_1,...,u_m)=u_1+\dots+u_m$. Then direct sum iff $\Gamma$ is injective.\\
+direct sum $\Leftrightarrow$ $dim(U_1+\dots +U_m) = dim\ U_1+ \dots + dim\ U_m$.\\
+affine subset, $v+U =\{v+u: u\in U\}$, is said to be parallel to $U$.\\
+quotient space $V/U = \{v+U: v\in V\}$.\\
+Two affine subsets parallel to U are equal or disjoint: $v-w\in U$ $\Leftrightarrow$ $v+U=w+U$ $\Leftrightarrow$ $(v+U)\cap (w+U)\neq\emptyset$.
+quotient space $V/U$ with the operations of addition and scalar multiplication as defined as $(v+U) +(w+U) = (v+w) +U, \lambda(v+U) = (\lambda v) +U$, is vector space.\\
+quotient map $\pi: V\rightarrow V/U$ defined by $\pi(v)=v+U$.\\
+Finite, $dim\ V/U = dim\ V - dim\ U$.\\
+Define $\tilde{T}: V/(null\ T) \rightarrow W$ by $\tilde{T}(v+null\ T)= Tv$. Then $\tilde{T}$ is a linear map, injective, $range\ \tilde{T} = range\ T$, $V/(null\ T)$ is isomorphic to $range\ T$.
 \end{document}
