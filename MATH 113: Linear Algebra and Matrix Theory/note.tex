@@ -162,4 +162,50 @@ Fundamental Theorem of Algebra: Every nonconstant polynomial with complex coeffi
 nonconstant polynomial $p\in P(C)$ has a unique factorization, $p(z)=c(z-\lambda_1)\dots(z-\lambda_m)$.\\
 real coefficients, if $\lambda$ is root, so is $\bar{\lambda}$.\\
 nonconstant polynomial $p\in P(R)$ has a unique factorization, $p(x)=c(x-\lambda_1)\dots(x-\lambda_m)(x^2+b_1x+c_1)\dots(x^2+b_Mx+c_M)$, $b_j^2<4c_j$
+
+\section{Eigenvalues, Eigenvectors, and Invariant Subspaces}
+invariant subspace, $Tu\in U$.\\
+eigenvalue, if $\exists v\in V$ such that $v\neq 0$ and $Tv=\lambda v$. $\Leftrightarrow$ 1-dim invariant subspace.\\
+%同（维度）空间下投影，至少蜷缩了一个维度
+finite $V$, then: $\lambda$ is an eigenvalue of $T$ $\Leftrightarrow$ $T-\lambda I$ not injective $\Leftrightarrow$ $T-\lambda I$ not surjective $\Leftrightarrow$ $T-\lambda I$ not invertible\\
+eigenvector, $v\neq 0$ corresponding to an eigenvalue $\lambda$, iff $v\in null(T-\lambda I)$.\\
+$v_1,...,v_m$ is linearly independent, while corresponding distinct eigenvalues.\\
+finite, operator at most $dim\ V$ distinct eigenvalues.\\
+for invariant subspace $U$, define: restriction operator $T|_U(u) =Tu, u\in U$ ; quotient operator $(T/U)(v+U) = Tv+U, v\in V$.\\
+Def, $T^m=T...T$, $T^0=I$, (if invertible)$T^{-m}= (T^{-1})^m$; then have $T^mT^n=T^{m+_n}$, $(T^m)^n=T^{mn}$.\\
+Def, if $p\in P(F)$, then $p(T)=a_0I+a_1T+\dots+a_mT^m$. $(pq)(T)=p(T)q(T)$, $p(T)q(T)=q(T)p(T)$.\\
+Every operator on a finite-dimensional, nonzero, complex vector space has an eigenvalue.\\
+Def, A matrix is called upper triangular if all the entries below the diagonal equal 0. iff $Tv_j\in span(v_1,...,v_j)$, iff $span(v_1,...,v_j)$ is invariant.\\
+finite complex, $T$ can be upper-triangular.\\
+Suppose $T$ has upper-triangular matrix, then invertible iff diagonal nonzero; diagonal is the eigenvalues.\\
+Def, A diagonal matrix is a square matrix that is 0 everywhere except possibly along the diagonal.\\
+Def, eigenspace $E(\lambda, T)=null(T-\lambda I)$.\\
+finite $V$, $E(\lambda_1, T)+\dots+E(\lambda_m, T)$ is a direct sum. total dims $\leq$ $dim\ V$.\\
+%可对角化，某组基下，各维度要么蜷缩或维持，即不变；否则，总有某个维度跳跃到其它维度上
+finite $V$, distinct $\lambda_1,...,\lambda_m$, then: T if diagonalizable $Leftrightarrow$ V has a basis consisting of eigenvectors of T $Leftrightarrow$ 1-dim invariant subspaces that $V=U_1\oplus\dots\oplus U_n$ $Leftrightarrow$ $V= E(\lambda_1,T)\oplus\dots\oplus E(\lambda_m,T)$ $Leftrightarrow$ $dim\ V= \sum dim\ E$.\\
+
+volume function, bilinearity, and $vol(u,u) = 0$.\\
+for $\alpha : U_1\times\dots\times U_n$ $\rightarrow F$, multilinearity, alternation, if vectors are not distinct, i.e. $\exists i\neq j$, that $v_i=v_j$, then $\alpha(v_1,...,v_n)=0$\\
+lemma, if $\alpha$ is volume fuction, let $1\leq i<j\leq n$, then
+\begin{equation}
+\alpha(v_1,...,v_i,...v_j,...v_n) = - \alpha(v_1,...,v_j,...v_i,...v_n)
+\end{equation}
+permutation of finite set $\Omega=\{1,..,n\}$ is bijective function $\sigma:\Omega\rightarrow\Omega$. $\sigma^{-1}\sigma = \sigma\sigma^{-1} = 1$\\
+cycle, $\sigma (a_i)= a_{i+1}$, length $m$, called m-cycle. disjoint, no common entries. fix $i$, $\sigma(i) = i$.\\
+Thm, every permutation can written as a product of disjoint cycles.\\
+Def, 2-cycle called transposition.\\
+Any cycle $\sigma$ can be written as a product of transpositions.\\
+corollary, any permutation can be written as a product of transpositions.\\
+number of inversions, $inv(\sigma):= \#\{(i,j)|1\leq i<j\leq n, \sigma(i)>\sigma(j)\}$\\
+sign of $\sigma$ equals $(-1)^{inv(\sigma)}$\\
+$sign(\sigma\gamma)= sign(\sigma)sign(\gamma)$\\
+sign of transposition is $-1$.\\
+Define sign as 0 when not bijective. Then for volume fuction
+\begin{equation}
+\alpha (v_{\sigma(1)},...,v_{\sigma(n)})= sign(\sigma)\alpha(v_1,...,v_n)
+\end{equation}\\
+\begin{equation}
+\alpha(v_1,...,v_n) = \alpha(b_1,...,b_n)\sum_\sigma sign(\sigma)\prod_k a_{\sigma(k),k}
+\end{equation}\\
+volume functional is 1-dimensional vector space over F.
 \end{document}
