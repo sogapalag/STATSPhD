@@ -1,0 +1,113 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+\usepackage{url}
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+
+\title{MATH 115: Functions of a Real Variable}
+
+\author{sogapalag}
+
+\date{\normalsize\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Peano Axioms, basis of mathematical induction.\\
+algebraic number, integer polynomial $p(x)=0$. $c_n\neq 0,\ n\geq 1$.\\
+Rational Zeros Theorem: c divides $c_0$, d divedes $c_n$.\\
+corollary, $x^n+c_{n-1}x^{n-1}+...+c_1x+c_0=0$, Any rational solution of this equation must be an integer that divides $c_0$\\
+Field and order def and properties.\\
+Def, max, min, upper bound, lower bound;\\
+supremum sup S, if S is bounded above and S has a least upper bound;\\
+infimum inf S, If S is bounded below and S has a greatest lower bound.\\
+Completeness Axiom: Every nonempty subset S of R that is bounded above has a least upper bound. In other words, sup S exists and is a real number.\\
+$-\infty,+\infty$ symbol for unbounded set. e.g. $\sup S=+\infty$\\
+Archimedean Property. if $a,b>0$, then for some positive integer n, $na>b$.\\
+Denseness of $\mathbb{Q}$, if $a,b\in\mathbb{R}$ and $a<b$, then $\exists r\in\mathbb{Q}$, s.t. $a<r<b$.\\
+
+\section{Sequences}
+%s_n足够逼近s
+def of sequence, limit, converge, diverge. $\epsilon, N$ notation.\\
+Thm, Convergent sequences are bounded.\\
+Thm, $\lim(ks_n) = k\lim s_n$.\\
+Thm, $\lim(s_n+t_n)=\lim s_n+ \lim t_n$.\\
+Thm, $\lim(s_nt_n)=(\lim s_n) (\lim t_n)$.\\
+lemma, if $s_n, s\neq 0$, then $\lim (1/s_n) = 1/s$.\\
+Thm, $\lim(t_n/s_n)=t/s$.\\
+Thm, positive real numbers, $\lim s_n=+\infty$ iff $\lim(1/s_n) =0$.\\
+monotone sequence; increasing or decreasing\\
+%单调确界隐含着逼近
+Thm, All bounded monotone sequences converge.\\
+Def, $\lim \sup s_n = \lim_{N\rightarrow\infty} sup\{s_n:n>N\}$.\\
+Thm, if $\lim s_n$ defined, then $\lim \inf s_n=\lim s_n =\lim \sup s_n$; if $\lim \inf s_n=\lim \sup s_n$, then $\lim s_n$ is defined and $\lim s_n =\lim \sup s_n$.\\
+%s_n与s_m足够逼近
+Cauchy sequence, $\forall\epsilon, \exists N$, s.t. $m,n>N$ implies $|s_n-s_m|<\epsilon$.\\
+lemma, Convergent sequences are Cauchy sequences.\\
+lemma, Cauchy sequences are bounded.\\
+Thm, Convergent sequences iff Cauchy sequences.\\
+def, subsequence, 'select', 'in order', 'infinite';\\
+%可挑出（甚至单调）子序列 当逼近集无限时收敛 or 无界时无穷极限
+Thm, there is a subsequence of $(s_n)$ converging to $t$ iff set $\{n\in\mathbb{N}: |s_n-t|<\epsilon\}$ is infinite for all $\epsilon>0$. if unbounded above(below), it has a subsequence has limit $\infty$. in each case, the subsequence can be taken to be monotonic.\\
+Thm, if $(s_n)$ converges, then every subsequence converges to the same limit.\\
+%可挑出单调子序列
+Thm, Every $(s_n)$ has a monotonic subsequence.\\
+%有界，可挑出收敛子序列
+%这个定理可从前面证得单调收敛，不过这个定理更广义
+Bolzano-Weierstrass Theorem. Every bounded sequence has a convergent subsequence.\\
+%可挑出单调收敛子序列，极限为确界极限
+Thm, any $(s_n)$, There exists a monotonic subsequence whose limit is $\lim\sup s_n$, and there exists a monotonic subsequence whose limit is $\lim\inf s_n$.\\
+Thm, S denote the set of subsequential limits, then $S$ is nonempty; $\sup S=\lim\sup s_n$ and $\inf S=\lim\inf s_n$; $\lim s_n$ exists iff $S$ has exactly one element.\\
+Thm, S as above, suppose $(t_n)$ is a sequence in $S\cap \mathbb{R}$ and $t=\lim t_n$. Then $t\in S$.\\
+Thm, if $\lim s_n=s>0$, then $\lim\sup s_nt_n = s\lim\sup t_n$, allow $\infty$.\\
+%确界极限的定义蕴含着确界单调逼近,于是变化率严格小于，常量极限下，于是变\leq
+Thm, $(s_n)$ any sequence of nonzero real numbers. Then
+\begin{equation}
+\lim\inf|\frac{s_{n+1}}{s_n}| \leq \lim\inf |s_n|^{1/n} \leq \lim\sup |s_n|^{1/n} \leq \lim\sup |\frac{s_{n+1}}{s_n}|
+\end{equation}
+Corollary, if $\lim |\frac{s_{n+1}}{s_n}|$ exists (equals L), then $\lim|s_n|^{1/n}$ exists (equals L).\\
+
+\end{document}
