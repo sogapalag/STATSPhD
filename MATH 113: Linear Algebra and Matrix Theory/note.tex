@@ -93,17 +93,17 @@ $L(V,W)$ is a vector space.\\
 null space of T, $null\ T = \{v\in V: Tv=0\}$, is a subspace of V.\\
 injective: maps distinct inputs to distinct outputs.\\
 T is injective iff $null\ T =\{0\}$\\
-%维度投影, range
+%维度映射, range
 range T is a subspace of W.\\
 surjective: range T equals W.\\
-%总维度数等于蜷缩起来的维度数加上投影的维度数
+%总维度数等于蜷缩起来的维度数加上映射的维度数
 Fundamental Theorem of Linear Maps: V, range T is finite dim, then 
 \begin{equation}
 dim\ V = dim\ null\ T + dim\ range\ T
 \end{equation}
 if $dim\ V > dim\ W$, no linear map is injective.\\
 if $dim\ V < dim\ W$, no linear map is surjective.\\
-%投影变换，对应两组基 Matrix
+%映射变换，对应两组基 Matrix
 Def matrix of T,  $Tv_k = A_{1,k}w_1+\dots+A_{m,k} w_m$\\
 notation, set of all m-by-n matrices with entries in F, denoted by $F^{m,n}$, $dim\ F^{m,n} = mn$\\
 $M(ST)$ with entries $\sum_{r=1}^n A_{j,r}C_{r,k}$. $(AC)_{j,k}=A_{j,\cdot} C_{\cdot,k}$\\
@@ -135,20 +135,20 @@ Finite, $dim\ V/U = dim\ V - dim\ U$.\\
 %将null蜷缩与广义蜷缩对应
 Define $\tilde{T}: V/(null\ T) \rightarrow W$ by $\tilde{T}(v+null\ T)= Tv$. Then $\tilde{T}$ is a linear map, injective, $range\ \tilde{T} = range\ T$, $V/(null\ T)$ is isomorphic to $range\ T$.\\
 linear functional, $\in L(V,F)$.\\
-%单维度投影空间同构于原空间,对偶基，使得坐标等值对应
+%单维度映射空间同构于原空间,对偶基，使得坐标等值对应
 dual space of V, denoted $V' = L(V,F)$\\
 dual basis $\varphi_j(v_k)=1$ if $k=j$, otherwise $0$. is basis of $V'$\\
-%单维度投影空间之间的投影,V->W 存活维度的反射
+%单维度映射空间之间的映射,V->W 存活维度的反射
 dual map $T'\in L(W', V')$ defined by $T'(\varphi) = \varphi\circ T$ for $\varphi\in W'$.\\
 $(S+T)'=S'+T'$, $(\lambda T)'=\lambda T'$, $(ST)'=T'S'$.\\
-%使得U所有维度蜷缩的投影空间，即投影空间下缺少的维度,蜷缩成蜷缩投影
+%使得U所有维度蜷缩的映射空间，即映射空间下缺少的维度,蜷缩成蜷缩映射
 $U\subset V$, annihilator $U^0=\{\varphi\in V': \varphi(u)=0\ for\ all\ u\in U\}$, is subspace of $V'$\\
 finite, $dim\ U+dim\ U^0 = dim\ V$.\\
 finite, $null\ T' = (range\ T)^0$,  $dim\ null\ T'= dim\ null\ T+dim\ W -dim\ V$.\\
 %显然，不缺少维度
 finite, $T$ is surjective iff $T'$ is injective.\\
 finite, $T$ is injective iff $T'$ is surjective.\\
-%使得蜷缩维度蜷缩起来的投影
+%使得蜷缩维度蜷缩起来的映射
 finite, $dim\ range\ T' = dim\ range\ T = rank$, $range\ T' =(null\ T)^0$\\
 transpose properties, $(A+C)^t = A^t+C^t,\ (\lambda A)^t=\lambda A^t,\ (AC)^t=C^tA^t$\\
 $M(T')=(M(T))^t$
@@ -166,7 +166,7 @@ nonconstant polynomial $p\in P(R)$ has a unique factorization, $p(x)=c(x-\lambda
 \section{Eigenvalues, Eigenvectors, and Invariant Subspaces}
 invariant subspace, $Tu\in U$.\\
 eigenvalue, if $\exists v\in V$ such that $v\neq 0$ and $Tv=\lambda v$. $\Leftrightarrow$ 1-dim invariant subspace.\\
-%同（维度）空间下投影，至少蜷缩了一个维度
+%同（维度）空间下映射，至少蜷缩了一个维度
 finite $V$, then: $\lambda$ is an eigenvalue of $T$ $\Leftrightarrow$ $T-\lambda I$ not injective $\Leftrightarrow$ $T-\lambda I$ not surjective $\Leftrightarrow$ $T-\lambda I$ not invertible\\
 eigenvector, $v\neq 0$ corresponding to an eigenvalue $\lambda$, iff $v\in null(T-\lambda I)$.\\
 $v_1,...,v_m$ is linearly independent, while corresponding distinct eigenvalues.\\
@@ -181,7 +181,7 @@ Suppose $T$ has upper-triangular matrix, then invertible iff diagonal nonzero; d
 Def, A diagonal matrix is a square matrix that is 0 everywhere except possibly along the diagonal.\\
 Def, eigenspace $E(\lambda, T)=null(T-\lambda I)$.\\
 finite $V$, $E(\lambda_1, T)+\dots+E(\lambda_m, T)$ is a direct sum. total dims $\leq$ $dim\ V$.\\
-%可对角化，某组基下，各维度要么蜷缩或维持，即不变；否则，总有某个维度跳跃到其它维度上
+%可对角化，某组基下，各维度要么蜷缩或维持，即不变；否则，总有某个维度跳跃(映射)到其它维度上
 finite $V$, distinct $\lambda_1,...,\lambda_m$, then: T if diagonalizable $Leftrightarrow$ V has a basis consisting of eigenvectors of T $Leftrightarrow$ 1-dim invariant subspaces that $V=U_1\oplus\dots\oplus U_n$ $Leftrightarrow$ $V= E(\lambda_1,T)\oplus\dots\oplus E(\lambda_m,T)$ $Leftrightarrow$ $dim\ V= \sum dim\ E$.\\
 
 volume function, bilinearity, and $vol(u,u) = 0$.\\
@@ -218,5 +218,38 @@ Suppose V is finite-dimensional. Then every orthonormal list of vectors in V can
 If T has an upper-triangular matrix with respect to some basis of V, then T has an upper-triangular matrix with respect to some orthonormal basis of V.\\
 Schur’s Theorem, complex, can upper-triangle with orthonormal basis.\\
 Riesz Representation Theorem, linear function can repres $\varphi(v)=<v,u>$, with unique $u$.\\
-finite subspace U, $V=U\oplus U^\bot$; dim $U^\bot$ = dim V - dim U; $U=(U^\bot)^\bot$
+finite subspace U, $V=U\oplus U^\bot$; dim $U^\bot$ = dim V - dim U; $U=(U^\bot)^\bot$\\
+
+\section{Operators on Inner Product Spaces}
+adjoint $T^*:W\rightarrow V$, $<Tv,w> = <v,T^*w>$; is linear map. $null\ T^* = (range\ T)^\bot$, another four equiv.\\
+under orthonormal basis $e_i,\ f_j$, $M(T^*)$ is conjugate transpose of $M(T)$.\\
+self-adjoint(Hermitian) $T=T^*$. Every eigenvalue of a self-adjoint operator is real.\\
+over complex, if $<Tv,v>=0, \forall v$, $T=0$.\\
+over complex, $<Tv,v>\in R,\forall v$ iff $T$ is self-adjoint.\\
+if $<Tv,v>=0,\forall v$ and $T$ is self-adjoint, then $T=0$.\\
+normal, $TT^*=T^*T$.\\
+T is normal, iff $\|Tv\|=\|T^*v\|,\forall v$.\\
+T is normal, and eigen $\lambda,v$, then $\bar{\lambda},v$ eigen of $T^*$.\\
+T is normal, Then eigenvectors of T corresponding to distinct eigenvalues are orthogonal.\\
+%C 可正交对角化 normal 
+Complex Spectral Theorem: over complex, that T is normal $\Leftrightarrow$ V has an orthonormal basis consisting of eigenvectors of T. $\Leftrightarrow$ T has a diagonal matrix with respect to some orthonormal basis of V.\\
+Self-adjoint operators have eigenvalues\\
+if self-adjoint, U is invariant subspace. Then $U^\bot$ is invariant under T, $T|_U$ and $T|_{U^\bot}$ self-adjoint.\\
+%R 可正交对角化 self-adjoint 
+Real Spectral Theorem:  ovel real, T is self-adjoint $\Leftrightarrow$ V has an orthonormal basis consisting of eigenvectors of T. $\Leftrightarrow$ T has a diagonal matrix with respect to some orthonormal basis of V.\\
+Def, positive operator, $\langle Tv,v\rangle \geq 0,\forall v$.\\
+square root, if $R^2=T$.\\
+T is positive; $\Leftrightarrow$ T is self-adjoint and all the eigenvalues of T are nonnegative; $\Leftrightarrow$ T has a positive square root; $\Leftrightarrow$T has a self-adjoint square root; $\Leftrightarrow$ $\exists R$, s.t. $T=R^*R$.\\
+Every positive operator on V has a unique positive square root $\sqrt{T}$.\\
+%保距同构
+isometry, $\|Sv\|=\|v\|,\forall v$; called orthogonal operator on real; called unitary operator on complex.\\
+S is an isometry; $\Leftrightarrow$ $<Su,Sv>=<u,v>,\forall u,v$ $\Leftrightarrow$ $Se_i$ (every lists of vectors) is orthonormal $\Leftrightarrow$ $\exists e_i$ (basis) that $Se_i$ is orthonormal; $\Leftrightarrow$ $S^*S=I$ $\Leftrightarrow$ $SS^*=I$ $\Leftrightarrow$ $S^*$ is isometry $\Leftrightarrow$ S is invertible $S^{-1}=S^*$.\\
+over complex, S is an isometry; $\Leftrightarrow$ There is an orthonormal basis of V consisting of eigenvectors of S whose corresponding eigenvalues all have absolute value 1.\\
+Polar Decomposition: $\exists S$ isometry, s.t. $T=S\sqrt{T^*T}$. states that each operator on V is the product of an isometry and a positive operator. (may different ortho basis)\\
+singular values of T are the eigenvalues of $\sqrt{T^*T}$, all nonnegative.\\
+%分解成两组正交基上一一维度映射
+Singular Value Decomposition(SVD): singular values $s_i$, $\exists$ ortho basis $e_i$, $f_i$, s.t.
+\begin{equation}
+	Tv=\sum_i s_i<v,e_i> f_i
+\end{equation}
 \end{document}
