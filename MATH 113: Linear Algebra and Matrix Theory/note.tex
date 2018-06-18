@@ -241,10 +241,11 @@ Def, positive operator, $\langle Tv,v\rangle \geq 0,\forall v$.\\
 square root, if $R^2=T$.\\
 T is positive; $\Leftrightarrow$ T is self-adjoint and all the eigenvalues of T are nonnegative; $\Leftrightarrow$ T has a positive square root; $\Leftrightarrow$T has a self-adjoint square root; $\Leftrightarrow$ $\exists R$, s.t. $T=R^*R$.\\
 Every positive operator on V has a unique positive square root $\sqrt{T}$.\\
-%保距同构
+%保距同构,旋转
 isometry, $\|Sv\|=\|v\|,\forall v$; called orthogonal operator on real; called unitary operator on complex.\\
 S is an isometry; $\Leftrightarrow$ $<Su,Sv>=<u,v>,\forall u,v$ $\Leftrightarrow$ $Se_i$ (every lists of vectors) is orthonormal $\Leftrightarrow$ $\exists e_i$ (basis) that $Se_i$ is orthonormal; $\Leftrightarrow$ $S^*S=I$ $\Leftrightarrow$ $SS^*=I$ $\Leftrightarrow$ $S^*$ is isometry $\Leftrightarrow$ S is invertible $S^{-1}=S^*$.\\
 over complex, S is an isometry; $\Leftrightarrow$ There is an orthonormal basis of V consisting of eigenvectors of S whose corresponding eigenvalues all have absolute value 1.\\
+%分解成正定(可在某组正交基下幅度正放大)再旋转
 Polar Decomposition: $\exists S$ isometry, s.t. $T=S\sqrt{T^*T}$. states that each operator on V is the product of an isometry and a positive operator. (may different ortho basis)\\
 singular values of T are the eigenvalues of $\sqrt{T^*T}$, all nonnegative.\\
 %分解成两组正交基上一一维度映射
@@ -252,4 +253,36 @@ Singular Value Decomposition(SVD): singular values $s_i$, $\exists$ ortho basis 
 \begin{equation}
 	Tv=\sum_i s_i<v,e_i> f_i
 \end{equation}
+
+\section{Operators on Complex Vector Spaces}
+$\{0\}=null\ T^0\subset null\ T^1\subset\dot\subset null\ T^k\subset\dots$\\
+if $null\ T^m=null\ T^{m+1}$, then equal $null\ T^{m+2}...$.\\
+$n=dim\ V$, is a number stop growing null space. and $V=null\ T^n \oplus range\ T^n$\\
+generalized eigenvector $(T-\lambda I)^j v=0$, for some positive integer $j$.\\
+generalized eigenspace, $G(\lambda,T)$.\\
+$G(\lambda,T) = null(T-\lambda I)^n$\\
+corresponding distinct eigenvalues, generalized eigenvectors Linearly independent.\\
+nilpotent, $T^j=0$, for some j.\\
+if N is nilpotent, $N^n=0$. matrix,  on and below the diagonal are 0's.\\
+null, range of $p(T)$ are invariant under T.\\
+distinct, $V=\oplus G(\lambda_j, T)$, each is invariant under T, each $(T-\lambda_j I)|_{G_j}$ is nilpotent.\\
+multiplicity, dim of G.\\
+block diagonal matrix, diagonal are square matrix, other 0. with upper-trian.\\
+N is nilpotent, then $I+N$ has a square root.\\
+over complex, invertible T has a square root.\\
+characteristic polynomial $q$, $(z-\lambda_1)^{d_1}\dots$\\
+Cayley-Hamilton Theorem, $q(T) =0$.\\
+unique monic polynomial p of smallest degree for $p(T)=0$; which called minimal polynomial of T.\\
+$q(T)=0$ implies $q=rp$, p is minimal polynomial.\\
+N is nilpotent, $\exists v_j\in V,\ m_j\geq 0$, that $N^{m_1}v_1...,Nv_1,...,N^{m_n}v_n,...Nv_n$ is a basis of V, $N^{m_j +1}v_j=0,\forall j$\\
+complex, there is Jordan basis.\\
+
+\section{Trace and Determinant}
+trace, sum of eigenvalues.\\
+$tr(AB)=tr(BA)$, $tr(A+B)=tr(A)+tr(B)$.\\
+$det(T)= \lambda_1^{d_1}\dots$\\
+invertible iff $det(T)\neq 0$\\
+$det(AB)=det(BA)=det(A)det(B)$; $|det(T)|=det(\sqrt{T^*T})$\\
+volume, sum of small boxes.\\
+$vol[T(\Omega)] = |det(T)|vol(\Omega)$
 \end{document}
