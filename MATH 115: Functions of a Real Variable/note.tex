@@ -124,5 +124,43 @@ Ratio Test, $\sum a_n$ nonzero terms: converges absolutely if $\lim\sup|a_{n+1}/
 Root Test, let $\alpha = \lim\sup |a_n|^{1/n}$: converges absolutely if $\alpha<1$; diverges if $\alpha >1$.\\
 Integral Test.
 consider $\lim \int_1^n f(x)dx$. advisa nonnegative, decreasing f.\\
-Alternating Series Theorem: if $a_n$ decreasing, and $\lim a_n=0$, then the alternating series $\sum (-1)^{n+1} a_n$ converges.
+Alternating Series Theorem: if $a_n$ decreasing, and $\lim a_n=0$, then the alternating series $\sum (-1)^{n+1} a_n$ converges.\\
+Thm, A real number x has exactly one decimal expansion or else x has two decimal expansions, one ending in a sequence of all 0's and the other ending in a sequence of all 9's.\\
+Thm, rational iff its decimal expansion is repeating.
+
+\section{Continuity}
+%默认定义在R上
+%连续,函数值随着x逼近而逼近
+continuous, $\epsilon$-$\delta$ notation.\\
+Thm, $|f|,kf$ continuous at $x_0$ if $f$ does.\\
+Thm, $f+g, fg, f/g$ so does.\\
+Thm, if $f$ continuous at $x_0$, g at $f(x_0)$, then $g\circ f$ at $x_0$.\\
+bounded, $|f(x)|\leq M$.\\
+Thm, if f continuous on $[a,b]$, then bounded. moreover, maximum and minimum on $[a,b]$.\\
+%画连续线(即不抬笔)必穿过介值
+Intermediate Value Theorem: if continuous on I: $y$ between $(a),f(b)$, $\exists x\in(a,b)$, s.t. $f(x)=y$.\\
+corollay, continuous on I, then $f(I)$ is interval or single point.\\
+Thm, f continuous strictly increasing on I, then $f^{-1}$ continuous strictly increasing on $J=f(I)$.\\
+%一直朝上画，y投影铺满了区间，故必连续
+Thm, if g strictly increasing on J, s.t. $g(J)$ is interval. Then g continuous.\\
+%连续画线若折返则有同值
+Thm, Let f be a one-to-one continuous function on an interval I. Then f is strictly increasing or strictly decreasing.\\
+%值随着x,y逼近而逼近; 与普通连续区别，delta尺子不依赖点,只依赖epsilon
+%如1/x, 对于靠近0的点，总是可以普通连续逼近；但没有不变的delta尺子使得任意两点的度量小于epsilon
+uniformly continuous;\\
+Thm, continuous on $[a,b]$ $\Rightarrow$ uniformly continuous on $[a,b]$.\\
+Thm, If f is uniformly continuous on a set S and $(s_n)$ is a Cauchy sequence in S, then $(f(s_n))$ is a Cauchy sequence.\\
+%确定斜率(导数)非无穷了,尺子比例也限定了
+%注，导数无穷，尺子比依然可能限定，如sqrt{x}
+Thm, f on $(a,b)$ is uniformly continuous on $(a,b)$ iff it can be extended to a continuous function $\tilde{f}$ on $[a,b]$.\\
+Thm, Let f be a continuous function on I. Let $I^\circ$ removing endpoints, if f differentiable on $I^\circ$ and $f'$ bounded on $I^\circ$, then $f$ uniformly continuous on I.\\
+Mean Value Theorem: continuous on $[a,b]$, differentiable on $(a,b)$ then $\exists x\in(a,b)$, s.t. $f'(x) = \frac{f(b)-f(a)}{b-a}$\\
+limit, as x tends to a along S of $f(x)$, i.e. $\lim_{x\rightarrow a^S} f(x)$.\\
+by this def, $f$ is continuous at $a$ iff $\lim_{x\rightarrow a^S} f(x) = f(a)$.\\
+left(right)-hand limit, $\lim_{x\rightarrow a^-} f(x)$, $\lim_{x\rightarrow a^+} f(x)$.\\
+Thm, f defined on $J/\{a\}$ for some open interval $J$ containing a. Then $\lim_{x\rightarrow}f(x)$ exists iff $\lim_+$ and $\lim_-$ both exist and equal, i.e. THREE limits equal.\\
+Prop, on $[a,b], $$\gamma(t) = (f_j(t),...)$ is continuous iff each $f_j$ is continuous.\\
+%开集蕴涵着边界的接近和拓扑可区分性，故定义了连续
+Thm, metric space, a function is continuous iff $f^{-1}(U)$ is open $\forall $ open $U$.\\
+Thm, if f continuous, E compact. Then $f(E)$ is compact, $f$ uniformly continuous on E. 
 \end{document}
