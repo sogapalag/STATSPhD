@@ -103,11 +103,26 @@ Thm, any $(s_n)$, There exists a monotonic subsequence whose limit is $\lim\sup 
 Thm, S denote the set of subsequential limits, then $S$ is nonempty; $\sup S=\lim\sup s_n$ and $\inf S=\lim\inf s_n$; $\lim s_n$ exists iff $S$ has exactly one element.\\
 Thm, S as above, suppose $(t_n)$ is a sequence in $S\cap \mathbb{R}$ and $t=\lim t_n$. Then $t\in S$.\\
 Thm, if $\lim s_n=s>0$, then $\lim\sup s_nt_n = s\lim\sup t_n$, allow $\infty$.\\
-%确界极限的定义蕴含着确界单调逼近,于是变化率严格小于，常量极限下，于是变\leq
+%确界极限的定义蕴含着确界向内单调逼近,于是变化率严格小于，常量极限下，于是变\leq
 Thm, $(s_n)$ any sequence of nonzero real numbers. Then
 \begin{equation}
 \lim\inf|\frac{s_{n+1}}{s_n}| \leq \lim\inf |s_n|^{1/n} \leq \lim\sup |s_n|^{1/n} \leq \lim\sup |\frac{s_{n+1}}{s_n}|
 \end{equation}
 Corollary, if $\lim |\frac{s_{n+1}}{s_n}|$ exists (equals L), then $\lim|s_n|^{1/n}$ exists (equals L).\\
-
+Series.\\
+$\sum_{k=0}^n ar^k = a\frac{1-r^{n+1}}{1-r}$, $r\neq 1$; $\sum_{n=0}^\infty ar^n = \frac{a}{1-r}$ if $|r|<1$\\
+$\sum \frac{1}{n^p}$ converges iff $p>1$.\\
+Def, a series $\sum a_n$ satisfies the Cauchy criterion if its sequence $(s_n)$ of partial sums is a Cauchy sequence.\\
+Thm, A series converges if and only if it satisfies the Cauchy criterion.\\
+Corollary, if a series $\sum a_n$ converges, then $\lim a_n = 0$.\\
+%注意被比较的极数 a_n需要非负
+Comparison Test, $a_n\geq 0, \forall n$: if $\sum a_n$ converges and $|b_n|\leq a_n,\forall n$, then $\sum b_n$ converges; if $\sum a_n = +\infty$ and $b_n\geq a_n, \forall n$, then $\sum b_n=+\infty$.\\
+corollary, Absolutely convergent series are convergent.\\
+%保证了存在epsilon,使得后续变化率<1-epsilon
+Ratio Test, $\sum a_n$ nonzero terms: converges absolutely if $\lim\sup|a_{n+1}/a_n|<1$; diverges if $\lim\inf|a_{n+1}/a_n|>1$.\\
+%更紧，所以当更松的增长率极限为1时，使得确界极限夹逼,该TEST也失效
+Root Test, let $\alpha = \lim\sup |a_n|^{1/n}$: converges absolutely if $\alpha<1$; diverges if $\alpha >1$.\\
+Integral Test.
+consider $\lim \int_1^n f(x)dx$. advisa nonnegative, decreasing f.\\
+Alternating Series Theorem: if $a_n$ decreasing, and $\lim a_n=0$, then the alternating series $\sum (-1)^{n+1} a_n$ converges.
 \end{document}

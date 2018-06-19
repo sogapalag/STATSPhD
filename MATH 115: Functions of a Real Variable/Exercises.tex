@@ -1,0 +1,106 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+\usepackage{url}
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+
+\title{Exercises}
+
+\author{sogapalag}
+
+\date{\normalsize\today}
+
+\begin{document}
+
+\maketitle
+\begin{itemize}
+\item[12.12] \begin{itemize}
+		\item[(a)]  since $L=\lim\sup s_n = \lim_{N\rightarrow \infty}\sup\{s_n:n>N\} <L_1$, there exists a positive integer $N$ s.t. $\sup\{s_n:n\geq N\}<L_1$, thus $s_n<L_1, \forall n\geq N$, then for $\forall n>M>N$, note $L_1>0$, \begin{equation}\begin{split}
+			\sigma_n &= \frac{s_1+\dots+s_n}{n} \\
+					&= \frac{s_1+\dots+s_N}{n} + \frac{s_{N+1}+\dots+s_n}{n} \\
+					&< \frac{s_1+\dots+s_N}{M} + L_1 \frac{n-N}{n} \\
+					&< \frac{s_1+\dots+s_N}{M} + L_1
+		\end{split}\end{equation}
+		note that $\forall L_1>L$, i.e. \begin{equation}
+			\sup\{\sigma_n:n>M\} \leq \frac{s_1+\dots+s_N}{M} + \sup\{s_n:n>N\}
+		\end{equation}
+		hence \begin{equation}
+			\lim \sup \sigma_n = \lim_{M\rightarrow\infty}\sup\{\sigma_n:n>M\} \leq \lim\sup s_n
+		\end{equation}\qed
+		\item[(b)] %by (a), if $\lim s_n$ exists, equals to some real, easily by thm. For $\lim s_n = +\infty$, i.e. for each $2M>0$, $\exists N$ s.t. $n>N$ implies $s_n>2M$. We let $n>2N$, then \begin{equation}\begin{split}
+			%\sigma_n &= \frac{s_1+\dots+s_N}{n} + \frac{s_{N+1}+\dots+s_n}{n}\\
+			%&> 2M(\frac{n-N}{n})\\
+			%&> 2M(\frac{1}{2})\\
+			%&= M
+		%\end{split}\end{equation}
+		%thus $\lim \sigma_n = +\infty = \lim s_n$.\qed
+		by thm 10.7 and (a).\qed
+		\item[(c)] $(s_n)=(1,-1,1,-1,...)$, set $N=1/\epsilon$ easily to prove $\lim \sigma_n=0$, however $(s_n)$ diverge.\qed
+	\end{itemize}
+\item[12.14] \begin{itemize}
+	\item[(a)] let $s_n = n!$, then by thm,
+		\begin{equation}\begin{split}
+			\lim (n!)^{1/n} &= \lim \frac{s_{n+1}}{s_n} \\
+			&= \lim (n+1) \\ 
+			&= +\infty
+		\end{split}\end{equation}
+	\item[(b)] let $s_n = n!/n^n$, then by thm,
+		\begin{equation}\begin{split}
+			\lim \frac{1}{n}(n!)^{1/n} &=  \lim (\frac{n!}{n^n})^{1/n}\\
+			&= \lim (s_n)^{1/n}\\
+			&= \lim \frac{s_{n+1}}{s_n} \\ 
+			&= \lim \frac{1}{(1+\frac{1}{n})^n} \\
+			&= e^{-1}
+		\end{split}\end{equation}
+	\end{itemize}
+\item[14.7] since $\sum a_n$ converges, that $\lim a_n=0$, i.e. $\exists N$, $a_n<1, \forall n>N$, then $\sum_{N+1} a_n^p <\sum_{N+1} a_n$, by comparison test, converges.\qed
+\item[14.10] consider $\sum a_n = 1 + 1 + 2 + 2+ 4+ 4+ \dots+ 2^{\lfloor n/2\rfloor}+\dots$, then $\lim\inf|\frac{a_{n+1}}{a_n}| = 1$, connot use ratio test, however by the root test, $\lim a_n^{1/n}=\lim\sup |a_n|^{1/n} = \sqrt{2}>1$.
+\item[14.12] $\lim\inf|a_n| = 0$, implies, $\forall \epsilon, \exists N$, when $n>N$ s.t.
+\begin{equation}
+-\epsilon < \inf\{|a_n|: n>N\} <\epsilon
+\end{equation}
+i.e. $|a_n|>-\epsilon,\forall n>N$, and $\exists m>N$ that $|a_m|<\epsilon$. So set $\epsilon=k,k/2,k/4,...$, $k>0$, corresponding to $N_1,N_2,N_3,...$, after choose $m_1$, $n_{j} = \max\{m_j, N_j\}$, consider $\inf\{|a_n|: n>n_{j}\}$, there can select some $m>n_{j}$ make $|a_m|<k/2^{j}$, otherwise, $\inf>0$. Then we get a subsequence $\sum a_{m_j} < 2k$ converges.\qed
+\item[15.7] by Cauchy criterion, $|a_{N+1}+\dots+ a_n| <\epsilon/2$, let $n>2N$, then $n(a_n)\leq 2 (a_{N+1}+\dots+ a_n) < \epsilon$. i.e. $\lim na_n = 0$.\qed
+\end{itemize}
+\end{document}
