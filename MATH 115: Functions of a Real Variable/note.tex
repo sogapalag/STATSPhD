@@ -191,5 +191,39 @@ Lemma, $\sum na_nx^{n-1}$ and $\sum \frac{a_n}{n+1} x^{n+1}$ has radiu of conver
 Thm, $\int_0^x f(t)dt = \sum \frac{a_n}{n+1} x^{n+1} $, for $|x|<R$.\\
 Thm, $f'(x) = \sum na_nx^{n-1}$ for $|x|<R$.\\
 Abel'S Theorem: $0<R<\infty$: if converges at $x=R$, then $f$ continuous at $x=R$; if $-R$, then $-R$.\\
+Bernstein polynomials, let $f$ on $[0,1]$, $B_nf$ defined as
+\begin{equation}
+B_nf(x)  = \sum_{k=0} ^n f(\frac{k}{n})\dot {n \choose k} x^k(1-x)^{n-k}
+\end{equation}
+Bernstein’s version of the Weierstrass approximation theorem, $\forall$ continuous function $f$ on $[0,1]$, we have:
+\begin{equation}
+B_nf\rightarrow f\ \ uniformly\ on\ [0,1]
+\end{equation}
+Weierstrass’s Approximation Theorem. Every continuous function on a closed interval $[a,b]$ can be uniformly approximated by polynomials on $[a,b]$.\\
+
+\section{Differentiation}
+differentiable, open interval contain $a$, if $\lim_{x\rightarrow a} \frac{f(x)-f(a)}{x-a}$ exists and finite.\\
+Thm, $f$ differentiable at $a$, $\Rightarrow$ $f$ continuous at $a$.\\
+Rolle's Theorem, special case $f(a)=f(b)$ of Mean Value Theorem.\\
+Mean Value Theorem: continuous on $[a,b]$, differentiable on $(a,b)$. Then $\exists x\in(a,b)$ s.t. $f'(x) = \frac{f(b)-f(a)}{b-a}$.\\
+Intermediate Value Theorem for Derivatives.\\
+Thm, one-to-one continuous on open interval I, $J=f(I)$. if $f$ differentiable at $x_0$, then $f^{-1}$ differentiable at $y_0=f(x_0)$ and $(f^{-1})'(y_0)  =  \frac{1}{f'(x_0)}$.\\
+Generalized Mean Value Theorem: f, g, continuous on $[a,b]$, differentiable on $(a,b)$, then $\exists x\in(a,b)$ s.t.
+\begin{equation}
+f'(x)[g(b) - g(a)] =  g'(x) [f(b) - f(a)]
+\end{equation}
+L'Hospital's Rule.\\
+Taylor's Theorem. $c\in (a,b)$, there is some y between c and x, s.t.
+\begin{equation}
+R_n(x) = \frac{f^{(n)}(y)}{n!} (x-c)^n
+\end{equation}
+Coraollary, if all $f^{(n)}$ exists and bounded by a single constant C, then
+\begin{equation}
+\lim_{n\rightarrow \infty}R_n(x) = =0,\ \forall x\in(a,b)
+\end{equation}
+there is integral form.\\
+Binomial Series Theorem.\\
+Newton's Method.\\
+Secant Method.\\
 
 \end{document}
