@@ -142,5 +142,27 @@ i.e. $|a_n|>-\epsilon,\forall n>N$, and $\exists m>N$ that $|a_m|<\epsilon$. So 
 \end{split}
 	\end{equation}
 i.e. $\lim_{n\rightarrow\infty} f_n(x_n) = f(x)$.\qed
+\item[25.4] $\lim\sup$
+\begin{equation}\begin{split}
+	|f_n - f_m| &\leq |f_n -f| + |f_m -f| \\
+	&< \epsilon/2 + \epsilon/2 \\
+	&= \epsilon
+\end{split}
+	\end{equation}\qed
+\item[25.7] by M-test, $\leq 1/n^2$.\qed
+\item[25.8] $2(n+1)/n \rightarrow 2=R$; then still by M-test.\qed
+\item[25.9] \begin{itemize}
+	\item[(a)] by M-test, $\leq a^n$, and $\sum a^n<\infty$.
+	\item[(b)] \begin{equation}\begin{split}
+		|f_n - f | &= |\frac{1-x^{n+1}}{1-x} - \frac{1}{1-x}| \\
+			& = |\frac{x^{n+1}}{1-x}|
+	\end{split}
+	\end{equation}
+	thus $\sup\rightarrow \infty$, so not converge uniformly.
+	\end{itemize}
+\item[25.15]\begin{itemize}
+	\item[(a)] first note $f_n(x)\geq 0, \forall x,\forall n$, otherwise by decreasing, $f_n$ connot pointwise to zero in which point; then note that $\sup|f_n| = \sup f_n$ is decreasing as well, if not uniformly to zero, means $\exists \epsilon>0$, that $\sup f_n\geq \epsilon$, so $\exists x_n$ that $f_n(x_n)\geq \epsilon, \forall n$, note $x_n\in[a,b]$ bounded, by Bolzano-Weierstrass theorem, there is subsequence $(x_{n_k})$ converges to some $x_0$. Since pointwise, i.e. $\exists m$ s.t. $f_m(x_0)<\epsilon$, by continuity of $f_m$, $\exists K$, that when $k>K$, $f_m(x_{n_k})<\epsilon$. Then $f_{n_k}(x_{n_k}) \leq f_m(x_{n_k})<\epsilon$, contradiction.\qed 
+	\item[(b)] consider $f-f_n$, apply (a).\qed
+	\end{itemize}
 \end{itemize}
 \end{document}

@@ -85,6 +85,7 @@ Thm, All bounded monotone sequences converge.\\
 Def, $\lim \sup s_n = \lim_{N\rightarrow\infty} sup\{s_n:n>N\}$.\\
 Thm, if $\lim s_n$ defined, then $\lim \inf s_n=\lim s_n =\lim \sup s_n$; if $\lim \inf s_n=\lim \sup s_n$, then $\lim s_n$ is defined and $\lim s_n =\lim \sup s_n$.\\
 %s_n与s_m足够逼近
+%Cauchy 可以不知道limit，只要求“后面的”无穷项<e
 Cauchy sequence, $\forall\epsilon, \exists N$, s.t. $m,n>N$ implies $|s_n-s_m|<\epsilon$.\\
 lemma, Convergent sequences are Cauchy sequences.\\
 lemma, Cauchy sequences are bounded.\\
@@ -169,9 +170,26 @@ Power Series, $\sum_{n=0}^\infty a_n x^n$.\\
 Thm, let $\beta= \lim\sup |a_n|^{1/n}$ and $R=1/\beta$. (set $R=+\infty$ for $\beta=0$, $R=0$ for $\beta=+\infty$). Then the power series converges for $|x|<R$, diverges for $|x|>R$.\\
 R is called radius of convergence.\\
 %逐点收敛N(e,x);一致收敛N(e)
-converges pointwise, $\lim_{n\rightarrow\infty f_n(x)=f(x), \forall x\in S}$.\\
+converges pointwise, $\lim_{n}\rightarrow\infty f_n(x)=f(x), \forall x\in S$.\\
 formal def, $\forall \epsilon>0, \forall x\in S, \exists N$, s.t. $|f_n(x)-f(x)|<\epsilon$, when $n>N$.\\
 converges uniformly, $\forall \epsilon>0, \exists N$, s.t. $|f_n(x)-f(x)|<\epsilon, \forall x\in S$, when $n>N$.\\
 Thm, The uniform limit of continuous functions is continuous. $f_n\rightarrow f$ uniformly on S, if each $f_n$ continuous, $f$ continuous.\\
-$f_n\rightarrow f$ uniformly on S  $\Leftrightarrow$ $\lim_{n\rightarrow\infty} \sup\{|f(x)-f_n(x)|:x\in S\} = 0$.
+$f_n\rightarrow f$ uniformly on S  $\Leftrightarrow$ $\lim_{n\rightarrow\infty} \sup\{|f(x)-f_n(x)|:x\in S\} = 0$.\\
+Thm, on $[a,b]$, each $(f_n)$ continuous, $f_n\rightarrow f$ uniformly. Then
+\begin{equation}
+\lim_{n\rightarrow \infty}\int_a^b f_n(x) dx = \int_a^b f(x) dx
+\end{equation}
+%一致收敛的Cauchy表述
+uniformly Cauchy, $\forall\epsilon>0, \exists N$, s.t. $|f_n(x)-f_m(x)|<\epsilon, \forall x\in S$, and $m,n>N$.\\
+uniformly Cauchy $\Rightarrow$ $\exists f$ s.t. $f_n\rightarrow f$ uniformly.\\
+Thms for sequences of functions translate eaily into Thms for series of functions.\\
+Weierstrass M-test: $M_k\geq 0$, $\sum M_k<\infty$. If $|g_k(x)|\leq M_k,\forall x\in S$, then $\sum g_k$ converges uniformly on S.\\
+If $\sum g_n$ converges uniformly, then $\lim\sup|g_n(x)| = 0$\\
+Thm, If $0<d<R$, then power series converges uniformly on $[-d,d]$.\\
+Corollay, power series converges to a continuous function on $(-R, R)$.\\
+Lemma, $\sum na_nx^{n-1}$ and $\sum \frac{a_n}{n+1} x^{n+1}$ has radiu of convergence $R$, i.e. differentiate and integral hold radiu.\\
+Thm, $\int_0^x f(t)dt = \sum \frac{a_n}{n+1} x^{n+1} $, for $|x|<R$.\\
+Thm, $f'(x) = \sum na_nx^{n-1}$ for $|x|<R$.\\
+Abel'S Theorem: $0<R<\infty$: if converges at $x=R$, then $f$ continuous at $x=R$; if $-R$, then $-R$.\\
+
 \end{document}
