@@ -102,5 +102,45 @@
 \end{equation}
 i.e. $|a_n|>-\epsilon,\forall n>N$, and $\exists m>N$ that $|a_m|<\epsilon$. So set $\epsilon=k,k/2,k/4,...$, $k>0$, corresponding to $N_1,N_2,N_3,...$, after choose $m_1$, $n_{j} = \max\{m_j, N_j\}$, consider $\inf\{|a_n|: n>n_{j}\}$, there can select some $m>n_{j}$ make $|a_m|<k/2^{j}$, otherwise, $\inf>0$. Then we get a subsequence $\sum a_{m_j} < 2k$ converges.\qed
 \item[15.7] by Cauchy criterion, $|a_{N+1}+\dots+ a_n| <\epsilon/2$, let $n>2N$, then $n(a_n)\leq 2 (a_{N+1}+\dots+ a_n) < \epsilon$. i.e. $\lim na_n = 0$.\qed
+\item[23.5] \begin{itemize}
+	\item[(a)] when $|x|>1$, suppose converges to $A$, set $\epsilon= 1$, then $\forall N$, since there are infinite nonzero, then $n,m$ with $a_{n+1},...,a_{m-1}$ zero,(if not, $m=n+1$), $|S_m-S_n| = |a_m x^n|>|a_m|\geq 1$, i.e. diverge. Thus $|R|\leq 1$.\qed
+	\item[(b)] since $\lim\sup|a_n|>0$, that $\exists 0<c<\sup\{|a_n|:n>N\}, \forall N$, i.e. there is a subsequence $(a_{n_k})$ with $|a_{n_k}|>c,\forall k$, so $\lim\sup |a_{n_k}|^{1/n_k} \geq 1$, so $\beta =\lim\sup|a_n|^{1/n}\geq 1$, $R\leq 1$.\qed
+	\end{itemize}
+\item[23.6]\begin{itemize}
+	\item[(a)] since $a_n\geq 0$
+	\begin{equation}\begin{split}
+	|a_m (-R)^m+a_{m+1}(-R)^{m+1}+\dots+a_n (-R)^n| &\leq |a_m R^m+a_{m+1}R^{m+1}+\dots+a_n R^n)|\\
+	&<\epsilon
+	\end{split}
+	\end{equation}
+	i.e. still Cauchy sequence.\qed
+	\item[(b)] $a_n = -1/n$.
+	\end{itemize}
+\item[24.5] \begin{itemize}
+	\item[(a)] $f(x)=0, x\leq 1$, $f(x)=1, x>1$
+	\item[(b)] yes, $\lim\sup|f_n(x)|=\lim \frac{1}{n+1} = 0$.
+	\item[(c)] no, $\lim\sup|f_n(x)-f(x)|= \lim\frac{n}{n+1} =1\neq 0$
+	\end{itemize}
+\item[24.7] \begin{itemize}
+	\item[(a)] $f(x)=x, 0\leq x<1$, $f(x)=0, x=1$, converge pointwise.
+	\item[(b)] no, $\lim\sup|f_n(x)-f(x)| = \lim \sup |x^n| = \lim 1 = 1\neq 0$. 
+	\end{itemize}
+\item[24.10] note $|f_n+g_n - f-g|\leq |f_n-f| + |g_n -g|, \forall x$.\qed\
+\item[24.13] let $n>N$ be the implies $|f(x)-f_n(x)|<\epsilon/3$, let $\delta>|x-y|$ be the implies $|f_n(x)-f_n(y)|<\epsilon/3$. Then
+\begin{equation}\begin{split}
+	|f(x)-f(y)| &\leq |f(x)-f_n(x)| + |f_n(x)-f_n(y)| + |f(y)-f_n(y)| \\
+	&< \epsilon/3 + \epsilon/3 + \epsilon/3 \\
+	&= \epsilon
+	\end{split}
+	\end{equation}
+	i.e. $f$ is uniformly continuous.\qed
+\item[24.17] let $n>N$ be the implies $|f_n(x)-f(x)|<\epsilon/2$, $x_n\rightarrow x$ implies $|f_n(x_n)-f_n(x)|<\epsilon/2$. Then
+\begin{equation}\begin{split}
+	|f_n(x_n) - f(x)| &\leq |f_n(x_n)-f_n(x)| + |f_n(x)-f(x)| \\
+	 &< \epsilon/2 + \epsilon/2 \\
+	 &= \epsilon
+\end{split}
+	\end{equation}
+i.e. $\lim_{n\rightarrow\infty} f_n(x_n) = f(x)$.\qed
 \end{itemize}
 \end{document}

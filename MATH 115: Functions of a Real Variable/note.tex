@@ -163,4 +163,15 @@ Prop, on $[a,b], $$\gamma(t) = (f_j(t),...)$ is continuous iff each $f_j$ is con
 %开集蕴涵着边界的接近和拓扑可区分性，故定义了连续
 Thm, metric space, a function is continuous iff $f^{-1}(U)$ is open $\forall $ open $U$.\\
 Thm, if f continuous, E compact. Then $f(E)$ is compact, $f$ uniformly continuous on E. 
+
+\section{Sequences and Series of Functions}
+Power Series, $\sum_{n=0}^\infty a_n x^n$.\\
+Thm, let $\beta= \lim\sup |a_n|^{1/n}$ and $R=1/\beta$. (set $R=+\infty$ for $\beta=0$, $R=0$ for $\beta=+\infty$). Then the power series converges for $|x|<R$, diverges for $|x|>R$.\\
+R is called radius of convergence.\\
+%逐点收敛N(e,x);一致收敛N(e)
+converges pointwise, $\lim_{n\rightarrow\infty f_n(x)=f(x), \forall x\in S}$.\\
+formal def, $\forall \epsilon>0, \forall x\in S, \exists N$, s.t. $|f_n(x)-f(x)|<\epsilon$, when $n>N$.\\
+converges uniformly, $\forall \epsilon>0, \exists N$, s.t. $|f_n(x)-f(x)|<\epsilon, \forall x\in S$, when $n>N$.\\
+Thm, The uniform limit of continuous functions is continuous. $f_n\rightarrow f$ uniformly on S, if each $f_n$ continuous, $f$ continuous.\\
+$f_n\rightarrow f$ uniformly on S  $\Leftrightarrow$ $\lim_{n\rightarrow\infty} \sup\{|f(x)-f_n(x)|:x\in S\} = 0$.
 \end{document}
