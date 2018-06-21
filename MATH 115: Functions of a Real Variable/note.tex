@@ -226,4 +226,126 @@ Binomial Series Theorem.\\
 Newton's Method.\\
 Secant Method.\\
 
+\section{Integration}
+notation, let $f$ bounded on $[a,b]$. For $S\subset [a,b]$:\\
+$M(f,S)=\sup\{f(x):x\in S\}$ and $m(f,S) = \inf\{f(x):x\in S\}$\\
+partition $P = \{a=t_0<t_1<\dots<t_n =b\}$\\
+%Darboux integral
+upper Darboux sum $U(f,P) = \sum M(f, [t_{k-1},t_k])\cdot (t_k-t_{k-1})$\\
+lower Darboux sum $L(f,P) = \sum m(f, [t_{k-1},t_k])\cdot (t_k-t_{k-1})$\\
+upper Darboux integral $U(f) = \inf \{U(f,P): P is a partition of [a,b]\}$\\
+lower Darboux integral $L(f) = \sup \{L(f,P): P is a partition of [a,b]\}$\\
+def, integrable, $L(f)=U(f)$. (called Darboux integral)\\
+lemma, bounded, if $P\subset Q$, $L(f,P)\leq L(f,Q)\leq U(f,Q)\leq U(f,P)$\\
+lemma, bounded, $L(f,P)\leq U(f,Q)$; proof consider $P\cup Q$\\
+Thm, bounded, $L(f)\leq U(f)$\\
+Thm, bounded: integrable iff $\forall\epsilon>0, \exists P$, s.t. $U(f,P) - L(f,P)<\epsilon$\\
+def, $mesh(P) = \max\{t_k - t_(k-1) : k=1,2,...,n\}$\\
+Thm, bounded: integrable iff $\forall\epsilon>0, \exists \delta>0$, s.t. $mesh(P)<\delta$ implies $U(f,P) - L(f,P)<\epsilon, \forall P$\\
+%Riemann integral
+Riemann sum, $\sum f(x_k)(t_k - t_{k-1}), x_k\in[t_{k-1}, t_k]$.\\
+Riemann integrable, $\forall \epsilon>0, \exists \delta>0$, s.t. $|S-r|<\epsilon$, $\forall S$ associated with $P$ have $mesh(P)<\delta$.\\
+Thm, bounded, Riemann integrable $\Leftrightarrow$ Darboux integrable.\\
+Corollay, bounded Riemann integrable, $\lim mesh(P_n)=0$, then $(S_n)$ converges to $r=\int_a^b f$.\\
+Thm, Every monotonic $f$ on $[a,b]$ is integrable.\\
+Thm, Every continuous $f$ on $[a,b]$ is integrable.\\
+Thm, integrable $f$ $\Rightarrow$ integrable $|f|$, and $|\int_a^b f| \leq \int_a^b|f|$.
+%可分割性
+Thm, $a<c<b$, integrable on $[a,c]$ and $[c,b]$ $\Rightarrow$ integrable on $[a,b]$\\
+def, piecewise monotonic, $\exists P$, s.t. monotonic on each interval $()$.\\
+def, piecewise continuous, $\exists P$, s.t. uniformly continuous on each interval $()$.\\
+Thm, piecewise continuous or bounded piecewise monotonic $\Rightarrow$ integrable.\\
+Intermediate Value Theorem for Integrals. continuous on $[a,b]$, $\exists x\in(a,b)$ $f(x) = \frac{1}{b-a} \int_a^b f $.\\
+%dominated, 积分极限等于极限积分
+Dominated Convergence Theorem. integrable $(f_n)$ pointwise to integrable $f$. If $\exists M>0$, s.t. $|f_n(x)\leq M|, \forall n\forall x\in[a,b]$, then
+\begin{equation}
+\lim_{n\rightarrow \infty} \int_a^b f_n(x)dx = \int_a^b \lim_{n\rightarrow \infty} f_n(x) dx
+\end{equation}
+corol, Monotone Convergence Theorem. pf. monotone $(f_n)$ implies $\exists M$.\\
+Fundamental Theorem of Calculus I. continuous on $[a,b]$, differentiable on $(a,b)$, $g'$ integrable on $[a,b]$, then $\int_a^b g' = g(b) - g(a)$.\\
+Fundamental Theorem of Calculus II. let $F(x) = \int_a^x f(t)dt$, then $F$ is continuous on $[a,b]$. If $f$ continuous at $x_0\in(a,b)$, then $F$ differentiable at $x_0$ and $F'(x_0)=f(x_0)$.\\
+Theorem [Change of Variable].\\
+%Darboux-Stieltjes Integrals, 权重函数dF
+Darboux-Stieltjes Integrals.\\
+notation, increasing $F$, $F(t^-) = \lim_{x\rightarrow t^-} F(x)$; $+$. decree $F(a^-)=F(a)$\\
+Def, \begin{equation}
+J_F(f,P) = \sum f(t_k) [F(t_k^+) - F(t_k^-)]
+\end{equation}
+upper Darboux-Stieltjes sum,
+\begin{equation}
+U_F(f,P) = J_F(f,P) + \sum M(f,(t_{k-1}, t_k)) [F(t_k^-) - F(t_{k-1}^+)]
+\end{equation}
+lower Darboux-Stieltjes sum,
+\begin{equation}
+L_F(f,P) = J_F(f,P) + \sum m(f,(t_{k-1}, t_k)) [F(t_k^-) - F(t_{k-1}^+)]
+\end{equation}
+upper Darboux-Stieltjes integral, $U_F(f) = \inf U_F(f,P)$.\\
+lower Darboux-Stieltjes integral, $L_F(f) = \sup L_F(f,P)$.\\
+when equal, called F-integrable, write:
+\begin{equation}
+\int_a^b fdF = \int_a^b f(x) dF(x) = L_F(f) = U_F(f)
+\end{equation}
+most Thms likely above holds.\\
+Thm, $F_1$-integrable, $F_2$-integrable $\Rightarrow$ $cF_1$-integrable, $(F_1+F_2)$-integrable.\\
+$(F_j)$ each increasing, $F=\sum^\infty F_j$, converges, $F(a),F(b)$ finite. If bounded $f$ $F_j$-integrable, $\forall j$, then $F$-integrable, and
+\begin{equation}
+\int_a^b fdF = \sum^\infty \int_a^b fdF_j
+\end{equation}
+Thm, $F$ differentiable on $[a,b]$, $F'$ continuous on $[a,b]$, then
+\begin{equation}
+\int_a^b fdF = \int_a^b f(x) F'(x) dx
+\end{equation}
+%分解成连续部分和跳跃部分
+jump function $F_d = \sum c_j J_{u_j}$, where $u_j$ are jump points, $c_j$ is the jump at $u_j$, i.e. $c_j = F(u_j^+) - F(u_j^-)$.\\
+Thm, right-continuous increasing $F=F_c+F_d$, where $F_c$ continuous increasing, $F_d$ jump.\\
+lemma, $\exists P$, s.t. $F(t_k^-) - F(t_{k-1}^+)<\epsilon$.\\
+Thm, continuous $f$ is $F$-integrable.\\
+Thm, monotonic $f$ is $F$-integrable.\\
+Thm, piecewise continuous or bounded piecewise monotonic $f$, $F$-integrable.\\
+prop, if $f$ $F$-integrable, $g(x)=f(x)$ except finite points, then $g$ is $F$-integrable. may not equal\\
+Thm[Integration by Parts], define $F_i^*(t) = [F_i(t^-) + F_i(t^+)]/2$, then
+\begin{equation}
+\int_a^b F_1^*dF_2 + \int_a^b F_2^*dF_1 = F_1(b)F_2(b) - F_1(a)F_2(a)
+\end{equation}
+%Riemann-Stieltjes Integrals
+\begin{equation}
+\tilde{S}_F(f,P) = \sum_{k=1}^n f(x_k)[F(t_k) - F(t_{k-1})]
+\end{equation}
+Thm, if $f$ is Darboux-Stieltjes integrable, then $F$-integrable, and integrals agree.\\
+%F-integrable 的"Cauchy"定义
+def, $F\text{-mesh}(P) = \max \{F(t_k^-) - F(t_{k-1}^+):k=1,2,...,n\}$\\
+lemma, if $\delta>0$, then $\exists P$ s.t. $F$-mesh$(P)<\delta$.\\
+Thm, bounded $f$ on $[a,b]$ is $F$-integrable $\Leftrightarrow$ $\forall\epsilon>0$, $\exists \delta>0$ s.t.
+\begin{equation}
+	F\text{-mesh}(P)<\delta \text{ implies } U_F(f,P) - L_F(f,P)<\epsilon,\forall P
+\end{equation}
+Def, Riemman-Stieltjes sum: where $x_k\in(t_{k-1}, t_k)$
+\begin{equation}
+	J_F(f,P) + \sum_{k=1}^n f(x_k) [F(t_k^-) - F(t_{k-1}^+)]
+\end{equation}
+%Riemman-Stieltjes integrable, 收敛到r定义
+Riemman-Stieltjes integrable if $\forall \epsilon>0, \exists \delta>0$ s.t. $|S-r|<\epsilon$.\\
+write $r$ as $\mathcal{RS}\int_a^b fdF$.\\
+Thm, bounded $f$ on $[a,b]$ is $F$-integrable $\Leftrightarrow$ Riemman-Stieltjes integrable. in which case integrals equal.
+\begin{equation}
+	\int_a^b fdF = r = \mathcal{RS}\int_a^b fdF
+\end{equation}
+notation, $\overline{U}_F(f)=\inf \overline{U}_F(f,P)$, for closed interval $[t_{k-1},t_k]$.\\
+prop, if $f$ bounded on $[a,b]$ then $\overline{U}_F(f) = U_F(f)$. Thus $f$ integrable using closed intervals iff integrable using open intervals, in this case integral equal.\\
+Corollary, for early normal case $F(x)=x$, Darboux can use open intervals instead of closed interval.\\
+Thm, $F$ differentiable on $[a,b]$, $F'$ Riemann integrable on $[a,b]$, then bounded $f$ on $[a,b]$ is $F$-integrable iff $fF'$ is Riemann integrable, can get:
+\begin{equation}
+	\int_a^b fdF = \int_a^b f(x)F'(x)dx
+\end{equation}
+lemma, $F$ differentiable on $[a,b]$, $F'$ Riemann integrable on $[a,b]$, bounded $f$ on $[a,b]$. $B>0$ bounded $|f|$. If $U^{\flat}(F',P) - L^{\flat}(F',P) <\epsilon/B$. Then
+\begin{align}
+|U_F(f,P) - U^{\flat}(fF',P)| &\leq \epsilon \\
+|L_F(f,P) - L^{\flat}(fF',P)| &\leq \epsilon
+\end{align}
+corollay, $F,f$ as above, $U_F(f) = U(fF')$.\\
+lemma, $a_k\geq 0$, $B_k\subset \mathbb{R}$ nonempty bounded, if $\exists K$ that $\sum_{k=1}^n  a_kb_k\leq K$, for all choices of $b_k$ in $B_k$. Then $\sum_{k=1}^n a_k\sup B_k\leq K$.\\
+Thm, if $f$ $F$-integrable on each interval $[a,b]$ and $f(x)\geq 0,\forall x\in \mathbb{R}$, then $f$ is $F$-integrable on $\mathbb{R}$ or $\int_{-\infty}^\infty fdF = +\infty$.\\
+Thm, suppose $-\infty < F(-\infty)<F(\infty)<\infty$. $f$ bounded on R, $F$-integrable on each interval $[a,b]$. Then $f$ $F$-integrable on R.\\
+distribution function, i.e. $F(-\infty)=0$ and $F(\infty)=1$.\\
+
 \end{document}

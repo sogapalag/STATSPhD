@@ -164,5 +164,35 @@ i.e. $\lim_{n\rightarrow\infty} f_n(x_n) = f(x)$.\qed
 	\item[(a)] first note $f_n(x)\geq 0, \forall x,\forall n$, otherwise by decreasing, $f_n$ connot pointwise to zero in which point; then note that $\sup|f_n| = \sup f_n$ is decreasing as well, if not uniformly to zero, means $\exists \epsilon>0$, that $\sup f_n\geq \epsilon$, so $\exists x_n$ that $f_n(x_n)\geq \epsilon, \forall n$, note $x_n\in[a,b]$ bounded, by Bolzano-Weierstrass theorem, there is subsequence $(x_{n_k})$ converges to some $x_0$. Since pointwise, i.e. $\exists m$ s.t. $f_m(x_0)<\epsilon$, by continuity of $f_m$, $\exists K$, that when $k>K$, $f_m(x_{n_k})<\epsilon$. Then $f_{n_k}(x_{n_k}) \leq f_m(x_{n_k})<\epsilon$, contradiction.\qed 
 	\item[(b)] consider $f-f_n$, apply (a).\qed
 	\end{itemize}
+\item[35.6] without loss of generality, let $\sum F(.)$ =1, then
+\begin{align}
+	|U_F(f,P)- U_F(f_n, P)| &\leq \sum |M(f,(.)) - M(f_n,(.))| F(.) \\
+	&< \sum (\epsilon/3) F(.) \\
+	&= \epsilon/3
+\end{align} 
+\begin{align}
+	|U_F(f,P) - L_F(f,P)| &\leq |U_F(f,P)- U_F(f_n, P)| + |U_F(f_n,P) - L_F(f_n,P)| + |L_F(f_n,P)-L_F(f,P)| \\
+	&< \epsilon/3 + \epsilon/3 +\epsilon/3 \\
+	&= \epsilon
+\end{align}
+so $f$ is $F$-integrable.\\
+Note $r=L_F(f)=\sup L_F(f,P)$, then
+\begin{align}
+|r-r_n| &\leq |r-U_F(f,P)| + |U_F(f,P) - U_F(f_n,P)| + |r_n - U_F(f_n,P)| \\
+	&< |U_F(f,P) - L_F(f,P)| + \epsilon/3 + |U_F(f_n,P) - L_F(f_n,P)| \\
+	&< \epsilon/3 + \epsilon/3 +\epsilon/3 \\
+	&= \epsilon
+\end{align}
+so $r_n \rightarrow r$.\qed
+\item[35.7] \begin{itemize}
+	\item[(a)] $M(f^2,(.)) - m(f^2,(.)) \leq 2B [M(f,(.)) - m(f,(.))]$
+	\item[(b)] $fg = \frac{1}{4}[(f+g)^2 -(f-g)^2]$
+	\item[(c)] $\max(\min)\{f,g\} = \frac{1}{2} (f+g) +(-) \frac{1}{2}|f-g|$.
+	\end{itemize}
+\item[35.9] $\int mdF\leq \int fdF \leq \int MdF$, $m\leq [\int fdF]/[F(b)-F(a)] \leq M$, then by mean-value theorem.\qed
+\item[36.14] consider partition $P=\{u_1<\dots<u_j<\dots\}$, Then
+	\begin{align}
+		U_F(f,P) = L_F(f,P) = J_F(f, P) = \sum c_j f(u_j)
+	\end{align}\qed
 \end{itemize}
 \end{document}
