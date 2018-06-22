@@ -46,7 +46,7 @@
 
 
 \title{Exercises}
-%A First Course in Probability, Ross.
+%A First Course in Probability, Ross. 8th edition
 \author{sogapalag}
 
 \date{\normalsize\today}
@@ -99,6 +99,59 @@
 	\end{align}
 	\item[S1.14] recall T1.23, ${k\choose n}$. Another solution, consider $\{1,2,...,k\}$, select $n$ items, which one-to-one a vector which $x_i = y_i-y_{i-1}$.
 	\item[S1.17] both in $k$ or $n-k$, or one each.\qed
+	\item[2.15]
+	\begin{itemize}
+		\item[(a)] $4*{13 \choose 5} =  5148$; $0.00198$
+		\item[(b)] $13*{4\choose 2}*{12\choose 3}*4^3 = 1098240$; $0.42257$
+		\item[(c)] ${13\choose 2}{4\choose 2}^2*11*4 = 123552$; $0.04754$
+		\item[(d)] $13*{4\choose 3}{12\choose 2}*4^2 = 54912$; $0.02113$
+		\item[(e)] $13*12*4=624$. $0.00024$
+	\end{itemize}
+	\item[2.17] $8!=40320$.
+	\item[2.45] 
+	\begin{itemize}
+		\item[(a)] shuffle the keys, solution in $k$th place, $P=1/n$.
+		\item[(b)] $\frac{(n-1)^{k-1}}{n^k}$.
+	\end{itemize}
+	\item[2.46] consider general case, $n$ distinct items distribute to $k$ distinct groups, i.e. $\sum_{i=1}^k x_i= n$ with $x_i\geq 0$, note $k^n$ choices. Then we want find $P(\exists x\geq 2)$, which complement is $x_j\leq 1,\forall j$, with ${k \choose n} n!$ choices. Thus we get
+	\begin{align}
+	P(\exists x\geq 2) &= 1 - \frac{ {k \choose n}n! } { k^n } \\
+		&=1 - \frac{k!}{k^n (k-n)!} \\
+		&=1 - \frac{k(k-1)\dots (k-n+1)}{k^n}
+	\end{align}
+	let $k=12$, $P\geq 1/2$, conclude $n\geq 5$. if $k=365$, which called birthday problem, $n\geq 23$.
+	\item[2.51] $\frac{ {n\choose m} (N-1)^{n-m}}{N^n}$.
+	\item[2.53] one solution calculate $P(\bigcup E) = 23/35$, then answer $12/35$. Another solution, by the symmetry between couples and symmetry between husband and wife, we can consider $h_1<h_2<h_3<h_4$ and $h_i<w_i, \forall i$, then $h_1=1$, there is $7$ choices for $w_1$, after which, $h_2$ will be the minimal unseated, then $w_2$ has $5$ choices, after which $h_3$ seated, $w_3$ has $3$ choices. Thus there is $7*5*3=105$ arrangements. Now consider which arrangement is legal, for $h_1h_2h_3h_4$, left $3*3!=18$ choices; $h_1h_2h_3w_1$, note $h_4<7$, then there is $2*2!+2=6$ choices; since $w_2$ like as $w_1$, so $h_1h_2h_3$ has $18+2*6=30$ total; for $h_1h_2w_1h_3$, $2*2! + 1=5$ choices; for $h_1h_2w_1w_2h_3h_4$, only $1$ choice with connection $w_3w_4$. Then legal choices total $30+5+1=36$, $P=36/105 = 12/35$.
+	\item[2.54] let $E_i$ be void in suit $i$,
+	\begin{align}
+		P(\bigcup E_i) =& \sum_{r=1}^4 (-1)^{r+1} \sum_{i_1<\dots<i_r} P(E_1\dots E_r) \\
+			=& \frac{1}{{52\choose 13}} \left[ {4\choose 1}{39\choose 13} -6 {26\choose 13} 
+			 + 4 {13 \choose 13} \right] \\
+			 =& \frac{4(39*38*\dots*27) - 6(26*25*\dots*14) + 4(13!)} { 52*51*\dots*40 }\\
+			 \approx & 0.051
+	\end{align}
+	\item[2.56] consider a vs b, $P(\text{a win}| a,b) = 5/9$; b vs c $P(\text{b win}| b,c) = 5/9$; consider a vs c, $P(\text{c win}|a,c)= 5/9$. then it's like Rock-paper-scissors game. Then B player is better.
+	\item[T2.8] select $i$ items from $\{1,...,n\}$ to join $\{n+1\}$, left do partition, let $T_0=1$ thus
+	\begin{align}
+		T_{n+1} &= \sum_{i=0}^n {n\choose i} T_{n-i} \\
+			&= 1 + \sum_{k=1}^n {n\choose k} T_k
+	\end{align}\qed
+	\item[T2.10] note $P(FG) = P((E\cup E^c)FG)= P(EFG\cup E^cFG)  = P(EFG)+P(E^cFG)$.\qed
+	\item[T2.16] 
+	\begin{align}
+		& P(E_1E_2\dots E_n) \geq P(E_1)+\dots+P(E_n) -(n-1)\\
+		\Leftrightarrow & P(\bigcap E_i)-1 \geq \sum [P(E_i)-1] \\
+		\Leftrightarrow & P(\bigcup E_i^c) \leq \sum P(E_i^c)
+	\end{align}\qed
+	\item[T2.17] suppose the Nth man take the $i\in\{1,...,N-1\}$ hat, then $i$th man treat $N$th hat as his own, then $A_(N-1)$; since $N$th hat is just virtual hat his own, which can take by him indeed, then $A_(N-2)$.\
+	\item[T2.18] when last is $T$, there is $f_{n-1}$ ways; when last is $H$, $n-1$ must be $T$, then $f_{n-2}$ ways.\qed
+	\item[T2.19]
+	\begin{align}
+		P(k) &= \frac{ {n\choose 1}{n-1 \choose r-1}{m \choose k-r} (k-1)! }{ {n+m\choose k} k!} \\
+			&= \frac{ r{n\choose r}{m\choose k-r}}{k{n+m\choose k }}
+	\end{align}
+	\item[S2.11] $4{13\choose 2} 13^3 / {52 \choose 5} = 0.26375$.
+	\item[S2.20] satisfy iff the last is blue , i.e. $P = 10/(20+10) = 1/3$.
 \end{itemize}
 
 \end{document}

@@ -73,4 +73,23 @@ distinct $n$ items distribute to $k$ distinct groups, $(1+1+\dots+1)^n=k^n$, i.e
 	&= {n-1 \choose k-1} + {n-1 \choose k} \\
 	&= {n+1 \choose k+1} - {n\choose k+1}
 \end{align}
+
+\section{Axioms of Probability}
+Distributive laws, $(E\cup F) G = EG\cup FG$, $EF\cup G = (E\cup G)(F\cup G)$\\
+%样本空间的并（交）操作 对偶于 对偶空间的交（并）操作；即当作一个操作时，同时对偶空间也在操作。
+DeMorgan's laws:
+\begin{align}
+	\left( \bigcup E_i \right)^c &= \bigcap E_i^c \\
+	\left( \bigcap E_i \right)^c &= \bigcup E_i^c
+\end{align}
+Axiom 1, $0\leq P(E) \leq 1$;\\
+Axiom 2, $P(S)=1$;\\
+Axiom 3, $\forall E_iE_j = \emptyset,i\neq j$, $P(\bigcup_{i=1}^\infty E_i) = \sum_{i=1}^\infty P(E_i)$.\\
+Axiom 3 implies $P(\emptyset) =0$.\\
+Propositions:
+\begin{align}
+P(\bigcup E_i) = \sum_{r=1}^n (-1)^{r+1} \sum_{i_1<\dots<i_r} P(E_{i_1}\dots E_{i_r}) 
+\end{align}
+if sequence $E_n$ monotic, then $\lim P(E_n) = P(\lim E_n)$.\\
+
 \end{document}
