@@ -1,0 +1,104 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+\usepackage{url}
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+
+\title{Exercises}
+%A First Course in Probability, Ross.
+\author{sogapalag}
+
+\date{\normalsize\today}
+
+\begin{document}
+
+\maketitle
+\begin{itemize}
+	\item[1.17] ${10 \choose 7} 7! = 604800$. Or $10*9*\dots*4 = 604800$.
+	\item[1.20] 
+	\begin{itemize}
+		\item[(a)] ${8\choose 5} - {6\choose 3} =36= 2{6\choose 4}+{6\choose 5}$; 
+		\item[(b)] ${8\choose 5} - 2*{6\choose 4} =26= {6\choose 3} + {6\choose 5}$.
+	\end{itemize}
+		%$4^8= 65536$; $4^8-4*3^8+12*2^8+4 = 42368$. thought different blackboard.
+	\item[1.31] ${8+4-1\choose 4-1} = 165$; ${8-1\choose 4-1}=35$.
+	\item[1.32] ${8+6-1 \choose 6-1} = 1287$; ${5+6-1 \choose 6-1}*{3+6-1 \choose 6-1} = 14112$.
+	\item[1.33] ${9+4-1 \choose 4-1} = 220$; ${20-7+3-1 \choose 3-1} +2{13\choose 2} +{14\choose 2} +220 = 572$.
+	\item[T1.5] $\sum_{i=k}^n {n\choose i}$.
+	\item[T1.11] when last in $i$, sum of choices.
+	\item[T1.12]
+	\begin{itemize}
+		\item[(a)] $x_j$ register, for each chosen which, $+1$, then sum is left; by looking each register, which be chosen $2^{n-1}$, since there are $n$ registers, sum is right. another way consider $(1_a+1_b)^n$.
+		\item[(b)]
+		\begin{align}
+			\sum k (k-1) {n\choose k } &= n(n-1) \sum {n-2 \choose k-2}\\
+			&= n(n-1)2^{n-2}
+		\end{align}
+		then plus $\sum k{n\choose k}$.\qed
+		\item[(c)] calculate $\sum k(k-1)(k-2){n\choose k}$.\qed
+	\end{itemize}
+	\item[T1.13] consider $(1+(-1))^n=0$.
+	\item[T1.15]
+	\begin{itemize}
+		\item[(a)] when maximum $x_k = j$.\qed
+		\item[(b)] 35.
+	\end{itemize}
+	\item[T1.16]
+	\begin{itemize}
+		\item[(b)] when last group with $i$ players tie for.\qed
+		\item[(c)] let $j=n-i$.\qed
+	\end{itemize}
+	\item[T1.20] $\sum x_j=n$ with $x_j\geq m_j$, let $y_j = x_j-m_j$, then equiv to $\sum y_j = n-\sum m_j$ with $y_j\geq 0$, so answer is ${n-\sum m_j + r -1 \choose r-1}$.
+	\item[T1.21] consider choosing $k$ of $x_i$ set to zero, then left $x_j>0$.\qed 
+	\item[T1.22] for $\frac{\partial^r}{\partial x_{i_1}\dots \partial x_{i_r}}$, different $i_j$ represent different PDE, thus total $r^n$.
+	\item[T1.23]
+	\begin{align}
+		\sum_{i=1}^k {i+n-1 \choose n-1} &= \sum_{i=1}^k \left[{i+n \choose n} - {i+n-1 \choose n}\right]\\
+		&= {k+n \choose n}
+	\end{align}
+	\item[S1.14] recall T1.23, ${k\choose n}$. Another solution, consider $\{1,2,...,k\}$, select $n$ items, which one-to-one a vector which $x_i = y_i-y_{i-1}$.
+	\item[S1.17] both in $k$ or $n-k$, or one each.\qed
+\end{itemize}
+
+\end{document}
