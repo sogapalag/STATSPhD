@@ -152,6 +152,101 @@
 	\end{align}
 	\item[S2.11] $4{13\choose 2} 13^3 / {52 \choose 5} = 0.26375$.
 	\item[S2.20] satisfy iff the last is blue , i.e. $P = 10/(20+10) = 1/3$.
+	\item[3.4] $1/6 + 5/6 * 1/6 = 11/36$.
+	\item[3.13]
+	\begin{align}
+		P(E_1E_2E_2E_4)  &= \frac{4 {48\choose 12}}{{52\choose 13}} \frac{3 {36\choose 12}}{{39\choose 13}} \frac{2 {24\choose 12}}{{26\choose 13}} \\
+		&= \frac{13^4}{{52\choose 4} } \\
+		&= 0.1055
+	\end{align}
+	observing the result, find which is exactly the probability select 4 cards which happen to be different suits. Actually there is another way to show why these two probabilities are same and equal to above. I will prove a generalized one.\\
+	Now, consider $d$ suits with each $k$ cards, i.e. a poker with total $dk$ cards. Since cards are randomly distributed, equiv to after random permutation, each one take first, second, third and fourth ... $k$ cards, i.e. one man $x_i, \forall i\in\{0,1,...,d-1\}$ take $c_{ki+1},c_{ki+2},...,c_{ki+k}$. So each one got exactly one Ace, means Aces distribute to these $d$ region, each has one, there is $k^d$ choices. And Aces total random choices is ${dk \choose d}$. So $dk$ cards into $d$ hands with $k$ cards each, the probalitity of each got Ace is:
+	\begin{align}
+		P(\text{Ace}) = \frac{k^d}{{dk \choose d}}
+	\end{align}
+	Then consider when select $d$ cards from deck, since randomly selecting, equiv to a deck in 'good' order, i.e. $c_{ki+1},c_{ki+2},...,c_{ki+k}$ are same suit, $\forall i\in\{0,1,...,d-1\}$, randomly select $d$ cards. Then it's a isomorphic situation to above, $d$ cards with different suit means that 'select' are in different region. So the probality of randomly selected $d$ cards are different suit is same as $P(\text{Ace})$.\qed
+	\item[3.15]
+	let $E$ be ectopic, $S$ be somoker, then
+	\begin{align}
+		P(S|E) &= \frac{ P(E|S)P(S) }{P(E|S)P(S)+ P(E|S^c)P(S^c)}\\
+		&= \frac{2p}{2p + (1-p)} \\
+		&= 0.4848
+	\end{align}
+	\item[3.22]
+	\begin{itemize}
+		\item[(a)] $5/6 * 4/6 = 5/9$
+		\item[(b)] $1/3!=1/6$
+		\item[(c)] $5/54$
+	\end{itemize}
+	\item[3.24]
+	\begin{itemize}
+		\item[(a)] $P(G=2|G\geq 1) = \frac{P(G=2)}{P(G\geq 1)} = \frac{1/4}{3/4} = 1/3$
+		\item[(b)] $P(\text{b is gold}|\text{a is gold}) = \frac{P(\text{a,b are gold})}{ P (\text{a is gold})} = \frac{1/4}{1/2} = 1/2$. in (a) information is $G\geq 1$, in (b) information is specific one is gold.
+	\end{itemize}
+	\item[3.41] $p= 1/27 + 6/27 *3/51$.
+	\item[3.44] A famous problem called Mont hall problem; $P(A|B^c) = P(AB^c)/P(B^c) = \frac{1/3}{2/3} = 1/2 = P(A|C^c)$. This is the jailer's reasoning, which is WRONG, since this probability based on a initial state with zero information. However in this problem or Mont hall problem, initial state is that, we choose A, information reveal is limit between B and C, let $B_*^c$ be told B free under this scenario, by symmetry $P(B_*^c)=P(C_*^c)= 1/2$, another way to think is that, $(1,0,0)$ there is $1/6$ to choose $B$, $1/3$ at $(0,0,1)$, thus $1/6+1/3=1/2$; so 
+	\begin{align}
+	P(A|B_*^c) &= \frac{P(AB_*^c)}{P(B_*^c)} \\
+		&= \frac{P(B_*^c|A)P(A)}{P(B_*^c)} \\
+		&= \frac{1/2 * 1/3} {1/2} \\
+		&= 1/3
+	\end{align}
+	another easy way to think, suppose jailer mask B or C, we don't know, tell us(A) this masked man free, $P(A|X_*^c)=1/3$, it's easy to understand since we already know someone is free. So another man with $2/3$ excuted, A remains $1/3$. Then jailer unmask this man, since we know this man is free, this unmask just give the information about B or C each $1/2$.
+	\item[3.46] intuitively, a claim will tell the conditional probability choosing male is larger or lower than the fraction, since $p_f\neq p_m$; then modify fraction will increase prediction or probability. Formal proof:
+	\begin{align}
+		P(A_2|A_1) &= \frac{P(A_1A_2)} {P(A_1)} \\
+			&= \frac{\alpha p_m^2 + (1-\alpha)p_f^2} {\alpha p_m + (1-\alpha)p_f} \\
+			&= \frac{\alpha p_m}{\alpha p_m + (1-\alpha)p_f} p_m  + \frac{(1-\alpha)p_f}{\alpha p_m + (1-\alpha)p_f}p_f \\
+			&= \alpha'p_m + (1-\alpha')p_f
+	\end{align}
+	so $p_m>p_f$ implies $\alpha'>\alpha$, $<$ implies $<$, thus $P(A_2|A_1)>P(A_1)$.\qed
+	\item[3.53] $F=\bigcup W_i$, then
+	\begin{align}
+		P(W_1| F) &= \frac{P(W_1F)}{P(F)} \\
+			&= \frac{1/2}{1-(1/2)^n} \\
+			&= \frac{2^{n-1}}{2^n -1}
+	\end{align}
+	\item[3.56] 
+	\begin{align}
+		P(new) &= \sum P(new|i)P(i) \\
+			&= \sum (1-p_i)^n p_i
+	\end{align}
+	\item[3.57]
+	\begin{itemize}
+		\item[(a)] $2p(1-p)$;
+		\item[(b)] $3p^2(1-p)$;
+		\item[(c)] $2/3$.
+	\end{itemize}
+	\item[3.66]
+	\begin{itemize}
+		\item[(a)] $P = [1-(1-p_1p_2)(1-p_3p_4)]p_5$;
+		\item[(b)] $P = p_3[1-(1-p_1)(1-p_2)][1-(1-p_4)(1-p_5)] + (1-p_3)[1-(1-p_1p_4)(1-p_2p_5)]$
+	\end{itemize}
+	\item[3.80]
+	\begin{itemize}
+		\item[(a)] $P(A_i)=1/2^i$ for $i<n$; $P(A_n)=1/2^{n-1}$.
+		\item[(b)] A plays $i$ contests, which he met $i$ players, so
+		\begin{align}
+			P(E) &= \sum_{i=1}^n P(E|A_i)P(A_i) \\
+				&= \sum_{i=1}^nP(A_i) - \sum_{i=1}^{n-1} \frac{i}{2^n-1} \frac{1}{2^i}-\frac{n}{2^n-1}\frac{1}{2^{n-1}} \\
+				&= 1-\frac{x}{2^n-1} \frac{1-nx^{n-1}+(n-1)x^n}{x^2} -\frac{n}{2^n-1}\frac{1}{2^{n-1}} \\
+				&= 1-\frac{1}{2^n-1} \frac{1-(n+1)x^n}{x} -\frac{n}{2^n-1}\frac{1}{2^{n-1}}\\
+				&= 1-\frac{1}{2^n-1} \frac{2^n-n-1}{2^{n-1}} -\frac{n}{2^n-1}\frac{1}{2^{n-1}} \\
+				&= 1- \frac{1}{2^{n-1}}
+		\end{align}
+		\item[(c)] I don't get it, when $n\rightarrow\infty$, given formula $P_n\rightarrow \frac{1}{4} P_{n-1}$, i.e. $P_n\rightarrow 0$, which is obviously wrong, in first round A and B has a high probability do not met.
+		\item[(d)] total $2^n-1$ lose.
+		\item[(e)] for every contest, equally to every one, so
+		\begin{align}
+			P(B_i) = \frac{1}{ {2^n\choose 2} },\ \forall i
+		\end{align}
+		\item[(f)] note $B_i$ are mutually exclusive, then
+		\begin{align}
+			P(E) &= 1 - \sum_i P(B_i) \\
+				&= 1 - \frac{2^n -1 }{ {2^n\choose 2} }\\
+				&= 1 - \frac{1}{2^{n-1}}
+		\end{align}
+	\end{itemize}
 \end{itemize}
 
 \end{document}

@@ -92,4 +92,19 @@ P(\bigcup E_i) = \sum_{r=1}^n (-1)^{r+1} \sum_{i_1<\dots<i_r} P(E_{i_1}\dots E_{
 \end{align}
 if sequence $E_n$ monotic, then $\lim P(E_n) = P(\lim E_n)$.\\
 
+\section{Conditional Probability and Independence}
+Def, $P(E|F) = \frac{P(EF)}{P(F)}$.\\
+The multiplication rule,
+\begin{align}
+	P(E_1E_2\dots E_n) = P(E_1)P(E_2|E_1)P(E_3|E_1E_2)\dots P(E_n|E_1\dots E_{n-1})
+\end{align}
+def, odds $P(A)/P(A^c)$.\\
+independent, $P(EF)=P(E)P(F)$.\\
+prop, if E and F independent, so E and $F^c$.\\
+mutually exclusive $F_i$, and $\sum P(F_i)=1$, then
+\begin{align}
+P(F_j|E) = \frac{P(E|F_j)P(F_j)} {\sum_i P(E|F_i)P(F_i)}
+\end{align}
+
+
 \end{document}
