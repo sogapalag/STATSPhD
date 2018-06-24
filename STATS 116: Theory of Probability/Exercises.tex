@@ -94,7 +94,7 @@
 	\item[T1.22] for $\frac{\partial^r}{\partial x_{i_1}\dots \partial x_{i_r}}$, different $i_j$ represent different PDE, thus total $r^n$.
 	\item[T1.23]
 	\begin{align}
-		\sum_{i=1}^k {i+n-1 \choose n-1} &= \sum_{i=1}^k \left[{i+n \choose n} - {i+n-1 \choose n}\right]\\
+		\sum_{i=0}^k {i+n-1 \choose n-1} &= 1+\sum_{i=1}^k \left[{i+n \choose n} - {i+n-1 \choose n}\right]\\
 		&= {k+n \choose n}
 	\end{align}
 	\item[S1.14] recall T1.23, ${k\choose n}$. Another solution, consider $\{1,2,...,k\}$, select $n$ items, which one-to-one a vector which $x_i = y_i-y_{i-1}$.
@@ -247,6 +247,171 @@
 				&= 1 - \frac{1}{2^{n-1}}
 		\end{align}
 	\end{itemize}
+	\item[3.81] denote $P_i$ be probability of winning when distance to target 40 is $i$. Then
+	\begin{align}
+		P_i = p P_{i-1} + (1-p) P_{i+1}, 0<i<30
+	\end{align}
+	note $P_0=1, P_{30}=0$. Then
+	\begin{align}
+		P_i - P_{i+1}  = \frac{p}{1-p} (P_{i-1} - P_i), 0<i<30
+	\end{align}
+	let $d = 1 - P_1$ and $a = p/(1-p)$, we get
+	\begin{align}
+		\sum_{i=0}^{29} \left(\frac{p}{1-p}\right)^i d  = 1 \\
+		\Rightarrow d = \frac{1-a}{1-a^{30}}
+	\end{align}
+	So
+	\begin{align}
+		P_{15}  &= 1 - \sum_{i=0}^{14} a^i d \\
+			&= 1 - \frac{1-a^{15}}{1-a^{30}}\\
+			&= 1 - \frac{1}{1+a^{15}} \\
+			&= 0.9530
+	\end{align}
+	\item[3.82] let $P_A$ and $P_B$ be probabilities A and B can complete in each turn.
+	\begin{itemize}
+		\item[(a)(c)] let $a=2,3$ the number of heads in a row, then $P_A = P_1^a$, $P_B=P_2^a$. Then who win is that who first flip a head of coin $P_A$ or $P_B$, consider A wins in $i=1,2,...$th flip, i.e. $H_A$, $(T_AT_B)H_A$,...,$(T_AT_B)^{i-1}H_A$,..., let $\alpha = (1-P_A)(1-P_B)$, i.e. probability into next round. So probability that A wins is
+		\begin{align}
+			P &= \sum_{i=1}^\infty (\alpha)^{i-1}P_A \\
+				&= \frac{P_A}{1-\alpha}
+		\end{align} 
+		\item[(b)(d)]
+	\end{itemize}
+	\item[3.84]
+	\begin{itemize}
+		\item[(a)] consider each wins in $i$th round, let $a = (2/3)^3=8/27$
+		\begin{align}
+			P_A &= (1+a+a^2+\dots) \frac{1}{3}\\
+			&= \frac{9}{19} \\
+			P_B &= (1+a+a^2+\dots) \frac{2}{3}\frac{1}{3} \\
+				&= \frac{6}{19} \\
+			P_C &= (1+a+a^2+\dots) \frac{2}{3}\frac{2}{3}\frac{1}{3} \\
+				&= \frac{4}{19}
+		\end{align}
+		\item[(b)] consider white balls distributed into $12$ position, first ball in each position probability,
+		\begin{align}
+			P_A &= \frac{ {11\choose 3} + {8\choose 3} + {5\choose 3} }{{12\choose 4}} \\
+				&= \frac{231}{495}\\
+				&= 0.46667\\
+			P_B &= \frac{ {10\choose 3} + {7\choose 3} + {4\choose 3} }{{12\choose 4}}\\
+				&= \frac{159}{495}\\
+				&= 0.32121\\
+			P_C &= \frac{ {9\choose 3} + {6\choose 3} + {3\choose 3} }{{12\choose 4}}\\
+				&= \frac{105}{495}\\
+				&= 0.21212
+		\end{align}
+	\end{itemize}
+	\item[3.86] For any element $j$, either in A or not, either in B or not, only when in A and not in A, A is not subset of B, so there are $3/4$ for element $j$ satisfy subset requirement, and each $j$ is selected independently, so
+	\begin{align}
+		P(A\subset B) = \left(\frac{3}{4}\right)^n
+	\end{align}
+	For $AB=\emptyset$ when all $j$ not both in A and B would satisfy, so also
+	\begin{align}
+		P(AB=\emptyset) = \left(\frac{3}{4}\right)^n
+	\end{align}
+	\item[T3.14] denote $P_i$ the probability eventually go broke when initial fortune is $i$, note $P_i =pP_{i+1}+qP_{i-1}, i>0$, $P_0=1$. thus
+	\begin{align}
+		q(P_i-P_{i-1}) = p(P_{i+1}-P_i)
+	\end{align}
+	if $p\leq\frac{1}{2}$ and $P_1<1$, then $P_{i+1}-P_i \geq P_i-P_{i-1}$, that $\exists N$, s.t. $P_n<0$ when $n>N$, which is contradicted to $P_i>0$, so $P_1=1$, thus $P_i=1$.\\
+	when $p>\frac{1}{2}$, let $P_1=1-d$, then
+	\begin{align}
+		P_i = 1 - d\frac{1-(q/p)^i}{1-q/p}
+	\end{align}
+	note $i\rightarrow\infty$, $P_i\rightarrow 0$, so $d= 1-q/p$, thus
+	\begin{align}
+		P_i = (q/p)^i
+	\end{align}\qed
+	\item[T3.23] Induction, suppose $P_{a,b}=\frac{1}{2}$, while $a>0, b>0$. where $P_{1,1}=\frac{1}{2}$ is trivial, Now consider start with $a,b$, by the time procedure back to step 1, either still satisfy $a'>0,b'>0$, or discard all white balls or all black balls, i.e.
+	\begin{align}
+		P_{a,b} = P(a'>0,b'>0)\frac{1}{2} + P(a'=0)0 + P(b'=0)1
+	\end{align}
+	note that $P(a'=0)=P(b'=0) = 1/{a+b \choose a}$, thus $P_{a,b} = 1/2$.\qed
+	\item[T3.24] By hint, consider $B_i$, since each other player against $k$ players set is independent,
+	\begin{align}
+		P(B_i) = \left[ 1 - \left(\frac{1}{2}\right)^k \right]^{n-k}
+	\end{align}
+	By Boole's inequality and problem assumption
+	\begin{align}
+		P(\bigcup B_i) \leq \sum P(B_i) = {n\choose k} \left[ 1 - \left(\frac{1}{2}\right)^k \right]^{n-k}<1
+	\end{align}
+	that probability of outcome is
+	\begin{align}
+		P = 1 - P(\bigcup B_i) >0
+	\end{align}
+	which shows possibility.\qed
+	\item[T3.29] Recall Laplace's rule of succession,
+	\begin{align}
+		P(C_i|F_n) = \frac{(i/k)^n[1/(k+1)]}{\sum_{j=0}^k(j/k)^n[1/(k+1)]}
+	\end{align}
+	next $m$ flips all heads under selected $C_i$ is 
+	\begin{align}
+		P(H^m|F_nC_i) = P(H^m|C_i) = (i/k)^m
+	\end{align}
+	the probability that flips all heads is
+	\begin{align}
+		P(H^m|F_n) = \frac{\sum_{i=0}^k (i/k)^{n+m}}{\sum_{j=0}^k(j/k)^n}
+	\end{align}
+	when $k$ is large,
+	\begin{align}
+		\frac{1}{k}\sum_{i=0}^k (i/k)^{n+m} &\approx  \int_0^1 x^{n+m}dx = \frac{1}{n+m+1}\\
+		\frac{1}{k}\sum_{j=0}^k (j/k)^{n} &\approx  \int_0^1 x^{n}dx = \frac{1}{n+1}\\
+		P(H^m|F_n) &\approx \frac{n+1}{n+m+1}
+	\end{align}\qed
+	\item[T3.30] denote $F_{n,r}$ that first $n$ flips results $r$ heads.
+	\begin{align}
+		P(C_i|F_{n,r}) &= \frac{{n\choose r}(i/k)^r(1-i/k)^{n-r} 1/(k+1)}{\sum_{j=0}^k{n\choose r}(j/k)^r(1-j/k)^{n-r}[1/(k+1)]} \\
+			&= \frac{(i/k)^r(1-i/k)^{n-r} }{\sum_{j=0}^k(j/k)^r(1-j/k)^{n-r}}
+	\end{align}
+	\begin{align}
+		P(H|F_{n,r} C_i) = P(H|C_i) = i/k
+	\end{align}
+	\begin{align}
+		P(H|F_{n,r}) = \frac{\sum_{i=0}^k(i/k)^{r+1}(1-i/k)^{n-r} }{\sum_{j=0}^k(j/k)^r(1-j/k)^{n-r}}
+	\end{align}
+	when $k$ is large,
+	\begin{align}
+		\frac{1}{k}\sum_{i=0}^k(i/k)^{r+1}(1-i/k)^{n-r} &\approx \int_0^1 y^{r+1}(1-y)^{n-r}dy = \frac{(r+1)!(n-r)!}{(n+2)!}\\
+		\frac{1}{k}\sum_{j=0}^k(j/k)^{r}(1-j/k)^{n-r} &\approx \int_0^1 y^{r}(1-y)^{n-r}dy = \frac{r!(n-r)!}{(n+1)!}\\
+		P(H|F_{n,r}) &\approx \frac{r+1}{n+2}
+	\end{align}\qed
+	\item[S3.7] denote $AA$ be event double Aces, $A_\spadesuit$ be ace of spade.
+	\begin{itemize}
+		\item[(a)]
+		\begin{align}
+			P(AA|\exists A_\spadesuit) &= \frac{\frac{1}{2} \frac{4*3}{52*51}}{\frac{1}{2} \frac{4*3}{52*51} + \frac{2}{52}\frac{48}{51}}\\
+				&= \frac{1}{17}
+		\end{align}
+		\item[(b)] trivial guess $3/51$, formal proof is
+		\begin{align}
+			P(AA|C_1=A) &= \frac{\frac{4*3}{52*51}}{\frac{4*3}{52*51} + \frac{4}{52}\frac{48}{51}}\\
+					&= \frac{3}{51}
+		\end{align}
+		\item[(c)] select order just relable, still $3/51$, formal proof is
+		\begin{align}
+			P(AA|C_2=A) &= \frac{\frac{4*3}{52*51}}{\frac{4*3}{52*51} + \frac{48}{52}\frac{4}{51}}\\
+					&= \frac{3}{51}
+		\end{align}
+		\item[(d)] 
+		\begin{align}
+			P(AA|\exists A) &= \frac{\frac{4*3}{52*51}}{ \frac{4*3}{52*51} + \frac{4}{52}\frac{48}{51} + \frac{48}{52}\frac{4}{51} } \\
+				&=\frac{1}{33}
+		\end{align}
+	\end{itemize}
+	\item[S3.13] 
+	\begin{itemize}
+		\item[(a)(b)] Consider last of reds and blues, additional green doesn't matter, i.e. still $1/3$.
+		\item[(c)] $P(b<r<g)=\frac{20}{20+10}\frac{8}{38} = 0.0702$
+		\item[(d)] $P(b) = P(b<r<g) + P(b<g<r) = 0.0702 + 8/18 *20/38=0.3041$
+	\end{itemize}
+	\item[S3.20] note symmtry $P(i<j) = P(i>j)$,(or just simplify $\sum_{i<j}p_ip_j$) thus
+	\begin{align}
+		P(i<j)=\frac{1 -\sum p_i^2}{2}
+	\end{align}
+	\item[S3.21] let $p_=$ be probability heads equal when both $n$ flips of A and B, then by symmetry $p_>= p_< = \frac{1-p_=}{2}$, thus probability of $H_{A,n+1}>H_{B,n}$ while $n+1,n$ coins fliped by A,B is
+	\begin{align}
+		P(H_{A,n+1}>H_{B,n}) &= \frac{1}{2}p_= + p_> \\
+			&= \frac{1}{2}
+	\end{align}\qed
 \end{itemize}
 
 \end{document}
