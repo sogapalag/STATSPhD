@@ -477,6 +477,78 @@
 		e^{-\frac{n(n-1)}{2k}} < \frac{1}{2} \\
 		n > \frac{1}{2} + \sqrt{\frac{1}{4} + 2k\ln(2)}\approx 22.9999
 	\end{align}
+	\item[4.66]
+	\begin{itemize}
+		\item[(a)] arbitrary set one, another have 2 next-to seats choice, i.e. $P(C_i) = \frac{2}{2n-1}$;
+		\item[(b)] when $C_i$ set, there remain a row of $2n-2$ seats, so 
+		\begin{align}
+			P(C_j|C_i)  = \frac{2n-3}{{2n-2\choose 2}} = \frac{2}{2n-2} =\frac{1}{n-1}
+		\end{align}
+		\item[(c)] when $n$ is large, $P(C_j)\approx P(C_j|C_i)\approx 1/n$, independent, that $\sum P(C_i)\approx 1$, let $X$ the number of occur seated next-to couples, then become a Poisson random variable of $\lambda=1$, then probability of no couple seated next to each other is $P(X=0)=e^{-1}$. Another solution consider $P(\bigcap C_i^c) = (1-1/n)^n\rightarrow e^{-1}$ achieve same answer.
+	\end{itemize}
+	\item[4.75] $Y=X+10$ is nega bino $(10,1/2)$.
+	\item[4.76] let $n=N_1+N_2-k+1$, $r_1 = N_1+1$ and $r_2=N_2+1$. Then left-empty becomes $n,r_1$ nega bino and right-empty becomes $n,r_2$ nega bino; the probability is
+	\begin{align}
+		P(k) &= {n-1\choose r_1-1}(1/2)^n + {n-1\choose r_2-1}(1/2)^n \\
+			&= \left[{N_1+N_2-k \choose N_1}+{N_1+N_2-k \choose N_2}\right] (1/2)^{N_1+N_2-k+1}
+	\end{align}
+	\item[4.79] recall hypergenometry random variable, $m=6,N=100,n=10$, thus
+	\begin{align}
+		P(X=0) &= \frac{{6\choose 0}{94\choose 10}}{{100\choose 10}} = 0.5223 \\
+		P(X=1) &= \frac{{6\choose 1}{94\choose 9}}{{100\choose 10}} = 0.3687 \\
+		P(X=2) &= \frac{{6\choose 2}{94\choose 8}}{{100\choose 10}} = 0.0965 \\
+		P(X>2) &= 1-P(X=0)-P(X=1)-P(X=2) = 0.0125
+	\end{align}
+	\item[4.80]
+	\begin{itemize}
+		\item[(a)] $p=20*19/(80*79)$, so fair payoff $v=(1-p)/p = 15.63$;
+		\item[(b)] recall hypergenometry random variable, i.e.
+		\begin{align}
+			P_{n,k} = \frac{{20\choose k}{60\choose n-k}}{{80\choose n}}
+		\end{align}
+	\end{itemize}
+	\item[4.81]
+	\begin{itemize}
+		\item[(a)] define $E_i$ indicator occur empty for box $i$, i.e.
+		\begin{align}
+			E_i = \begin{cases} 1, &\mbox{if box $i$ empty} \\ 0, &\mbox{if not empty}\end{cases}
+		\end{align}
+		Then the expected number of empty boxes is
+		\begin{align}
+			E[\sum E_i] = \sum E[E_i] =\sum (1-p_i)^{10}
+		\end{align}
+		define $A_i$ the exactly one ball indicator, then expected number is
+		\begin{align}
+			E[\sum A_i] = \sum E[A_i] =\sum 10(1-p_i)^9p_i
+		\end{align}
+	\end{itemize}
+	\item[4.85] define $C_i$ the indicator for type $i$ coupon appear at least once, i.e.
+	\begin{align}
+		C_i = \begin{cases} 1, &\mbox{if type $i$ coupon appear} \\ 0, &\mbox{if not}\end{cases}
+	\end{align}
+	then expected number of distinct types appear is
+	\begin{align}
+		E[\sum C_i] &= \sum E[C_i] \\
+			&= \sum (1 - (1-p_i)^n) \\
+			&= k - \sum (1-p_i)^n
+	\end{align}
+	\item[4.13] consider $d/dp$, then $p=k/n$.
+	\item[4.14]
+	\begin{itemize}
+		\item[(a)] $1 - \alpha p/(1-p)$;
+		\item[(b)] let $P_k$ be probability of $k$ boys. Then
+		\begin{align}
+			P_k &= \sum_{n=k}^\infty \alpha p^n {n\choose k} (1/2)^{k}(1/2)^{n-k}\\
+				&= \alpha \sum_{n=k}^\infty{n\choose k}(p/2)^n \\
+				&= \alpha \sum_{n=k}^\infty [{n+1\choose k+1} -{n\choose k+1}](p/2)^n \\
+				&= \frac{2}{p} P_{k+1}  -  P_{k+1}\\
+				&= \frac{2-p}{p} P_{k+1}
+		\end{align}
+		note $P_1 = \sum_{n=1}^\infty \alpha n(p/2)^n =  \frac{\alpha p/2}{(1-p/2)^2}$, thus
+		\begin{align}
+			P_k = (\frac{p}{2-p})^{k-1} P_1
+		\end{align}
+	\end{itemize}
 \end{itemize}
 
 \end{document}
