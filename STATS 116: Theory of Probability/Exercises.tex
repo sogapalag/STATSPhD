@@ -460,6 +460,23 @@
 			&= P(E|F) k + (1-k)\\
 			&\geq P(E|F)
 	\end{align}\qed
+	\item[4.24] 
+	\begin{itemize}
+		\item[(a)] $E[X_B|A=1] = p -(1-p)\frac{3}{4} =\frac{7p-3}{4}$;
+		\item[(b)] $E[X_B|A=2] = -\frac{3}{4}p + 2(1-p) = \frac{8-11p}{4}$;
+		\item[(c)] $-E[X_A|B=1] = -q + (1-q)\frac{3}{4} = \frac{3-7q}{4}$;
+		\item[(d)] $-E[X_A|B=2] =  q\frac{3}{4} - 2(1-q) = \frac{11q-8}{4}$.
+	\end{itemize}
+	note $7q-3\geq 8-11q$ when $q\geq 11/18$, so when $q=11/18$, that $E[X_A] = 23/72$ is minmax loss. $7p-3\leq 8-11p$ when $p\leq 11/18$, so when $p=11/18$, that $E[X_B] = 23/72$ is maxmin gain.
+	\item[4.30] recall geometry distribution, $E[X] = \sum_{n=1}^\infty 2^n(1-1/2)^{n-1}(1/2) =\sum 1 = +\infty$. Once is too risky, arbitrary long is good.
+	\item[4.31] p.
+	\item[4.56] $1 - (364/365)^N > 1/2$, that $N>252.6$ so need $253$.
+	\item[4.62] all $p_i$ small enough, two specific trial occur double $i$ or double $j$ becomes 'independent', and since $p_i$ small enough, occur more than 3 times is $o(p_i^2)$, thus $X$ the number of occur same outcome is a Poisson random variable of $\lambda = {n\choose 2} \sum p_i^2$. So probability of no trial outcome occurs more than once is $P(X=0) = e^{-\lambda}$.\qed\\
+	recall birthday problem, we can use this solution to approximate, i.e. let $k=365$, $p_i=1/365, \forall i$, then $1/2$ inequality is
+	\begin{align}
+		e^{-\frac{n(n-1)}{2k}} < \frac{1}{2} \\
+		n > \frac{1}{2} + \sqrt{\frac{1}{4} + 2k\ln(2)}\approx 22.9999
+	\end{align}
 \end{itemize}
 
 \end{document}

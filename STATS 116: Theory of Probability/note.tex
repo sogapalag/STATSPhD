@@ -105,6 +105,40 @@ mutually exclusive $F_i$, and $\sum P(F_i)=1$, then
 \begin{align}
 P(F_j|E) = \frac{P(E|F_j)P(F_j)} {\sum_i P(E|F_i)P(F_i)}
 \end{align}
+Laplace's rule of succession.\\
+
+\section{Random Variables}
+distribution function $F(x) = P\{X\leq x\}$.\\
+countable number of possible value, discrete, $\sum_i p(x_i) = 1$.\\
+If discrete, $F$ is step function.\\
+expected value,(mean, first moment) $E[X] = \sum_{x:p(x)>0} xp(x)$. analogous to center of gravity\\
+prop, $X$ is discrete random varible respect to $p$, for any real-valued $g$, $E[g(X)]= \sum_i g(x_i)p(x_i)$.\\
+corollary, $E[aX+b] =aE[X]+b$.\\
+variance $\text{Var}(X)=E[(X-\mu)^2] = E[X^2] - \mu^2$.\\
+$\text{Var}(aX+b) = a^2 \text{Var}(X)$.\\
+standard deviation, $\text{SD}(X) = \sqrt{\text{Var}(X)}$.\\
+Bernoulli random variable, special case $(1,p)$ of binomial random variable $(n,p)$. $X$ represents the number of successes occur in the $n$ trials, $p(i)={n\choose i} p^i (1-p)^{n-i}$.\\
+properties of Bonomial Random Variables, $E[X^k] = np E[(Y+1)^{k-1}]$, thus $E[X]=np$, $E[X^2] = np[(n-1)p+1]$, $\text{Var}(X) = np(1-p)$.\\
+prop, binomial, increasing monotonically then decreasing monotonically, reaching its largest value when $k=\lfloor (n+1)p \rfloor$.\\
+Poisson random variable, $p(i) = e^{-\lambda} \frac{\lambda^i}{i!}, i=0,1,2,...$; approximation for Binomial $(n,p)$ when $n$ is large, $p$ is small enough, let $\lambda=np$. $E[X]=\lambda$, $\text{Var}(X)=\lambda$.\\
+Based on 3 assumptions: probability exactly 1 event occurs in a given interval length $h$ is, $\lambda h+o(h)$, i.e. $\lim_{h\rightarrow 0}o(h)/h = 0$; probability that 2 or more events occur in an interval os length $h$ is, $o(h)$; For any interger $n$, nonoverlapping interval $j_1,...,j_n$, event occur $E_i$ be occur in $j_i$, which are independent. Then number of occur in interval of length $t$ is Poisson random variable with mean $\lambda t$.\\
+%total r successes, require trials n.
+geometric random variable, special case $(1,p)$ of negative binomial random variable $(r,p)$. $P\{X=n\} = {n-1\choose r-1} p^r(1-p)^{n-r}, n=r,r+1,...$; $E[X^k] = \frac{r}{p}E[(Y-1)^{k-1}]$, $E[X]=r/p$, $E[X^2]=\frac{r}{p}(\frac{r+1}{p}+1)$, $\text{Var}(X)=\frac{r(1-p)}{p^2}$.\\
+%N+1 succ, 2N-k+1 trials, nega bino.
+The Banach match problem\\
+hypergeometric random variable,
+\begin{align}
+	&P\{X=i\} = \frac{{m\choose i}{N-m\choose n-i}}{{N\choose n}}, i=0,1,...,n\\
+	&E[X^k] = \frac{nm}{N} E[(Y+1)^{k-1}]\\
+	&E[X] = \frac{nm}{N}\\
+	&E[X^2] = \frac{nm}{N}\left[\frac{(n-1)(m-1)}{N-1}+1\right]\\
+	&\text{Var}(X) = np(1-p)(1 - \frac{n-1}{N-1}),\ \text{let $p=m/N$}
+\end{align}
+when $N$ is large compare to $n$, approximation for binomial.\\
+zeta distribution, $P\{X=k\} = \frac{C}{k^{\alpha +1}}, k=1,2,...$.\\
+prop, $E[X]=\sum_{s\in S} X(s)p(s)$.\\
+corollary, $E[\sum X_i] = \sum E[X_i]$.\\
+
 
 
 \end{document}
