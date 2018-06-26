@@ -574,6 +574,34 @@
 			\Rightarrow \alpha = \frac{1-p}{2-p}
 		\end{align}
 	\end{itemize}
+	\item[T5.32]
+	\begin{itemize}
+		\item[(a)] when $N$ is large, X and Y randomly set into $\mathbb{N}$, thus probability which can divided by $k$, is $1/k$; under this condition, $X/k$, $Y/k$ can be treated randomly set into $\mathbb{N}$, the probability of relatively prime is $Q_1$, so we get $Q_k = \frac{1}{k^2}Q_1$.
+		\item[(b)] note $\sum_{k=1}^\infty Q_k =1$, thus
+		\begin{align}
+			Q_1 = \frac{1}{\sum_{k=1}^\infty 1/k^2} = \frac{6}{\pi^2}
+		\end{align} 
+		\item[(c)] recall 4.11, X and Y can divided by prime $P_i$ with probability $1/P_i$, since $N$ is large, which distinc primes' are independent, $Q_1$ means X and Y have no common $P_i$, denote $E_i$ event X and Y not both divided by $P_i$, i.e. 
+		\begin{align}
+			Q_1 &= P\{\bigcap_{i=1}^\infty E_i\} \\
+				&= \prod_{i=1}^\infty P(E_i) \\
+				&= \prod_{i=1}^\infty (1-\frac{1}{P_i^2})\\
+				&= \prod_{i=1}^\infty (\frac{P_i^2-1}{P_i^2})
+		\end{align}
+	\end{itemize}
+	Thus we in a sense proved the equality
+	\begin{align}
+		\prod_{i=1}^\infty \frac{1}{1-p_i^{-2}} = \sum_{n=1}^\infty \frac{1}{n^2} = \frac{\pi^2}{6} = \zeta(2)
+	\end{align}
+	where $\zeta(s)$ is famous Riemann Zeta function defined as
+	\begin{align}
+		\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s} = \frac{1}{1^s} + \frac{1}{2^s} +\frac{1}{3^s} + \dots
+	\end{align}
+	one way to show equility is that
+	\begin{align}
+		\prod_{i=1}^\infty \frac{1}{1-p_i^{-s}} = \prod_{i=1}^\infty  (1+p_i^{-s}+p_i^{-2s}+\dots)
+	\end{align}
+	since every $n\in \mathbb{N}$ can be factorize, there is a bijection $n^{-s}$ to $\prod_i p_i^{-k_is}$, so equility holds.\qed
 \end{itemize}
 
 \end{document}

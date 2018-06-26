@@ -139,6 +139,35 @@ zeta distribution, $P\{X=k\} = \frac{C}{k^{\alpha +1}}, k=1,2,...$.\\
 prop, $E[X]=\sum_{s\in S} X(s)p(s)$.\\
 corollary, $E[\sum X_i] = \sum E[X_i]$.\\
 
+\section{Continuous Random Variables}
+probability density function.\\
+prop, with real-valued $g$, that $E[g(X)] = \int_{-\infty}^\infty g(x)f(x)dx$.\\
+%for dy, scaned length y.
+lemma, nonnegative $Y$, $E[Y]=\int_0^\infty P\{Y>y\}dy$.\\
+Corollary, $E[aX+b] =aE[X]+b$, $\text{Var}(aX+b)=a^2\text{Var}(X)$.\\
+uniformly distributed, $\text{Var}(X)=(b-a)^2/12$.\\
+Bertrand's paradox, should define what kind of random.\\
+normal distribution. $(\mu,\sigma^2)$. standard $Z =(X-\mu)/\sigma$\\
+The DeMoivre-Laplace limit theorem, let  $S_n$ denotes the number of successes occur when $n$ independent trials, each probability $p$, i.e. binomial $(n,p)$. Then for any $a<b$, as $n\rightarrow \infty$:
+\begin{align}
+	P\left\{a\leq \frac{S_n-np}{\sqrt{np(1-p)}}\leq b\right\}\rightarrow \Phi(b) - \Phi(a)
+\end{align}
+Which is special case of central limit theorem. Recall $n$ is large, $p$ is small enough, approx Poisson.\\
+%e.g. Half-life
+exponential random variable. a key property memoryless. $P\{X>s+t|X>t\} = P\{X>s\}$.\\
+Hazard Rate Functions\\
+gamma distribution, $(\alpha,\lambda)$, $\lambda>0$.\\
+The Weibull Distribution\\
+The Cauchy Distribution\\
+The Beta Distribution, note $B(a,b)=\Gamma(a)\Gamma(b)/\Gamma(a+b)$.\\
+Thm, suppose $g(x)$ strictly monotonic(imply bijective), differentiable, the pdf of $Y=g(x)$ given by
+\begin{align}
+	f_Y(y)=\begin{cases} f_X[g^{-1}(y)]\left|\frac{d}{dy}g^{-1}(y)\right| & \mbox{if $y=g(x)$}\\
+				0 & \mbox{if $y\neq g(x)$}\end{cases}
+\end{align}
+
+
+
 
 
 \end{document}
