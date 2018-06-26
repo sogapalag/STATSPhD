@@ -532,8 +532,8 @@
 			&= \sum (1 - (1-p_i)^n) \\
 			&= k - \sum (1-p_i)^n
 	\end{align}
-	\item[4.13] consider $d/dp$, then $p=k/n$.
-	\item[4.14]
+	\item[T4.13] consider $d/dp$, then $p=k/n$.
+	\item[T4.14]
 	\begin{itemize}
 		\item[(a)] $1 - \alpha p/(1-p)$;
 		\item[(b)] let $P_k$ be probability of $k$ boys. Then
@@ -547,6 +547,31 @@
 		note $P_1 = \sum_{n=1}^\infty \alpha n(p/2)^n =  \frac{\alpha p/2}{(1-p/2)^2}$, thus
 		\begin{align}
 			P_k = (\frac{p}{2-p})^{k-1} P_1
+		\end{align}
+	\end{itemize}
+	\item[T4.15] $(p+q)^n+(q-p)^n$ eliminate $(-p)^{2k+1}$, thus remain even.\qed
+	\item[T4.17] recall 4.15, consider $\pm\lambda$.
+	\item[T4.18] by $d/d\lambda$, note $\lambda = \sqrt{k}$.
+	\item[T4.22] for numbered $i$ balls, $p_i = k/{2n\choose 2}$, when $n$ large, each independent, and $\sum p_i \approx k/(2n)$, i.e. $\lambda =1/(2n)$, then $T>\alpha n$, means a Poisson with parameter $\lambda \alpha n = \alpha/2$'s probability $P(N=0) = e^{-\alpha/2}$.\qed
+	\item[T4.24] recall Example7d, that we get two equivalent recursive formula.
+	\begin{align}
+		P_n &= P_{n-1} + (1-P_{n-k-1})(1-p)p^k \\
+		P_n &= \sum_{j=1}^k P_{n-j}p^{j-1}(1-p) + p^k
+	\end{align}
+	First condition on either first $n-1$ occur, second condition on first head location.
+	\item[S4.26]
+	\begin{itemize}
+		\item[(a)]
+		\begin{align}
+			\alpha &= \sum_{i=1}^\infty  p(1-p)^{2i-1} \\
+				&= p(1-p) \sum_{i=1}^\infty (1-p)^{2(i-1)} \\
+				&= \frac{p(1-p)}{1-(1-p)^2} \\
+				&= \frac{1-p}{2-p}
+		\end{align}
+		\item[(b)] note $P(\text{even}|X=1)=0$ and $P(X>1)=1-p$, that
+		\begin{align}
+			(1-p)(1-\alpha) = \alpha \\
+			\Rightarrow \alpha = \frac{1-p}{2-p}
 		\end{align}
 	\end{itemize}
 \end{itemize}
