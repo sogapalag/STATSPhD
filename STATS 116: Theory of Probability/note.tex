@@ -156,6 +156,7 @@ Which is special case of central limit theorem. Recall $n$ is large, $p$ is smal
 %e.g. Half-life
 exponential random variable. a key property memoryless. $P\{X>s+t|X>t\} = P\{X>s\}$.\\
 Hazard Rate Functions\\
+%exponential is special gamma with alpha=1
 gamma distribution, $(\alpha,\lambda)$, $\lambda>0$.\\
 The Weibull Distribution\\
 The Cauchy Distribution\\
@@ -166,6 +167,51 @@ Thm, suppose $g(x)$ strictly monotonic(imply bijective), differentiable, the pdf
 				0 & \mbox{if $y\neq g(x)$}\end{cases}
 \end{align}
 
+\section{Jointly Distributed Random Variables}
+jointly continuous, joint probability density function\\
+%独立，pdf在R上可拆分
+independent random variables, for all set A, B, independent. iff joint pdf can separate on $R$, i.e. $f_{X,Y}(x,y) = h(x)g(y), -\infty<x,y<\infty$.\\
+%独立，是对称的
+Independence is a symmetric relation. We can find a easy way to argue X independent given Y or Y independent given X.\\
+Corollay, we can sequentially show independence of $X_1,...,X_n$, i.e. show $X_r$ independent of $X_1,...,X_{r-1}, r>1$.\\
+%卷积
+convolution, independent $X,Y$ then
+\begin{align}
+	 f_{X+Y}(a) = \int_{-\infty}^\infty f_X(a-y)f_Y(y)dy
+\end{align}
+%期望e个uniform数的和才超过1
+sum of independent uniform random variables. $E[N]=e$ sum up to exceed 1.\\
+%独立分布的和
+%since a has the form of gamma(a)
+prop, if $X,(s,\lambda)$ and $Y,(t,\lambda)$ independent gamma rvs, then $X+Y$ is gamma rv with parameters $(s+t,\lambda)$.\\
+prop, if $X_i$ are indpendent normal distribution with $(\mu_i,\sigma_i^2)$, then $\sum X_i$ is normal distribution with $(\sum \mu_i, \sum \sigma_i^2)$.\\
+lognormal rv $Y=e^X$, where $X$ is normal rv.\\
+if $X,Y$ are independent Poisson rv, wrto $\lambda_1,\lambda_2$, then $X+Y$ is Poisson with $\lambda_1+\lambda_2$.\\
+if $X,Y$ are independent binomial rv, wrto $(n,p),(m,p)$, trivially by def of binomial, $X+Y$ is binomial with $(n+m,p)$.\\
+for geometric rv $X_i$ with $p_i$, if all $p_i$ equals, trivially $\sum X_i$ becomes negative binomial rv.\\
+%条件分布
+conditional pdf $p_{X|Y}(x|y) = \frac{p(x,y)}{p_Y(y)}$.\\
+%给定Poisson分布和，元分布为binomial分布
+if $X,Y$ independent Poisson rv with $\lambda_1,\lambda_2$, then conditional distribution of X given $X+Y=n$, is a binomial distribution with $n,p=\lambda_1/(\lambda_1+\lambda_2)$.\\
+%去掉一些输出，仍为多项式分布
+multinomial distribution, $\sum p_i=1$, given some outcome not occur, then probability of $i$ occur is percentage of left. i.e. multinomial distribution of remains.\\
+Bivariate Normal Distribution\\
+%since the bino form x^n(1-x)^m, x vary is beta form.
+%binomial先验概率为uniform的，给定成功次数，后验概率为beta分布
+Consider $n+m$ trials with common probability uniformly distributed, given $n$ success, then conditional distribution of success probability is beta distribution.\\
+%独立全同分布，可视为排序因子n!然后直接考虑有序情况
+order statistics, $X_i$ independent and identically with continuous $f$ and $F$, then order statistics with pdf $f_{X_{(i)...}} (x_i,...) = n! f(x_i)\dots$, i.e. we can simply multiply permutation, then consider an ordered rvs.\\
+%独立全同uniform分布的差(range)为beta分布
+range $R=X_{(n)} - X_{(1)}$ distribution, of uniform rv, is beta rv with parameter $n-1,2$.\\
+Jacob, function distribution.\\
+$X,Y$ standard normal, into $r,\theta$, $f(r,\theta)=\frac{1}{2\pi} re^{-r^2/2}$, i.e. angle uniform distributed and independent to distance $r$.\\
+%gamma分布比例为beta分布
+independent gamma $X,Y$, $U=X+Y$, $V=X/(X+Y)$, is gamma$(\alpha+\beta,\lambda)$ and beta$(\alpha,\beta)$.\\
+%simple corollary.
+independent and identical exponential rvs $X_i$, $\sum X_i$ is gamma rv with $(n,\lambda)$.\\
+%rvs可交换，联合分布不变对all permutation
+exchangeable, rvs' permutation no matter probability. An interesting example, urn with $n$ reds and $m$ blues, withdraw and replace along with addtional same color, $X_i$ are exchangable, i.e. $p_i= n/(n+m)$ although there are $n+m+i$ balls in that turn nonintuitively.\\
+order uniform $X_i$ then $Y_i=X_{(i)} - X_{(i-1)}$ are exchangable.
 
 
 
