@@ -676,7 +676,48 @@
 		\item[(e)] $P(\exists i, Y_i>1/2)= (n+1)\frac{1}{2^n}$ is easy to know, then by symmetry of $Y_i$ or symmetry of $x_0,...,x_n$ which $x_0$'s position corresponding to the large interval. So $P(Y_i>1/2) = \frac{1}{2^n}$.
 	\end{itemize}
 	What about (f) $P(X_{(n)} > X_{(1)} + \dots + X_{(n-1)})$?
-	
+	\begin{itemize}
+		\item[(f)] note $X_{(i)} = Y_i+Y_{i-1}+\dots+Y_1$
+		\begin{align}
+			&X_{(n)} > X_{(1)} + \dots + X_{(n-1)} \\
+			\Leftrightarrow & Y_n > Y_{n-2}+ 2Y_{n-3}+ \dots+ (n-2)Y_1 
+		\end{align}
+		note that
+		\begin{align}
+			Y_n < 1 - (Y_1 + Y_2 +\dots + Y_{n-2} +Y_{n-1}) 
+		\end{align}
+		thus integral part for $y_n$ is
+		\begin{align}
+			&\int_{y_{n-2}+ 2y_{n-3}+ \dots+ (n-2)y_1}^{1 - (y_1 + y_2 +\dots + y_{n-2} +y_{n-1})} dy_n \\
+			=& 1 - (n-1)y_1 -(n-2)y_2 -\dots- 2 y_{n-2} -y_{n-1}
+		\end{align}
+		where $(y_1,y_2,...,y_{n-2},y_{n-1})$ exactly satisfy $1 - (n-1)y_1 -(n-2)y_2 -\dots- 2 y_{n-2}-y_{n-1}>0$
+		let $t_1= (n-1)y_1, t_2 = (n-2)y_2,...,t_{n-2} = 2 y_{n-2}$, then integral becomes
+		\begin{align}
+			I = n! \frac{1}{(n-1)!} \int (1-t_1-t_2-\dots-t_{n-2}-y_{n-1}) dt_1dt_2\dots dt_{n-2}dy_{n-1}
+		\end{align}
+		with conditions
+		\begin{align}
+			& t_1 + t_2 + \dots + t_{n-2} <1 \\
+			& 0<t_1 <n-1 \Rightarrow 0<t_1<1 \ \ \text{by last equation}\\
+			& 0<t_2 <n-2 \Rightarrow 0<t_2<1\\
+			&\dots\\
+			& 0<t_{n-2}<2 \Rightarrow 0<t_{n-2}<1 \\
+			& 0<y_{n-1}<1
+		\end{align}
+		note that
+		\begin{align}
+			\int_0^a (a-x)^kdx = \frac{1}{k+1} a^{k+1}
+		\end{align}
+		so integral is
+		\begin{align}
+			I =& n \int_0^1 \int_0^{1-y_{n-1}}\dots \int_0^{1-t_3-\dots-t_{n-2}-y_{n-1}}\int_0^{1-t_2-t_3-\dots-t_{n-2}-y_{n-1}} \\
+			&(1-t_1-t_2-\dots-t_{n-2}-y_{n-1}) dt_1dt_2\dots dt_{n-2}dy_{n-1} \\
+			=& n \frac{1}{n!} \\
+			=& \frac{1}{(n-1)!}
+		\end{align}
+		so the probability is $P=I=1/(n-1)!$. Which equiv to $P(\max\{X_i\} > \sum X_i /2)$.
+	\end{itemize}
 \end{itemize}
 
 \end{document}
