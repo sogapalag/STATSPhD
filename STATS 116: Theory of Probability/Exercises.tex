@@ -602,6 +602,81 @@
 		\prod_{i=1}^\infty \frac{1}{1-p_i^{-s}} = \prod_{i=1}^\infty  (1+p_i^{-s}+p_i^{-2s}+\dots)
 	\end{align}
 	since every $n\in \mathbb{N}$ can be factorize, there is a bijection $n^{-s}$ to $\prod_i p_i^{-k_is}$, so equility holds.\qed
+	\item[6.6] select 2 position for defective ones, i.e. ${5\choose 2}$ ways equally, $1/10$ each.
+	\item[6.9]
+	\begin{itemize}
+		\item[(a)] $\int\int f(x,y)dxdy = 1$;
+		\item[(b)] $f_X(x)=\int f(x,y)dy = \frac{6}{7}(2x^2+x)$;
+		\item[(c)] $P(X>Y)=\int_0^1 \int_0^x f(x,y)dydx = 15/56$;
+		\item[(d)]
+		\begin{align}
+			P(Y>\frac{1}{2}| X<\frac{1}{2}) &= \frac{P(Y>\frac{1}{2} , X<\frac{1}{2})}{P(X<\frac{1}{2})} \\
+				&= \frac{\int_{1/2}^2 \int_0^{1/2}f(x,y)dxdy} {\int_{0}^2 \int_0^{1/2}f(x,y)dxdy}\\
+				&= \frac{\int_{1/2}^2 \frac{6}{7}(\frac{1}{24}+\frac{y}{16})dy}{\int_{0}^2 \frac{6}{7}(\frac{1}{24}+\frac{y}{16})dy}\\
+				&= \frac{\frac{1}{24}\frac{3}{2}+\frac{1}{16}\frac{1}{2}(4-\frac{1}{4})}{\frac{1}{24}2+\frac{1}{16}\frac{1}{2}4}\\
+				&= \frac{69}{80}
+		\end{align}
+		\item[(e)]
+		\begin{align}
+			E[X] = \int_0^1 \frac{6}{7}x(2x^2+x)dx = \frac{5}{7}
+		\end{align}
+		\item[(f)]
+		\begin{align}
+			E[Y] = \int\int yf(x,y)dxdy = \frac{8}{7}
+		\end{align}
+	\end{itemize}
+	\item[6.16]
+	\begin{itemize}
+		\item[(a)] $A=\bigcup A_i$;
+		\item[(b)] since $i,j$ can be same point, so $A_i\cap A_j\neq \emptyset$, they are not mutually exclusive; however $P(A_i\cap A_j) = 0$.
+		\item[(c)] by $P(A_i\cap A_j) = 0$, we can get
+		\begin{align}
+			P(A) &= \sum P(A_i) \\
+				&= n \frac{1}{2^{n-1}}
+		\end{align}
+	\end{itemize}
+	\item[6.44] recall order statistics, that
+	\begin{align}
+		P(X_{(1)}+X_{(2)} < X_{(3)}) &= 3!\int_0^{1/2} \int_{x_1}^{1-x_1}\int_{x_1+x_2}^{1}dx_3 dx_2 dx_1 \\
+			&= \frac{1}{2}
+	\end{align}
+	A incorrect way to do, consider $X_1<X_2<X_3$, under this condition, $X_2$ is uniform on $(0,X_3)$, $X_1$ is uniform on $(0,X_2)$, (we consider the complement $X_1+X_2>X_3$) thus get
+	\begin{align}
+		P^* &= \int_0^1 \int_{x_3/2}^{x_3} \frac{1}{x_3}\int_{x_3-x_2}^{x_2}\frac{1}{x_2} dx_1dx_2dx_3\\
+			&= \int_0^1 \int_{x_3/2}^{x_3} \frac{2x_2 - x_3}{x_2 x_3} dx_2dx_3 \\
+			&= \int_0^1 \int_{1/2}^{1} (2 - \frac{1}{t})dt dx_3 \ \ \  \text{let $t=x_2/x_3$}\\
+			&= 1 - \ln(2)
+	\end{align}
+	which shows if we uniformly select $X_3$, then uniformly select $X_2$ on $(0,X_3)$, then uniformly select $X_1$ on $(0,X_2)$, the probability $X_3>X_1+X_2$ is $\ln(2)\neq 1/2$. Although these two scenarios have same conditional uniform distribution, the intrinsic difference is that the portion of distributions not same, the latter will make probability on $(0,1)$ left denser, a transform to first solution is change $dx_2$ into $dF$, where $F=x_3x_2$. which distributions' portion will make sum of distributions back to uniform.\\
+	Another quick way to see, let $Y_i= X_{(i)}-X_{(i-1)}$, $Y_1=X_{(1)}$; recall exchangable, $X_{(3)}>X_{(1)}+X_{(2)}$ is indeed $Y_3>Y_1$, which by symmetry $P=1/2$.\\
+	If we define $Y_{n+1}=1 -X_{(n)}$, by interval's left-right symmetry, easy to know $Y_2,...,Y_{n+1}$ are exchangable, and $n+1$ interval $Y_i$ are symmetry, actually any $n$ of $Y_i$ are exchangle, and we wonder whether $n+1$ $Y_i$ are exchangable, which is not, since the Jacob is 0, cause $n$ dimension into $n+1$ dimension, with $\sum_{i=1}^{n+1} Y_i =1$. Which probability is actually 0. Well the probability is under $n+1$ dimensional space, we can measure which on $n$ dimensional space with $n$-variables' vector. e.g. $x_1+x_2=1$ make a line.\\
+	So although they are not exchangable in a $n+1$-dim sense, but since they are symmetric, either two compare order's probability will be $1/2$. Now consider $n=2$, that $X_1,X_2$ make a $Y_1,Y_2,Y_3$ intervals. We wonder (a) what $P(Y_2>Y_1, Y_2>Y_3)$ is? (b) what $P(Y_2>Y_1+Y_3)$ is?
+	\begin{itemize}
+		\item[(a)] By symmetry of $Y_i$, easy to get $P(Y_2>Y_1, Y_2>Y_3) = 1/3$. A calculative proof is that $0,1-2y_2 < y_1 < y_2, 1-y_2$, thus we need to integral partly,
+		\begin{align}
+			P(Y_2>Y_1, Y_2>Y_3) &= 2! [\int_{1/3}^{1/2}\int_{1-2y_2}^{y_2} dy_1dy_2 + \int_{1/2}^1\int_{0}^{1-y_2}dy_1dy_2] \\ 
+				&= 2![\frac{3}{2}\frac{5}{36}-\frac{1}{6} + \frac{1}{8}]\\
+				&= \frac{1}{3}
+		\end{align}
+		\item[(b)] $Y_2>Y_1+Y_3$ is indeed equivalent to $Y_2>1/2$, one might get the answer which is the probability, however this is wrong, since $Y_i$ is not uniform, either $X_{(1)}$ not, only $X_i$ is uniform. The formal proof is that,
+		\begin{align}
+			P(Y_2>Y_1+Y_3) &= 2! \int_{1/2}^1 \int_0^{1-y_2}dy_1dy_2 \\
+				&= \frac{1}{4}\\
+			\text{or equiv to consider $Y_1=X_{(1)}$}\\
+			P(X_{(1)}>1/2) &= 2! \int_{1/2}^1 \int_{1/2}^{x_2} dx_1dx_2\\
+				&= \frac{1}{4}
+		\end{align}
+		An interesting solution is that, imagine we connect point $0$ and $1$, make the interval curve to a circle. Then $Y_2>1/2$ iff $X_{(2)}- X_{(1)}$' angle $>\pi$ iff point $0$ in angle $<\pi$ of $X_1,X_2$. i.e. if we denote $x_0$ point $0$, $x_1$ correponding to $X_1$, $x_2$ corresponding to $X_2$, then $x_0$ in the small semi-circle of $x_1$ and $x_2$. Now, let $x_0$ be random too, (one might argue this $x_1-x_0$ will still be uniform? Indeed, let $x_0$ random is add a additional dimension, i.e. coordinate rotation, which not interfere $x_1-x_0$'s randomness, actually, even $x_0$ not random, like rotate some angle $\theta$, $x_1-x_0$ still random.) Note a necessary condition is $x_0,x_1,x_2$ is some semi-circle, recall 6.16, $P(A)=3/4$, since $x_0,x_1,x_2$ are symmetric, $x_0$ in the middle will be sufficient i.e. $P=3/4 * 1/3 = 1/4$.\\
+		If we ask (c) what about there exists one $Y_i>1/2,i=1,2,3$?
+		\item[(c)] note in semi-circle is necessary and sufficient, $P=3/4$.
+	\end{itemize}
+	Now consider general case $n$, (d) $P(Y_i>Y_j,\forall j\neq i, j\in\{1,2,...,n+1\})$, (e) $P(Y_i>1/2)$ and $P(\exists i, Y_i>1/2)$.
+	\begin{itemize}
+		\item[(d)] by symmetry, $Y_i$ is largest interval with $P=1/(n+1)$.
+		\item[(e)] $P(\exists i, Y_i>1/2)= (n+1)\frac{1}{2^n}$ is easy to know, then by symmetry of $Y_i$ or symmetry of $x_0,...,x_n$ which $x_0$'s position corresponding to the large interval. So $P(Y_i>1/2) = \frac{1}{2^n}$.
+	\end{itemize}
+	What about (f) $P(X_{(n)} > X_{(1)} + \dots + X_{(n-1)})$?
+	
 \end{itemize}
 
 \end{document}
