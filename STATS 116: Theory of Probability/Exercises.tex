@@ -24,7 +24,7 @@
 \usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
 \usepackage[english]{babel} % English language/hyphenation
 \usepackage{amsmath,amsfonts,amsthm} % Math packages
-
+\usepackage{algpseudocode} %algorithm
 \usepackage{sectsty} % Allows customizing section commands
 \allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
 \usepackage{url}
@@ -717,6 +717,75 @@
 			=& \frac{1}{(n-1)!}
 		\end{align}
 		so the probability is $P=I=1/(n-1)!$. Which equiv to $P(\max\{X_i\} > \sum X_i /2)$.
+	\end{itemize}
+	\item[6.46] Recall Example 6a, first standardize $\beta = d/L \leq 1/2$, the problem is indeed $P(Y_2>\beta,Y_3>\beta)$.
+	\begin{align}
+		P(Y_2>\beta,Y_3>\beta) &= 3! \int_0^{1-2\beta}\int_\beta^{1-y_1-\beta}\int_\beta^{1-y_1-y_3}dy_2dy_3dy_1\\
+			&= (1-2\beta)^3
+	\end{align}
+	\item[6.48]
+	\begin{itemize}
+		\item[(a)] one solution is using DeMorgan'law, since rvs are independent, $P(X>a)=e^{-\lambda a}$, thus
+		\begin{align}
+			P\{\min(X_1,...,X_5)\leq a\} &= 1 - P(\bigcap X_i>a) \\
+				&= 1- e^{-5\lambda a}
+		\end{align}
+		\item[(b)]
+		\begin{align}
+			P\{\max(X_1,...,X_5)\leq a\} &= P(\bigcap X_i\leq a) \\
+				&= (1 - e^{-\lambda a })^5
+		\end{align}
+	\end{itemize}
+	\item[6.52] Recall Example 7b, $J= 1/r$, thus joint density function is $r/\pi$.
+	\item[T6.11]
+	\begin{itemize}
+		\item[(a)] by hint, rewrite integral
+		\begin{align}
+			I &= \int_0^1\int_{u_1}^1\int_{u_2}^1\int_{u_3}^1\int_{u_4}^1 dF_5dF_4dF_3dF_2dF_1 \\
+				&= \frac{1}{5!}
+		\end{align}
+		\item[(c)] intuitively, the are independent and identical, thus by symmetry any order with same probability which is inverse of number of permutations.
+	\end{itemize}
+	\item[T6.21]
+	\begin{align}
+		f_{W|N}(w|n) &= \frac{e^{-w}w^n/n! * f(w)}{\int p_{N|W}(n|w)dw} \\
+			&= C e^{-(\beta+1)}w^{t+n-1}
+	\end{align}
+	the form of gamma distribution with parameters $(t+n,\beta+1)$.\qed
+	\item[T6.22] Still concentrate on non constant part,
+	\begin{align}
+		f(w|x_i,...) &= C f(w)\prod we^{-wx_i} \\
+			&= K e^{-(\beta+\sum x_i)w} w^{t+n-1}
+	\end{align}
+	thus the form of gamma distribution with parameters $(t+n, \beta+\sum x_i)$.\qed
+	\item[T6.26] standardize $\beta=D/L\leq 1/(n-1)$, then indeed $Y_i\geq \beta,i=2,3,...,n$. Recall Example 6a and 6.46, one can integral to the answer $(1-(n-1)\beta)^n$. From the elegant form of answer, we let $Z_{(i)} = X_{(i)} - (i-1)\beta$, then $Z_{(i)}$ in a region of $(0, 1-(n-1)\beta)$, and order equivlent, so probability is $(1-(n-1)\beta)^n$. There are many explainations, which is a bijective without scale, (i.e. scale$=1$), a translation of origin to $(0,\beta,2\beta,...,(n-1)\beta)$.\qed
+	\item[T6.28] $x$ is median, means there are less and geater $x$ each $n$ numbers, since every number is uniform, thus $f(x)=Cx^n(1-x)^n$, the form of beta distribution with parameters $(n+1,n+1)$.\qed
+	\item[T6.31] Recall 6.44(e), and 6.16; it's a generalized case. Indeed is $P(Y_k>t)$. A formal integral is
+	\begin{align}
+		P(Y_k>t) &= n!\int_0^{1-t}\dots\int_0^{1-t}\int_t^1 dy_k dy_1\dots dy_n\\
+			&= (1-t)^n
+	\end{align}
+	one might not simply apply 6.16, since $P(A_i\cap A_j)>0$ when $t<1/2$. However we can still use the intrinsic idea. That $P(A_i)=(1-t)^n$, and they are all equal, and they are random to $Y_k$, so average holds.\qed\\
+	Notice T6.26 answer has the similar form, we ask (a) do any $m$ intervals with $Y_j>t\leq 1/m$, has the equility $P(\bigcap^m Y_j>t) = (1-mt)^n$? (b) what about exists $m$ $Y_j>t$?
+	\begin{itemize}
+		\item[(a)] we know $m=1,n-1$ holds, now consider normal case, since intervals are symmetry, we can focus on first $m$ intervals. By translation of origin to $(t,2t,...,mt)$, which holds order, and whose points in cube with length $1-mt$. Thus we get the probability $(1-mt)^n$. A formal integral proof is
+		\begin{align}
+			I =& n! \int_0^{1-mt}\dots\int_0^{1-mt-y_{m+2}-\dots}\int_t^{1-(m-1)t-y_{m+1}-\dots}\dots\int_t^{1-t-y_3-\dots-y_m-\dots}\int_t^{1-y_2-\dots-y_m-\dots} \\
+				& dy_1dy_2\dots dy_m dy_{m+1}\dots dy_n\\
+				=& (1-mt)^n
+		\end{align}
+		where holds for $m\leq n$. When $m=n+1$, add upper bound of each integral part $-t$, i.e.
+		\begin{align}
+			I = & n! \int_t^{1-nt}\dots\int_t^{1-2t-y_3-\dots}\int_t^{1-t-y_2-\dots} \\
+				& dy_1 dy_2\dots dy_n\\
+				=& (1-(n+1)t)^n
+		\end{align}
+		\item[(b)] for a special case $t>1/2$, $m=1$, recall clockwise semi-circle idea of 6.16, easy to get $P=(n+1)(1-t)^n$. For subgeneral case $1/(m+1)<t<1/m$, note there are exactly $m$ intervals, thus $P={n+1\choose m}(1-t)^n$. Then we can continue to $1/(m+2)<t<1/(m+1)$, to calculate contribution of $m+1$ and exactly $m$ ones. 
+	\end{itemize}
+	\item[S6.20]
+	\begin{itemize}
+		\item[(a)] $P = \frac{1/6 *1/5}{1/5} = 1/6$;
+		\item[(b)] condition on $X_6>X_1$ or not, $P = \frac{1/6 *1/5 + 1/6* 1/2}{1/5} = 7/12$.
 	\end{itemize}
 \end{itemize}
 
