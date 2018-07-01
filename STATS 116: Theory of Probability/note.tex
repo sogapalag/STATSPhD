@@ -43,7 +43,8 @@
 \numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
 
 \setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
-
+\def \cov {\text{Cov}}
+\def \var {\text{Var}}
 
 \title{STATS 116: Theory of Probability}
 %A First Course in Probability, Ross.
@@ -213,7 +214,40 @@ independent and identical exponential rvs $X_i$, $\sum X_i$ is gamma rv with $(n
 exchangeable, rvs' permutation no matter probability. An interesting example, urn with $n$ reds and $m$ blues, withdraw and replace along with addtional same color, $X_i$ are exchangable, i.e. $p_i= n/(n+m)$ although there are $n+m+i$ balls in that turn nonintuitively.\\
 order uniform $X_i$ then $Y_i=X_{(i)} - X_{(i-1)}$ are exchangable.
 
-
-
+\section{Properties of Expectation}
+$E[\sum^n X_i] = \sum^n E[X_i]$;\\
+$E[\sum^\infty X_i] = \sum^\infty E[X_i]$, not necessarily true, but holds when $X_i$ nonnegative and $\sum^\infty E[|X_i|]<\infty$.\\
+The maximum-minimums identity, $\max x_i = \sum x_i - \sum_{i<j} \min(x_i,x_j) +\sum_{i<j<k}\min(.)\dots$.\\
+Calculate moments, $E[{X\choose k}] =\sum_{i_1<\dots<i_k} P(A_{i_1},...,A_{i_k})$.\\
+prop, independent $X,Y$, for any $g,h$, that $E[g(X)h(Y)]=E[g(X)]E[h(Y)]$.\\
+def, covariance, $\cov (X,Y) =E[(X-EX)(Y-EY)]$.\\
+props,
+\begin{align}
+	&\cov(\sum X_i, \sum Y_j) = \sum_i\sum_j \cov(X_i,Y_j) \\
+	&\var(\sum X_i) = \sum \var(X_i) + 2\sum_{i<j} \cov(X_i,X_j)
+\end{align}
+def, correlation,
+% cos t, of (X-EX), (Y-EY)
+\begin{align}
+	\rho(X,Y) = \frac{\cov(X,Y)}{\sqrt{\var{X}\var{Y}}}
+\end{align}
+conditional expectation,
+\begin{align}
+	& E[\sum^n X_i | Y=y] = \sum^n E[X_i|Y=y] \\
+	& E[X] = E[E[X|Y]] \\
+	& E[\sum^N X_i] = E[N]E[X],\text{independent $X_i,N$.}\\
+	& \var(X) = E[\var(X|Y)] + \var(E[X|Y])\\
+	& \var[\sum^N X_i] = E[N]\var[X] + (E[X])^2 \var(N)\\
+	& E[(Y-g(X))^2] \geq E[(Y-E[Y|X])^2]
+\end{align}
+Moment generating function, $M(t) = E[e^{tX}]$. $M^{(n)}(0)=E[X^n]$\\
+independent $X,Y$, then $M_{X+Y}(t) = M_X(t)M_Y(t)$.\\
+independent,indentically, $X_i$, random $N$, $Y=\sum^N X_i$, $M_Y(t) = E[(M_X(t))^N]$.\\
+joint moment generating function, 
+\begin{align}
+	M(t_1,...,t_n) = E[e^{t_1X_1+\dots+t_nX_n}]
+\end{align}
+Thm, (joint) moment generating function uniquely determine distribution.\\
+Thm, independent iff $M(t_1,...,t_n) = M_{X_1}(t_1)\dots M_{X_n}(t_n)$.\\
 
 \end{document}
