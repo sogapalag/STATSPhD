@@ -787,6 +787,63 @@
 		\item[(a)] $P = \frac{1/6 *1/5}{1/5} = 1/6$;
 		\item[(b)] condition on $X_6>X_1$ or not, $P = \frac{1/6 *1/5 + 1/6* 1/2}{1/5} = 7/12$.
 	\end{itemize}
+	\item[7.8] by hint, $E[N] = 1 + (1-p) +\dots +(1-p)^{N-1} = [1-(1-p)^N]/p$.
+	\item[7.17]
+	\begin{itemize}
+		\item[(a)] same as hat match problem, denote indicator $I_i$ is match(guess right) at $i$th card, thus $E[N]= E[\sum I_i] = \sum E[I_i] = n* 1/n = 1$.
+		\item[(b)] unknown cards still random, so only way guess from unknown cards is best strategy.
+		\item[(c)] without loss of generality, suppose one's guess order is  $1,2,...,n$, denote $I_i$ be card $i$ guessing right, i.e. the card shown in total $n$-guesses, iff shuffled cards has permutation of $1,2,...,i$.\qed
+	\end{itemize}
+	\item[7.18] each position with probability $1/13$ match, i.e. $E[N]=4$.
+	\item[7.20] denote $I_i$ be ball $i$ be selected, then ball $i$ before ball 1 with prob $W_j/(W_j+W_1)$, so
+	\begin{align}
+		E[N] = E[\sum I_i] = \sum_{j\neq i} \frac{W_j}{W_j+W_1}
+	\end{align}
+	\item[7.21]
+	\begin{itemize}
+		\item[(a)] denote $D_i$ be day $i$ is birthday of exactly 3 people, then
+		\begin{align}
+			E[N_a] = E[\sum D_i] = 365 * {100\choose 3} (\frac{1}{365})^3)(\frac{364}{365})^{97} = 0.930
+		\end{align}
+		\item[(b)] denote $S_i$ be day $i$ is distinct birthday. Then
+		\begin{align}
+			E[N_b] = E[\sum S_i] = 365 * [1 - (\frac{364}{365})^{100}] = 87.57
+		\end{align}
+	\end{itemize}
+	\item[7.22] denote $N_i$ be required number of rolls until $i$th distinct sides shown, then
+	\begin{align}
+		E[N] = E[\sum N_i] = 1 + \frac{1}{5/6} + \frac{1}{4/6} + \frac{1}{3/6} + \frac{1}{2/6} + \frac{1}{1/6} = 14.7
+	\end{align}
+	\item[7.25] $P(N\geq n) = 1/(n-1)!$, then
+	\begin{align}
+		E[N] = \sum_{n=1}^\infty P(N\geq n) = e
+	\end{align}\qed
+	\item[7.26]
+	\begin{itemize}
+		\item[(a)] let $M = \max(X_1,...,X_n)$, then $P(M> x)= 1 - x^n$, thus
+		\begin{align}
+			E[M] = \int_0^1 P(M>x)dx = 1 - 1/(n+1) = \frac{n}{n+1}
+		\end{align}
+		\item[(b)] one way let $Y_i=1-X_i$, another way $P(m>x)=(1-x)^n$. Then $E[m] = 1/(n+1)$.
+	\end{itemize}
+	there is another trick, recall discussion of 6.44, $M= X_{(n)} = Y_1 +\dots+Y_n$, note that $Y_1 + \dots+ Y_{n+1} =1$, and by symmetry, $m=E[Y_1]=\dots=E[Y_n]=E[Y_{n+1}] = 1/(n+1)$. Hence answer is obvious.\qed
+	\item[7.27] $E[X_i]=10.1$, so $P(X_i>10)>0$.	
+	\item[7.28] let $X_i$ be selected as failure, note any consective $E[\sum^{12} X_i]\leq 2$, since there are $47$ different consectives, and each node counted $12$ times, thus
+	\begin{align}
+		E[\sum^{47} X_i] = E[\frac{47}{12} \sum^{12} X_i] < 8
+	\end{align}
+	so cannot satisfy.\qed
+	\item[7.29] recall example 2s,
+	\begin{itemize}
+		\item[(a)] using the maximum-minimums identity,
+		\begin{align}
+			E[N_a] &= \sum 1/p_i - \sum_{i<j} 1/(p_i+p_j)+\dots \\
+				&= \frac{64}{3} - \frac{40}{3} + \frac{192}{35} - 1 \\
+				&= \frac{437}{35}\approx 12.5
+		\end{align}
+		\item[(b)(c)] $12$; $4$.
+		\item[(d)] $E[N_d]= 12+4 - 437/35 = 123/35\approx 3.5$.
+	\end{itemize}
 \end{itemize}
 
 \end{document}
