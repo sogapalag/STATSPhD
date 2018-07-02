@@ -43,7 +43,8 @@
 \numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
 
 \setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
-
+\def \cov {\text{Cov}}
+\def \var {\text{Var}}
 
 \title{Exercises}
 %A First Course in Probability, Ross. 8th edition
@@ -844,6 +845,121 @@
 		\item[(b)(c)] $12$; $4$.
 		\item[(d)] $E[N_d]= 12+4 - 437/35 = 123/35\approx 3.5$.
 	\end{itemize}
+	\item[7.34] denote indicator $X_i$ the $i$th wife seated with her husband,
+	\begin{itemize}
+		\item[(a)]
+		\begin{align}
+			E[N] = E[\sum X_i] = 10 * \frac{2}{19} = \frac{20}{19}
+		\end{align}
+		\item[(b)] note that $\cov(X_i,X_j) = E[X_iX_j] - E[X_i]E[X_j]$, That
+		\begin{align}
+			E[X_iX_j] = \begin{cases} \frac{2}{19}\frac{1}{9}, &\mbox{when $i\neq j$} \\  \frac{2}{19}, &\mbox{when $i=j$}\end{cases}
+		\end{align}
+		thus
+		\begin{align}
+			\var(N) &= \cov(\sum X_i, \sum X_i)\\
+				&= \sum \var(X_i) + (n^2-n)\cov(X_i,X_j)\\
+				&= 10 * \frac{2}{19}(1-\frac{2}{19}) + 90 * \frac{4}{19}\frac{1}{18*19}\\
+				&= \frac{360}{361}
+		\end{align}
+	\end{itemize}
+	\item[7.35] Recall example 3e, for any ordenary card, there is $r/(n+1)$ probability to be selected, hence $E[Y]=r+mr/(n+1) = r(N+1)/(n+1)$. Another trick to show this, recall 6.44 and 6.16, we add a origin at $n+1$ as $0$, and make it random like 6.16 as a circle, thus there is $n+1$ symmetric and exchangable interval(including right special or not), then each $E[Y_i]=(N+1)/(n+1)$, easily to conclude $E[Y]=r E[Y_i]$.
+	\begin{itemize}
+		\item[(a)] $2*(52+1)/(4+1) = 21.2$;
+		\item[(b)] $5*(52+1)/(13+1) = 18.93$;
+		\item[(c)] $13*(52+1)/(13+1) = 49.21$.
+	\end{itemize}
+	\item[7.36] Note $X=A_1+A_2$ and $Y=A_1-A_2$, since independent $\cov(A_1,A_2)=0$, thus $\cov(X,Y) = \cov(A_1,A_1) -\cov(A_2,A_2)=0$.
+	\item[7.56] $E[S|X=x] = N(1-(1-1/N)^x)$, then
+	\begin{align}
+		E[S] &= E[E[S|X=x]] \\
+			&= N - N \sum d^x p(x)\\
+			&= N(1- e^{-10/N})
+	\end{align}
+	\item[7.67] one gamble scale $E[Y_1]= 2p*p+2q*q$, since each gamble independent, thus $E[Y_1\dots Y_n] = E^n[Y_1] = (2(p^2+q^2))^n$, i.e. Kelley's strategy payoff is $(2(p^2+q^2))^nx$.
+	\item[7.70]
+	\begin{itemize}
+		\item[(a)] $E[p] = 1/2$;
+		\item[(b)] $E[p^2] = 1/3$.
+	\end{itemize}
+	\item[7.71]
+	\begin{align}
+		P(X=i) &= \int_0^1 {n\choose i} p^i (1-p)^{n-i} dp \\
+			&= \frac{1}{n+1}, \textbf{recall beta's}
+	\end{align}
+	\item[7.78]
+	\begin{itemize}
+		\item[(a)] note first is A or B each $1/2$, that
+		\begin{align}
+			E[R_a] &= \frac{1}{2}[A*F(A)+ B(1-F(A))] + \frac{1}{2}[B*F(B)+A(1-F(B))]\\
+				&= \frac{A+B}{2} + \frac{1}{2}(B-A)(F(B)-F(A))\\
+				&> \frac{A+B}{2}
+		\end{align}\qed
+	\end{itemize}
+	\item[T7.10] Note $k=n$, $E=1$, by symmetry, that $E[X_i/\sum X_i] = 1/n$, hence answer is $k/n$.\qed
+	\item[T7.16] suppose we color each element randomly, i.e. $1/2$, denote indicator $I_i$ when subset $A_i$ is colored same color, that $E[I_i]= (1/2)^{|A_i|-1}$, so total $E[I]= \sum^r E[I_i]=K$, thus $P(I\leq K)>0$.\qed
+	\item[T7.28] core part is to show
+	\begin{align}
+		E[XE[Y|X]] &= \sum_x x (\sum_y y P(Y=y|X=x)) P(X=x) \\
+			&= \sum_x\sum_y xyP(Y=y|X=x)P(X=x) \\
+			&= \sum_x\sum_y xyP(Y=y,X=x)\\
+			&= E[XY]
+	\end{align}\qed
+	\item[T7.43] core part is to show
+	\begin{align}
+		E[XY]=E[YX] &= E[XE[X|Z]] \\
+			&= \sum_{x,z} x (\sum_x x P(X=x|Z=z)) P(X=x,Z=z)\\
+			&= \sum_z \sum_x x P(X=x|Z=z) (\sum_x x P(X=x|Z=z)) P(Z=z)\\
+			&= \sum_z (\sum_x x P(X=x|Z=z))^2 P(Z=z) \\
+			&= E[Y^2]
+	\end{align}\qed
+	\item[T7.44]
+	\begin{itemize}
+		\item[(a)] recall random variables of random number,
+		\begin{align}
+			E[X_n] &= E[\sum^{X_{n-1}}O_i] \\
+				&= E[X_{n-1}]\mu
+		\end{align}
+		\item[(b)] trivial;
+		\item[(c)] recall conditional variance formula,
+		\begin{align}
+			\var(X_n)  &= E[\var(X_n|X_{n-1})] + \var(E[X_n|X_{n-1}])\\
+				&= E[\sigma^2 X_{n-1}] + \var(\mu X_{n-1})\\
+				&= \sigma^2 \mu^{n-1} + \mu^2 \var(X_{n-1})
+		\end{align}\qed
+		\item[(e)] dies out, iff each children dies out.\qed
+	\end{itemize}
+	\item[S7.10] recall Taylor's series approx,
+	\begin{align}
+		E[\sqrt{X}] \approx \sqrt{\lambda} - \frac{1}{8\sqrt{\lambda}}
+	\end{align}
+	thus
+	\begin{align}
+		\var(\sqrt{X}) &= EX - (E[\sqrt{X}])^2 \\
+			&\approx \lambda - (\sqrt{\lambda} - \frac{1}{8\sqrt{\lambda}})^2\\
+			&= \frac{1}{4} - \frac{1}{64\lambda^2}\\
+			&\approx 0.25
+	\end{align}\qed
+	\item[S7.18] condition on first is one or zero, recall 7.35, for instance, if first is one, expected additional length of ones is $N/(m+1)-1$, thus we conclude
+	\begin{align}
+		E[X] &= \frac{n}{m+n}[\frac{n+m}{m+1} -1+1] + \frac{m}{m+n}[\frac{n+m}{n+1}-1+1]\\
+			&= \frac{n}{m+1}+\frac{m}{n+1}
+	\end{align}
+	\item[S7.20] note nonnegative and $E[I_X(x)] = 1-F(x)$.\qed
+	\item[S7.21] note
+	\begin{align}
+		E[a_{i_j}a_{i_{j+1}}] &= C(n) \sum_j \sum_{k\neq j} a_ja_k\\
+			&= C(n) (-\sum_x a_x^2)\\
+			&<0
+	\end{align}
+	so $E[\sum a_{i_j}a_{i_{j+1}}]<0$, that $P(\sum a_{i_j}a_{i_{j+1}})>0$.\qed
+	\item[S7.27] denote $X_i$ the required additional stages on $i$th new card, then
+	\begin{align}
+		E[S] &= E[\sum^{n-1} X_i] \\
+			&=1+ \frac{n}{n-1}+\dots+\frac{n}{2}
+	\end{align}
+	\item[S7.29] Bernouli X and Y is indeed indicator, i.e. $E[X]=P(X)$, $E[Y]=P(Y)$ and $E[XY]=P(X,Y)$, so independent iff $\cov(X,Y)=0$.\qed
+	\item[S7.30] for every $i$-group individuals, it's a hypergeometry situation, i.e. $E[G_i]=\frac{h_in_i}{n}$,(or one can consider each individual) hence answer is $\sum^r h_in_i/n$.
 \end{itemize}
 
 \end{document}
