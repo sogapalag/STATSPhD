@@ -291,4 +291,21 @@ chernoff bounds,
 % bound with expectation
 Jensen's inequality, convex $f$, $E[f(X)]\geq f(E[X])$.
 
+\section{Additional Topics in Probability}
+Poisson process, independent and stationary, rate $\lambda$, in some interval length $t$, with poisson $\lambda t$.\\
+Markov's chain, transition matrix $P_{ij}$.\\
+% i to j must through some k
+The Chapman–Kolmogorov equations. $P_{ij}^{(n)} = \sum_k P_{ik}^{(r)} P_{kj}^{(n-r)}$, forall $0<r<n$.\\
+ergodic, for some $n$, $P_{ij}^{(n)}>0,\forall i,j$.\\
+% Recall Second law of thermodynamics
+% P_{ij}^{(n)} converges, means eventually dispersion.
+% below equation is indeed balance
+Thm, for ergodic Markov's chain, there exists $\pi_j= \lim_{n\rightarrow \infty} P_{ij}^{(n)}$, which are unique nonnegative solutions of $\pi_j = \sum \pi_k P_{kj}$ and $\sum \pi_j=1$.\\
+axioms of surprise, entropy, uncertainty, information\\
+% information divide
+$H(X,Y) = H(Y) + H_Y(X)$\\
+% knowing Y's distribution, might leak information of X.
+Thm, $H_Y(X)\leq H(X)$, equality iff $X,Y$ indpendent.\\
+
+
 \end{document}

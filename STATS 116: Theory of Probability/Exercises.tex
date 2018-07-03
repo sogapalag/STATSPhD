@@ -982,6 +982,11 @@
 		\frac{\sum^n Y_i}{n} = \log((\prod^n X_i)^{1/n})
 	\end{align}
 	since $Y_i$ still iid, i.e. left converge to some value $a$, thus geometry average converges to $e^a$.
+	\item[9.17] intuition, if not injective, will lose information, formal proof, for some $y=f(x)$, that $p_y =\sum p_x$, then corresponding part
+	\begin{align}
+		-(\sum p_x)\log (\sum p_x) + \sum p_x\log p_x = \sum p_x\log(\frac{p_x}{\sum p_x})\leq 0
+	\end{align}\qed
+	\item[S9.3] recall Markov's chain, $t+c=1$ and $t=c/6+t/5$, thus $t=5/29$.
 \end{itemize}
 
 \end{document}
