@@ -250,4 +250,45 @@ joint moment generating function,
 Thm, (joint) moment generating function uniquely determine distribution.\\
 Thm, independent iff $M(t_1,...,t_n) = M_{X_1}(t_1)\dots M_{X_n}(t_n)$.\\
 
+\section{Limit Theorems}
+% bound with mean
+Markov's inequality, nonnegative X, $a>0$: $P(X\geq a) \leq \frac{E[X]}{a}$.\\
+% bound with mean, variance
+corollary, Chebyshev's inequality, X,$\mu,\sigma^2$, $k>0$, then  $P(|X-\mu|\geq k)\leq \frac{\sigma^2}{k^2}$.\\
+% lim(P),    >epsilon with ->0 probability, 
+Thm, The weak law of large numbers, iid(independent, identically distributed rvs) $X_i$, each finite mean $\mu=E[X_i]$, $\forall \epsilon>0$,
+\begin{align}
+	P(|\frac{\sum^n X_i}{n} - \mu|\geq \epsilon) \rightarrow 0, \text{as} n\rightarrow \infty
+\end{align}
+The central limit theorem, iid $X_i$, each with $\mu,\sigma^2$, then the distribution of 
+\begin{align}
+	\frac{\sum^n X_i - n\mu}{\sigma \sqrt{n}}
+\end{align}
+tends to standard normal distribution as $n\rightarrow \infty$. i.e. as $n\rightarrow \infty$, that
+\begin{align}
+	P\left(\frac{\sum^n X_i - n\mu}{\sigma \sqrt{n}} \leq a\right) \rightarrow 
+	\frac{1}{\sqrt{2\pi}}\int_{-\infty}^a e^{-x^2/2}dx
+\end{align}
+remark. Although here show point-wise convergence, but which can unifomly convergence.\\
+Central limit theorem for independent random variables, $\mu_i,\sigma_i^2$, if $X_i$ uniformly bounded, i.e. for some $M$,$P(|X_i|<M)=1,\forall i$, and $\sum \sigma_i^2=\infty$, then as $n\rightarrow \infty$
+\begin{align}
+	P\left(\frac{\sum^n (X_i-\mu_i)}{\sqrt{\sum^n \sigma_i^2}}\leq a\right)\rightarrow \Phi(a)
+\end{align}
+% P(lim),	>epsilon with =0 probability.
+Thm, The strong law of large numbers, iid $X_i$, finite $\mu$. Then with probability 1,
+\begin{align}
+	\frac{\sum^n X_i}{n} \rightarrow \mu,\text{as }n\rightarrow \infty
+\end{align}
+One-sided Chebyshev inequality, $0,\sigma^2$, $a>0$, then $P(X\geq a)\leq \frac{\sigma^2}{\sigma^2+a^2}$.\\
+note $X-\mu$, $\mu-X$ is $0,\sigma^2$, thus
+corollay, $P(X\geq \mu +a )\leq \frac{\sigma^2}{\sigma^2+a^2}$, $P(X\leq \mu -a)\leq \frac{\sigma^2}{\sigma^2+a^2}$.\\
+% bound with MGF
+chernoff bounds, 
+\begin{align}
+	&P(X\geq a) \leq e^{-ta} M(t), \forall t>0 \\
+	&P(X\leq a) \leq e^{-ta} M(t), \forall t<0 
+\end{align}
+% bound with expectation
+Jensen's inequality, convex $f$, $E[f(X)]\geq f(E[X])$.
+
 \end{document}
