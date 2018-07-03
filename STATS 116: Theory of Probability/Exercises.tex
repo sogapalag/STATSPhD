@@ -960,6 +960,28 @@
 	\end{align}
 	\item[S7.29] Bernouli X and Y is indeed indicator, i.e. $E[X]=P(X)$, $E[Y]=P(Y)$ and $E[XY]=P(X,Y)$, so independent iff $\cov(X,Y)=0$.\qed
 	\item[S7.30] for every $i$-group individuals, it's a hypergeometry situation, i.e. $E[G_i]=\frac{h_in_i}{n}$,(or one can consider each individual) hence answer is $\sum^r h_in_i/n$.
+	\item[8.20,21] recall Jenson's inequality.
+	\item[T8.7] $\log$ then Markov's.
+	\item[T8.8] since independent gamma $(s,\lambda)$ plus gamma $(k,\lambda)$ is gamma $(s+k,\lambda)$, so $t$ is large, which can represent many plus, by central limit theorem, approx to normal.
+	\item[T8.12] recall standard normal density function $f(z)= \frac{1}{\sqrt{2\pi}} e^{-z^2/2} $, since $Z>a$, that
+	\begin{align}
+		P(Z>a) &= \int_a^\infty f(z)dz \\
+			&< \int_a^\infty \frac{z}{a} f(z)dz \\
+			&= \frac{1}{\sqrt{2\pi} a} e^{-a^2/2}\\
+			&\leq \frac{1}{2}e^{-a^2/2}, \text{when } a\geq\sqrt{2/\pi}
+	\end{align}
+	consider when $a < \sqrt{2/\pi}$,
+	\begin{align}
+		P(Z>a) &= \frac{1}{2} - \int_0^a f(z)dz \\
+			&\leq \frac{1}{2} - \frac{a}{\sqrt{2\pi}} e^{-a^2/2}\\
+			&\leq \frac{1}{2}e^{-a^2/2}, \text{we will show this step}
+	\end{align}
+	let $g(a)= \frac{a}{\sqrt{2\pi}} e^{-a^2/2}+ \frac{1}{2}e^{-a^2/2}$, by consider $g'(a)=0$, implies maximum at $a_0=(\sqrt{4+\pi/2} -\sqrt{\pi/2})/2< \sqrt{2/\pi}$, thus minimum reach at $a=0$ and $a=\sqrt{2/\pi}$, that $g(0)=1/2$ and $g(\sqrt{2/\pi})=(\frac{1}{2}+\frac{1}{\pi})e^{-1/\pi}=0.595>1/2$.\qed
+	\item[S8.13] let $Y_i = \log (X_i)$, then 
+	\begin{align}
+		\frac{\sum^n Y_i}{n} = \log((\prod^n X_i)^{1/n})
+	\end{align}
+	since $Y_i$ still iid, i.e. left converge to some value $a$, thus geometry average converges to $e^a$.
 \end{itemize}
 
 \end{document}
