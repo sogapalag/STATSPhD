@@ -1,0 +1,118 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+\usepackage{url}
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\def \cov {\text{Cov}}
+\def \var {\text{Var}}
+
+\title{STATS 200: Introduction to Statistical Inference}
+%Mathematical Statistics and Data Analysis, 3rd, Rice.
+\author{sogapalag}
+
+\date{\normalsize\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Distributions Derived from the Normal Distribution}
+def, chi-square distribution with $1$ degree of freedom, $U=Z^2$, where $Z$ is standard normal.\\
+def, chi-square with $n$ degrees of freedom, $V=U_1+\dots+U_n$, independent $U_i$. denoted by $\chi_n^2$. which MGF is $M(t)=(1-2t)^{-n/2}$, is a gamma with parameter $(\alpha=n/2, \lambda=1/2)$.\\
+$t_n$ distribution. $Z/\sqrt{U/n}$, where $Z\sim N(0,1)$, $U\sim \chi_n^2$.\\
+$F_{m,n}$, $W=\frac{U/m}{V/n}$, where independent $U\sim \chi_m^2$, $V\sim \chi_n^2$.\\
+independent $X_i\sim N(\mu,\sigma^2)$, def sample mean $\overline{X}=\frac{1}{n}\sum^n X_i$, sample varice $S^2= \frac{1}{n-1}\sum^n (X_i-\overline{X})^2$.\\
+% is indep to vector, not vector's coords indep.
+Thm, $\overline{X}$ is independent to vector $(X_1-\overline{X},...,X_n-\overline{X})$.\\
+Corollary, $\overline{X}$ and $S^2$ are independent.\\
+Thm, $(n-1)S^2/\sigma^2$ is chi-square with $n-1$ df.\\
+Corollary, $\frac{\overline{X}-\mu}{S/\sqrt{n}} \sim t_{n-1}$.\\
+
+\section{Survey Sampling}
+srs, simple random sampling.\\
+def, unbiased, $E[\widehat{\theta}]=\theta$.\\
+lemma, srs without replacement, $\cov(X_i,X_j)=-\sigma^2/(N-1)$, $i\neq j$.\\
+% finite population correction, approx 1 - sampling fraction
+Thm,
+\begin{align}
+	\var(\overline{X}) = \frac{\sigma^2}{n}\frac{N-n}{N-1}
+\end{align}
+estimation of population variance, $\widehat{\sigma}^2 = \frac{1}{n}\sum^n(X_i-\overline{X})^2$.\\
+Thm,
+\begin{align}
+	E[\widehat{\sigma}^2] = \sigma^2 \frac{n-1}{n}\frac{N}{N-1}
+\end{align}
+corollary, unbiased estimate of $\var(\overline{X})$ is
+\begin{align}
+	s_{\overline{X}}^2 &= \frac{\sigma^2}{n}\frac{n}{n-1}\frac{N-1}{N}\frac{N-n}{N-1}\\
+		&=\frac{S^2}{n}(1-\frac{n}{N})
+\end{align}
+corollary, unbiased estimate of $\var(\widehat{p})$ is
+\begin{align}
+	s_{\widehat{p}}^2 = \frac{\widehat{p}(1-\widehat{p})}{n-1}(1-\frac{n}{N})
+\end{align}
+ratio estimate.\\
+stratified estimate, $\overline{X}_s = \sum^L W_l \overline{X}_l$, where $W_l=N_l/N$.\\
+$\var(\overline{X}_s)\approx \sum^L \frac{W_l^2 \sigma_l^2}{n_l}$.\\
+% use Lagrange proof
+Thm, minimize $\var(\overline{X}_s)$ with 
+\begin{align}
+	n_l = n \frac{W_l\sigma_l}{\sum^L W_l\sigma_l}	
+\end{align}
+corollary, use this optimal Neyman allocation. That
+\begin{align}
+	\var(\overline{X}_{so}) = \frac{(\sum^L W_l\sigma_l)^2}{n}
+\end{align}
+proportional allocation, $n_l = nW_l$.\\
+Thm, with proportional allocation, ignoring the finite population correction,
+\begin{align}
+	\var(\overline{X}_{sp}) = \frac{\sum^L W_l\sigma_l^2}{n}
+\end{align}
+% lack sigma distri information; propor more 'average' than srs.
+Thm, ignoring the finite population correction,
+\begin{align}
+	&\var(\overline{X}_{sp}) - \var(\overline{X}_{so}) = \frac{1}{n}\sum^L W_l(\sigma_l -\bar{\sigma})^2 \\
+	&\var(\overline{X}) - \var(\overline{X}_{sp}) = \frac{1}{n}\sum^L W_l(\mu_l -\mu)^2
+\end{align}
+
+\end{document}
