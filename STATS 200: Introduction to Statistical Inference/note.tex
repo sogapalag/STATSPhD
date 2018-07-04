@@ -115,4 +115,36 @@ Thm, ignoring the finite population correction,
 	&\var(\overline{X}) - \var(\overline{X}_{sp}) = \frac{1}{n}\sum^L W_l(\mu_l -\mu)^2
 \end{align}
 
+\section{fitting distribution}
+% 关于X的分布函数可看作关于参数t的函数，对于已知数据向量（X），不同的t对应不同的概率，即找到使得已有数据向量（X）发生概率最大的参数
+maximum likelihood estimate(MLE), $\text{lik}(\theta) = f(x_1,...,x_n|\theta)$, under i.i.d, log like, $l(\theta) = \sum_{i=1}^n \log [f(X_i|\theta)]$, then $l'(\theta)=0$ find maximum $\theta$ is estimate.\\
+% 参数t也是变量，即用Bayes基于先验求后验f(t|X)
+The Bayesian Approach to Parameter Estimation, 
+\begin{align}
+	f_{\Theta| X}(\theta|x) &= \frac{f_{\Theta,X}(\theta,x)}{f_X(x)} \\
+		&= \frac{f_{X|\Theta}(x|\theta)f_\Theta(\theta)} {\int f_{X|\Theta}(x|\theta)f_\Theta(\theta) d\theta}
+\end{align}
+% mathematical convenient, need to be flat and 'uninformative'.
+conjugate priors, prior G for data H, posterior is G.\\
+% 两个参数t,k， fix一个，看作另一个的分布，在定了一个初值后，代入交替分布一定步数(e.g. 100)之后sample出的的pair(t_i, k_i)作为后验的参数分布
+Gibbs Sampling\\
+% 即Var(t^) 估计t^的方差，越小越有效
+Mean squared error; (asymptotic) relative efficiency.\\
+% lower bound of 估计，若等于称为(渐进)有效
+Thm, Cramer-Rao Inequality.\\
+% 基于表达式T的条件概率不依赖theta, 即获得了关于分布的所有知识
+def, sufficient, a statistic $T(X_1,...,X_n)$ is sufficient for $\theta$ if conditional distribution of $X_1,...,X_n$ given $T=t$ does not depend on $\theta$ for any value $t$.\\
+% 直观上，拆分成scale放大部分g和分布shape部分h，在给定t的条件概率即约束占比与不含x的scale无关
+Thm, A necessary and sufficient condition for sufficient $T$, is that joint pdf as form
+\begin{align}
+	f(x_1,...,x_n|\theta) = g[T(x_1,...,x_n),\theta] h(x_1,...,x_n)
+\end{align}
+% 显然，对theta 偏导只剩关于T
+corollay, MLE is a function of sufficient $T$.\\
+% 给定最佳划分下的期望估计比当前估计要严格更优，除非当前估计已经是T的函数，所以不是sufficient statistic T的函数的估计都可以improve
+Rao-Blackwell Theorem, sufficient T, $\tilde{\theta}=E[\widehat{\theta}|T]$, then for all $\theta$,
+\begin{align}
+	E(\tilde{\theta}-\theta)^2 \leq E(\widehat{\theta}-\theta)^2
+\end{align}
+equality only when $\tilde{\theta}=\widehat{\theta}$, which is function of T.
 \end{document}
