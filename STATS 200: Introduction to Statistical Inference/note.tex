@@ -146,5 +146,18 @@ Rao-Blackwell Theorem, sufficient T, $\tilde{\theta}=E[\widehat{\theta}|T]$, the
 \begin{align}
 	E(\tilde{\theta}-\theta)^2 \leq E(\widehat{\theta}-\theta)^2
 \end{align}
-equality only when $\tilde{\theta}=\widehat{\theta}$, which is function of T.
+equality only when $\tilde{\theta}=\widehat{\theta}$, which is function of T.\\
+% 对仅有的少量样本 重采样（即放回意义下，仅有的样本看作整个的分布，以此得到多份样本）常用来估计置信区间
+bootstrap, resample with replacement, interval estimation.
+
+\section{Testing Hypotheses and Assessing Goodness of Fit}
+% <=a, likelihood max power; 即以假乱真的概率<a范围内，似然估计的真作假概率最小
+% 不过难操作，零假设常常是开放的，（因为不是某个分布，的范围很大）
+Neyman-Pearson lemma.\\
+% cond 零假设, 观测的概率，即P（X|null），而不是cond观测下零假设发生的概率P(null|X)
+% note, 统计量X可以有不同种类，X的p-value大，可能Y的p-value小
+% 如null为fair coin, HTHTHTHTHT在X为number(H)时通过，但在Y为coin-alternate次数时fail.
+p-value.\\
+The Duality of Confidence Intervals and Hypothesis Tests
+
 \end{document}

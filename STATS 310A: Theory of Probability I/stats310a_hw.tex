@@ -1,0 +1,110 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+\usepackage{url}
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\def \cov {\text{Cov}}
+\def \var {\text{Var}}
+
+\title{Homeworks of STATS 310A}
+% https://web.stanford.edu/~montanar/TEACHING/Stat310A/hw.html
+\author{sogapalag}
+
+\date{\normalsize\today}
+
+\begin{document}
+
+\maketitle
+\begin{itemize}
+	\item[Ex1.1.4] 
+	\begin{itemize}
+		\item[(a)] note $B = A \cup (B\backslash A)$, which disjoint and $P(B\backslash A)\geq 0$, thus by additive $P(A)=P(B)-P(B\backslash A)\leq P(B)$.\qed
+		\item[(b)] let $B_1= A_1$, $B_i = A_i\backslash \bigcup_{k=1}^{i-1} A_k$, thus $B_i\subseteq A_i$ and disjoint
+		\begin{align}
+			P(\bigcup_i A_i)  = P(\bigcup_i B_i) =\sum_i P(B_i) \leq \sum_i P(A_i)
+		\end{align}
+		combine (a) proved.\qed
+		\item[(c)] let $B_1= A_1$, $B_n = A_n\backslash A_{n-1}$, which are disjoint, thus
+		\begin{align}
+			P(A) = P(\bigcup_i A_i) = P(\bigcup_i B_i) = \lim_{n\rightarrow\infty} \sum_{i=1}^n P(B_i) = \lim_{n\rightarrow \infty} P(A_n)
+		\end{align}\qed
+		\item[(d)] consider $A_i^c$ and recall DeMorgan's law, combine (c), that $P(A_i^c)\uparrow P(A^c)$, thus
+		\begin{align}
+			P(A) = 1-P(A^c) = 1 - \lim_{n\rightarrow \infty} P(A_i^c) = \lim_{n\rightarrow \infty} (1 - P(A_i^c)) = \lim_{n\rightarrow \infty}  P(A_i)
+		\end{align}\qed
+	\end{itemize}
+	\item[Ex1.1.13]
+	\begin{itemize}
+		\item[(a)] let $F = \bigcap_\alpha F_\alpha$, since $\emptyset\in F_{\alpha}, \forall \alpha$, that $\emptyset\in F$; if $A\in F$, implies $\forall \alpha,  A\in F_\alpha$, thus $A^c\in F_\alpha, \forall \alpha$, i.e. $A^c\in F$; for some countable $i=1,2,...$, $A_i\in F$, let $A=\bigcup_i A_i$, since $\forall i,\alpha, A_i\in F_\alpha$, implies $\forall \alpha, A\in F_\alpha$, i.e. $A\in F$.\qed
+		\item[(b)] $\emptyset\in \mathcal{H}^H$ is trivial; if $A\in \mathcal{H}^H$, implies $A\cap H\in \mathcal{H}$, note $H\in \mathcal{H}$, thus
+		\begin{align}
+			A^c \cap H &= (A^c \cap H) \cup (H^c \cap H) \\
+				&= (A^c \cup H^c) \cap  H \\
+				&= (A\cap H)^c \cap H
+		\end{align}
+		by closed under intersection, i.e. $A^c\cap H\in \mathcal{H}$, that $A^c\in \mathcal{H}^H$; similarily
+		\begin{align}
+			(\bigcup_i A_i)\cap H &= ((\bigcup_i A_i)\cup H^c) \cap H\\
+				&= (\bigcup_i(A_i\cup H^c)) \cap H\\
+				&= \bigcup_i ((A_i\cap H)^c \cap H)
+		\end{align}
+		by closed under union, that $\bigcup_i A_i \in \mathcal{H}^H$.\qed
+		\item[(c)] let $H_1\subseteq H_2$, then
+		\begin{align}
+			A\cap H_1 &= A\cap (H_1 \cap H_2)\\
+				&= (A\cap H_2) \cap H_1
+		\end{align}
+		i.e. $A\in \mathcal{H}^{H_2}$ will imply $A\in \mathcal{H}^{H_1}$, so non-increasing. Thus $\mathcal{H}^{H\cup H'} \subseteq \mathcal{H}^H \cap \mathcal{H}^{H'}$, and if $A\in \mathcal{H}^H \cap \mathcal{H}^{H'}$, that
+		\begin{align}
+			A \cap (H\cup H') = (A\cap H) \cup (A\cap H')
+		\end{align}
+		implies $A\in \mathcal{H}^{H\cup H'}$, proved equality.\qed
+	\end{itemize}
+	\item[Ex1.1.21] denote second $B_{\times d}$, third $F$. $F\subset B_{\times d}$ and $F\subset B_{\mathbb{R}^d}$ is trivial. to show $F\supset B_{\mathbb{R}^d}$, note every open $G$ on $\mathbb{R}^d$, there $\exists x\in G$, and $\exists$ open $(.)\times\dots \times(.), \in Q$, which contain $x$, thus exists a countable union to $G$, since $d$ is finite still countable, thus $F= B_{\mathbb{R}^d}$. to show $F\supset B_{\times d}$, recall Ex1.1.17, and def of Ex1.1.20, that
+	\begin{align}
+		\sigma(\{A_1\times\dots \times A_d: A_i\in B\}) = \sigma(\{ (.)\times\dots \times A_d: (.)\in R, A_i\in B\})
+	\end{align}
+	continue $d$ steps, that $F= B_{\times d}$.\qed
+\end{itemize}
+
+\end{document}
