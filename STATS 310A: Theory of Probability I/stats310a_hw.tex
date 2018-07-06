@@ -58,13 +58,13 @@
 \begin{itemize}
 	\item[Ex1.1.4] 
 	\begin{itemize}
-		\item[(a)] note $B = A \cup (B\backslash A)$, which disjoint and $P(B\backslash A)\geq 0$, thus by additive $P(A)=P(B)-P(B\backslash A)\leq P(B)$.\qed
-		\item[(b)] let $B_1= A_1$, $B_i = A_i\backslash \bigcup_{k=1}^{i-1} A_k$, thus $B_i\subseteq A_i$ and disjoint
+		\item[(a)] note $B = A \cup (B\setminus A)$, which disjoint and $P(B\setminus A)\geq 0$, thus by additive $P(A)=P(B)-P(B\setminus A)\leq P(B)$.\qed
+		\item[(b)] let $B_1= A_1$, $B_i = A_i\setminus \bigcup_{k=1}^{i-1} A_k$, thus $B_i\subseteq A_i$ and disjoint
 		\begin{align}
 			P(\bigcup_i A_i)  = P(\bigcup_i B_i) =\sum_i P(B_i) \leq \sum_i P(A_i)
 		\end{align}
 		combine (a) proved.\qed
-		\item[(c)] let $B_1= A_1$, $B_n = A_n\backslash A_{n-1}$, which are disjoint, thus
+		\item[(c)] let $B_1= A_1$, $B_n = A_n\setminus A_{n-1}$, which are disjoint, thus
 		\begin{align}
 			P(A) = P(\bigcup_i A_i) = P(\bigcup_i B_i) = \lim_{n\rightarrow\infty} \sum_{i=1}^n P(B_i) = \lim_{n\rightarrow \infty} P(A_n)
 		\end{align}\qed
@@ -105,6 +105,46 @@
 		\sigma(\{A_1\times\dots \times A_d: A_i\in B\}) = \sigma(\{ (.)\times\dots \times A_d: (.)\in R, A_i\in B\})
 	\end{align}
 	continue $d$ steps, that $F= B_{\times d}$.\qed
+	\item[Ex1.1.22] denote $C$ the class of this property, if $A\in C$, i.e. $A\in \sigma(\{A_{\alpha_1},A_{\alpha_2},...\})$, which implies $\emptyset, A^c, \bigcup_i A_i$ in that algebra too, thus $\emptyset, A^c, \bigcup_i A_i$ in $C$, that $C$ is a $\sigma$-algebra. Note $\forall \alpha, A_\alpha\in C$, thus $F\subset C$, so $B\in C$.\qed
+	% 直觉上，一个无限齿的齿轮，合势将大于1
+	\item[Ex1.1.24] if $P(A)=1$, then $\mathbb{R}$ is the open set. if $P(A)<1$, there are infinite disjoint open on $A^c$, so exists $N\epsilon>1$, which implies there is a open $H$ with $P(H)<\epsilon$, thus $H\cup A$ is the open set.\qed
+	\item[Ex1.1.27] for each $A\in \mathcal{B}_{(0,1]}$, there exitst contains a $c_i\in \mathbb{Q}$ in each sub interval of $A$, thus countable, which split into two nonempty unions $\bigcup_i(a_i,c_i]$ and $\bigcup_i (c_i,b_i]$, by Lebesgue measure, $0<U<U(A)$, so it's a non-atomic probability space. Since $U$ is restriction of $\lambda$, surely non-atomic measure.\qed
+	\item[Ex1.1.33] $\mathcal{A}=\{\{1,3\},\{2,3\}\}$, which is sufficient to generate $2^\Omega$, then define $u(w_i)=1/4$, $v(\{1\})=v(\{2\})=1/3$, $v(\{3\})=v(\{4\})=1/6$.
+	% Banach-Tarski paradox in one dimension
+	\item[A1] $\Rightarrow$, let $f|_{A_i} = A_i - t_i$, clearly it's an equidecomposition $A\rightarrow B$, note $\forall i$, $f|_{A_i}$ is a bijective, and note that $\{A_i\}$ and $\{B_i\}$ are partition, so $A_i$ won't inject to $B_{j\neq i}$, i.e. $f$ is bijective.\\
+	$\Leftarrow$, sufficient to show $\{B_i\}$ is countable partition. if $\exists y \in B_i \cap B_j,i\neq j$, that $f(x_i)=y=f(x_j)$ violate to injective, so $\{B_i\}$ is partition; since $\{A_i\}$ is countable, by bijective
+	\begin{align}
+		B = f(A) = f(\bigcup_i A_i) = \bigcup_i f(A_i) = \bigcup_i B_i
+	\end{align}\qed
+	 \item[A2] by definition of hint, note $A$ with partition $\{A_i\}$, $B$ with partition $\{B_i\}$, note $(A^{(0)}\subset A^{(*)})\subset A$, that 
+	 \begin{align}
+	 	A &= A^{(*)} \cup (A\setminus A^{(*)})\\
+	 		&= (A\cap A^{(*)}) \cup ((A\setminus A^{(0)}) \cap (A\setminus A^{(*)}))\\
+	 		&= (\bigcup_i A_i \cap A^{(*)}) \cup (g(B)\cap (A\setminus A^{(*)}))\\
+	 		&= (\bigcup_i(A_i\cap A^{(*)})) \cup (\bigcup_i(g(B_i) \cap (A\setminus A^{(*)})))
+	 \end{align}
+	 which is countable, clearly disjoint. that $h$ is an equidecomposition. and $h^{-1}$ can be defined as
+	 \begin{align}
+	 	h^{-1} = \begin{cases} f^{-1}(y), &\mbox{if $ g(y)\in A^{(*)}$}\\ g(y), &\mbox{otherwise} \end{cases}
+	 \end{align}
+	 clearly it's well defined, since $h$ is well defined, and we see that if $x\in A^{(*)}$, $g(f(x)) = (g\circ f)(x) \in A^{(*)}$, which $h^{-1}$ should apply $f^{-1}$ corresponding, indeed is inverse, thus $h$ is bijective.\qed
+	 \item[B1] define a collections of equivalent class, with $x-y\in \mathbb{Q}$, say $x,y\in E$, by mod$1/2$, clearly $E\cap [0,1/2]\neq \emptyset$, by choice axiom, $x_E\in E\cap [0,1/2]$ (by mod$1/2$ operation), hence
+	 \begin{align}
+	 	\mathbb{R} = \bigcup_{E} E = \bigcup_{x_E\in E\cap [0,1/2]} E = \bigcup_{x\in C}(x+\mathbb{Q})
+	 \end{align}\qed
+	 \item[B2] note $\mathbb{Q}$ is countable, thus
+	 \begin{align}
+	 	&\mathbb{Q} = \bigcup_i \{p_i\} \\
+	 	&\mathbb{Q}\cap [0,1/2] = \bigcup_i \{q_i\}
+	 \end{align}
+	 let $t_i = p_i-q_i$, proved the equidecomposable.\qed
+	 \item[B3] by B1, note there are countable partitions:
+	 \begin{align}
+	 	&\mathbb{R}  =  \bigcup_i (p_i + C)\\
+	 	&A = \bigcup_i(q_i+C)
+	 \end{align}
+	 surjective is obvious, if not disjoint, there $c_1,c_2\in E$ conflict to partition of B1, so it's indeed partition. and by B2, still $t_i=p_i-q_i$, proved the equidecomposable.\qed
+	 \item[B4] clearly $[0,1]$ is equidecomposable to $[0,1]$ with letting $t=0$. since $[0,1]\subset \mathbb{R}$ and $A\subset [0,1]$, recall B3 and A2, that $[0,1]$ is equidecomposable to $\mathbb{R}$.\qed
 \end{itemize}
 
 \end{document}
