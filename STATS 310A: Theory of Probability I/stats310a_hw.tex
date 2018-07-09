@@ -145,6 +145,15 @@
 	 \end{align}
 	 surjective is obvious, if not disjoint, there $c_1,c_2\in E$ conflict to partition of B1, so it's indeed partition. and by B2, still $t_i=p_i-q_i$, proved the equidecomposable.\qed
 	 \item[B4] clearly $[0,1]$ is equidecomposable to $[0,1]$ with letting $t=0$. since $[0,1]\subset \mathbb{R}$ and $A\subset [0,1]$, recall B3 and A2, that $[0,1]$ is equidecomposable to $\mathbb{R}$.\qed
+	 \item[Ex1.1.45] let 
+	 \begin{align}
+	 	&V_1(n) = \{1,2,...,\lceil n \rceil/2\}\\
+	 	&V_2(n) = \begin{cases} \{1,2,...,\lceil n \rceil/2\}, &\mbox{if $n$ even}\\
+	 		\{1,3,5,...,n\}, &\mbox{otherwise}\end{cases}
+	 \end{align}
+	 thus $\gamma(V_1)$ and $\gamma(V_2)$ with limits $1/2$, but $\gamma(V_1\cap V_2)$ without limits($1/2,1/4$) hence CES is not algebra.\qed
+	 \item[Ex1.1.47] for finite $A_i$, $\sup i<\infty$, so hold algebra is trivial; but $\sigma$-algebra require countable infinite union closing, which $\sup i$ may $\infty$. e.g. consider Borel class $\mathcal{B}_{(0,1]}\subset\mathcal{B}_{(0,2]}\subset...\subset\mathcal{B}_{(0,n]}\subset...$, let $A_i=(i-1, i-0.5)$, then $\bigcup_{i=1}^\infty A_i\notin \mathcal{B}_{(0,n]},\forall n$ thus $\bigcup_{i=1}^\infty A_i\notin \bigcup_{n=1}^\infty \mathcal{B}_{(0,n]}$.
+	 \item[Ex2.1.11] all generating operation under bijective $X^{-1}$ remains, i.e. $\sigma(X^{-1}(\mathcal{A}))\ni O_l X^{-1} (A_l) =W= X^{-1}(O_l (A_l))\in X^{-1}(\sigma(\mathcal{A}))$.\qed
 \end{itemize}
 
 \end{document}
