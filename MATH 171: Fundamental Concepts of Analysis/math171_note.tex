@@ -85,6 +85,7 @@ def, open, all points have open ball.\\
 Thm, open $X$ iff closed $X^c$.\\
 def, compact, every open cover has a finite subcover.\\
 Thm, metric space, compact iff $\forall$ sequence, has convergent subsequence.\\
+% no 'missing' point
 def, complete, every cauchy converge in.\\
 Thm, every metric space has a completion.\\
 totally bounded\\
@@ -96,6 +97,37 @@ def, nowhere dense, $(X^-)^\circ=\emptyset$. note $Y^{\circ}=Y^{c-c}$, so equiv,
 def, of first category, countable union of nowhere dense sets.\\
 def, of second category, not first category.\\
 Baire Category Theorem: if nonempty complete metric space, second category.\\
+% 可以被countable open 总长任意epsilon覆盖
+measure zero. countable union of measure zero is measure zero.\\
+almost everywhere, fails only measure zero.\\
+Thm, bounded $f$ on $[a,b] $F-intergrable, iff $f$ continuous on $[a,b]$ almost everywhere.\\
+% f在phi_n正交基下的表示 sum <f,phi_n>phi_n
+Fourier series\\
+Bessel's Inequality\\
+def, Complete orthonormal set, $\forall x$, $x= \sum_{i=1}^\infty\langle x,x_n\rangle x_n$.\\
+% <f,p_n> -> 0
+Riemann-Lebesgue Lemma, $f\in\mathcal{R}[a,a+2\pi]$:
+\begin{align}
+	\lim_{n\rightarrow \infty} \int_a^{a+2\pi}f(t)\sin {nt} dt=0=\lim_{n\rightarrow \infty} \int_a^{a+2\pi}f(t)\cos {nt} dt
+\end{align} 
+Dirichlet kernel\\
+Riemann Localization Theorem\\
+differentiable at $x$, $\Rightarrow$ Lipschitz condition at $x$, $\Rightarrow$ Fourier series converges at $x$.\\
+% （Riemann 可积 L2 norm）, 三角展开完备
+Thm, The trigonometric set is complete in $\mathcal{R}[a,a+2\pi]$.\\
+
+\section{Lebesgue Integral}
+% almost everywhere (a.e.)
+% 扩展Riemann积分
+extended $\overline{\mathbb{R}} = \mathbb{R}\cup \{\infty,-\infty\}$\\
+$\sigma$-algebra.\\
+def, measurable, $f^{-1}(V)\in \mathcal{M}, \forall \text{open} V\in[-\infty,\infty]$.\\
+% sup int s_n du, 0<=s_n<=f
+simple function.\\
+Lebesgue's Dominated Convergence Theorem\\
+Thm, $\mathcal{L}^2(X,\mathcal{M},\mu)$ is Hilbert space.\\
+Thm, The trigonometric set is complete in $\mathcal{L}^2[a,a+2\pi]$.\\
+
 
 
 \end{document}
