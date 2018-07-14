@@ -233,6 +233,16 @@
 			&\leq (2p)^k
 	\end{align}
 	since $\sum c^k$ with $c<1$ converges, hence $\sum P(A_k)<\infty$, implies $P(A_k\text{i.o.})=0$.\qed
+	\item[Ex2.3.13] let $Y_n = \log |X_n| = Y_{n-1}+ \log U_n$, then 
+	\begin{align}
+		Y_n &= (Y_n-Y_{n-1})+ \dots + (Y_2-Y_1) +Y_1 \\
+			&= \sum_{i=1}^n \log U_i
+	\end{align}
+	since $U_i$ are i.i.d, and 
+	\begin{align}
+		E[\log U_1] = \int_0^{2\pi}\frac{d\theta}{\pi} \int_0^1 r\log r dr=-\frac{1}{2}
+	\end{align}
+	by strong law of large number, $n^{-1}Y_n \stackrel{a.s.}{\rightarrow} -\frac{1}{2}$.\qed
 \end{itemize}
 
 \end{document}

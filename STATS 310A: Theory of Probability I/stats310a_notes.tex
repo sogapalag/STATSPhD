@@ -150,6 +150,7 @@ general, index countable $i$ or uncountable $\gamma$, $\sigma(X_\gamma, \gamma\i
 %  (X_n -> X)Lq趋近， (X_n -> Y)p趋近  =>  X->Y (a.s.)
 %  (X_n -> X) a.s.  =>  (X_n -> X) p趋近
 % Weak law of large numbers: i.i.d.; xP(X>x)->0, as x->infty; 则算术平均 n^{-1}S_n -> u_n , p趋近, u_n=E[X I_{|X|leq n}]
+% Strong law of large numbers: p-i.i.d, E[X_-,+]其一有限，则 n^{-1}S_n -> EX_1, (a.s.) 即只要两两独立的同变量，EX_-or+ 有一个有限， 就有(a.s.)-> EX_1就是well defined.(无穷也可以) 
 % 1.3.17
 % Holder's inequality,p,q>1, 1/p+1/q=1, 则  E[|XY|]\leq |X|_p|X|_q
 % Minkowski's inequality, 即在Lp空间三角不等式，|X+Y|_p \leq |X|_p+|Y|_p
@@ -168,6 +169,12 @@ general, index countable $i$ or uncountable $\gamma$, $\sigma(X_\gamma, \gamma\i
 % lemma, Borel-Cantelli II，{A_n}互独，\sum^infty P(A_n)=infty 则 P(A_n i.o.)=1
 % 结合 B-C I，II，若互独A_n, 要么 几乎所有结果 都是 无限出现或有限出现
 % Thm, X_n ->^{p} X,  <=>  X_n的每个子序列X_{n(m)}，都存在子序列X_{n(m(k))} ->^{a.s.} X.
-
+% prop, {X_i} geq 0, identical, pairwise-indep; then n^{-1}S_n ->^{a.s.} EX_1.
+% Glivenko-Cantelli, i.i.d., sup |F_n-F|->0 (a.s.)
+% 2.3.15 Kolmogorov’s maximal inequality. 比Chebyshev's更强
+% 3.1.2 (Central Limit Theorem) i.i.d;    .optinal, m-i. Lindeberg's CLT
+% Kolmogorov’s three series theorem; 随机级数的收敛(a.s.) iff
 % Characteristic functions, Phi_X(t) = E[e^{itX}]
+% 3.3.12
+% Lévy’s inversion theorem. 从特征函数Phi恢复分布函数F, 若在R上积分有限，还可直接计算f; f<-> Phi, duality. recall (Laplace's transform)
 \end{document}
