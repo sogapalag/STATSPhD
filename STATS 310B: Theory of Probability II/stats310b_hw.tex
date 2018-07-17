@@ -81,6 +81,7 @@
 		i.e. $Z_{2n+1}\stackrel{\mathcal{D}}{=} (|S_{2n+1}|-1)/2$.\qed
 	\end{itemize}
 	% 5.3.24 Pólya’s urn, r,b,c_k 每一步加上额外同颜色
+	% Bernard Friedman’s urn; M_n ->1/2 (a.s.)
 	\item[5.3.26]
 	\begin{itemize}
 		\item[(a)] by Doob's $L_p$ martingale convergence.\qed
@@ -103,5 +104,14 @@
 		\item[(c)] by Doob's maximal inequality, and $M_{\infty}$ is uniform which $E[M_{\infty}]=1/2$.\qed
 	\end{itemize}
 	\item[5.3.28] since $E[X_{n+1}|.]= (1-b_n)X_n + b_nE[B_n|.]= X_n$, is MG, and obviously bounded integrable, thus $X_n\stackrel{a.s.}{\rightarrow} X_{\infty}$. and by Levy's 0-1 law, $E[X_n|F_n]\stackrel{a.s.}{\rightarrow} E[X_\infty|F_\infty]$. and note only $P(0|0)=P(1|1)=1$, thus $X_{\infty}\in \{0,1\}$. and $E[X_\infty]=E[..E[X_{n+1}|.]..] = E[X_0]=X_0$, implies $P(X_\infty=1|F_0)=X_0$.\qed
+	% Gambler’s Ruin;SRW, set lambda使得product MG, 然后用optional
+	% (n+1)^{-1} R_n ->1/2 (a.s.) 覆盖非负长5.4.9 s-SRW
+	% Wald’s identity；RW E[S_tau] = E[epsi1]E[tau]；即期望距离=期望单步长X期望步数
+	% 5.4.12, Ruin, -a -> -infty的情况：tau<infty抵达b的概率P；Z=1+maxS 为geom-分布.
+	\item[5.4.14]
+	\begin{itemize}
+		\item[(a)] since each gambler is MG with $E_0=0$, obvious total earn $M_n$ is MG with $M_0=0$ too.
+		\item[(b)] by Doob's optional, note when there are $\hat{\tau}-1$ gamblers losed, hence $E[(a-1) - (\hat{\tau}-1)]=0$, implies $E[\hat{\tau}]=a=26^{11}$. For latter case, bisides, number $n-3$ and $n$ gambler also wins since which is sub-prefix-string, thus by Doob's optional, $E[(a-1)+ (26^4-1)+(26-1) - (\tau-3)]=0$, that $E[\tau]=26^{11}+26^4+26$.\qed
+	\end{itemize}
 \end{itemize}
 \end{document}
