@@ -129,5 +129,39 @@
 	% another proof by reflection, start with A,B are ono-to-one, and start with B prob is q/(p+q), thus 1- 2q/(p+q)=1-2r/n=(p-q)/(p+q)
 	% 以抵达b，和以抵达0的曲线正好是旋转180度一一对应；而R>n即未抵达0正好意味着ballot problem.
 	\item[5.5.31] left equality, bijective rotation; right equality, treat as ballot, $b=p-q$ is total more votes.\qed
+	% Practice Midterm
+	\item[P1]
+	\begin{itemize}
+		\item[(a)] i.i.d. means exchangable, and $S_n$ is exchangable function for $i\in\{1,...,n\}$, hence $E[X_i|S_n] = E[X_1|S_n]$.\qed
+		\item[(b)] note 
+		\begin{align}
+			1 = E[S_n|S_n] = E[\sum X_i|S_n] = \sum E[X_i|S_n] = n E[X_1|S_n]
+		\end{align}
+		that $E[X_1|S_n]=1/n$.
+		\item[(c)] intuition, knowing $S_n,S_{n+1},...$ just get the value of $X_{n+1},...$; that $X_1,...,X_n$ still unknown, so $E[X_1|\sigma(S_l:l\geq n)=1/n$. Formally, $\sigma(S_l)\subset \mathcal{E}_{l+1}$, thus $\sigma(S_l:l\geq n) \subset \mathcal{E} = \bigcup_{l>n} \mathcal{E}_l$ which $1,...,n$ are exchangable, so by de Finetti's theorem proved the conclusion.\qed
+	\end{itemize}
+	\item[P2] the cf-form is indeed mean $X$ and variance $1$ normal. that $Y=X+Z$, where $Z$ is standard normal indep to $X$. hence $(X,Y)=(X,X+Z)$ is Gaussian vector. thus pdf $g(x,y)= f(x)f(y-x)$, where $f$ is pdf of standard normal.
+	\item[P3]
+	\begin{itemize}
+		\item[(a)]
+		\begin{align}
+			P(\tau\geq km) &= \prod_{l=0}^{k-1}P(\tau\geq lm+m  |\mathcal{F}_{lm})\\
+				&\leq \prod_{l=0}^{k-1} (1-\epsilon)\\
+				&= (1-\epsilon)^k
+		\end{align}
+		\item[(b)]
+		\begin{align}
+			E[\tau] &= \sum_{t=1}^\infty P(\tau \geq t)\\
+				&= \sum_{i=0}^{\infty} \sum_{j=im+1}^{im+m} P(\tau\geq j)\\
+				&\leq \sum_{i=0}^{\infty} mP(\tau\geq im)\\
+				&\leq m \sum_{i=0}^{\infty} (1-\epsilon)^i \\
+				&= m/\epsilon < \infty
+		\end{align}\qed
+	\end{itemize}
+	\item[P4]
+	\begin{itemize}
+		\item[(a)] $E[\tau]<\infty$, means that $\tau$ is a.s. finite, so $|X_\tau|\leq \tau$ is bounded, surely integrable. and by Doob's optional, $E[X_\tau]=E[X_0] = 0$.\qed
+		\item[(b)] by (a), if $E[\tau]<\infty$, that $E[X_\tau]\geq a >0$, contradiction.\qed
+	\end{itemize}
 \end{itemize}
 \end{document}
