@@ -105,7 +105,7 @@ Levy's 0-1 law\\
 Doob's Lp martingale convergence\\
 % 5.3.33; a.e. omega, S/Z ->1 
 Borel-Cantelli III\\
-% 定理的常用推论，即对于MG，任意停时， E[X_tau]=E[X_0]
+% 半鞅停时；定理的常用推论，即对于MG，任意停时， E[X_tau]=E[X_0]
 Doob's optional stopping\\
 % 即random tree, 第n代 由 第(n-1)代随机生成枝(i.i.d); sub,,sup -critical, (m_N=EN <,=,>1)
 Branching process\\
@@ -113,4 +113,17 @@ Branching process\\
 % 即以概率1繁殖到无穷或灭绝；直觉上有限Z无法以1概率维持，然后由Levy's 0-1 law可得。
 % Lemma 5.5.4, {m^{-n}Z_n} is MG, {rho^{Z_n}} is MG for rho, s=L(s).
 % prop 5.5.5, p_ex =1 for m<=1; p_ex =rho for m>1
+% product MG 的一些等价性质
+Kakutani's Theorem\\
+% 5.5.17; -infty~0;
+Reversed martingales(RMG)\\
+% RMG iff X_n=E[X_0|F_n] forall n<=0.(很自然，从左往右看是MG，所以在给定F_n信息，X_0条件期望为X_n) Further E[X_0|F_n]-> E[X_0|F_{-infty}] (a.s.;L1) (由RMG本身蕴涵的右趋近存在，由->的对称关系，和upward thm可知)
+Levy's downward theorem\\
+% 5.5.22, 强大数定律的RMG证明；trick，RMG，tail Kolm's.
+% 可交换sigma域 of sequence of i.i.d. rvs 是P-trivial的
+% 直觉上，由于iid蕴涵 可交换，对于有限的F_n，这些信息都可以置换到无穷远处，即其中任意事件A与F_n独立，由lemma1.4.8 A是P-trivial的
+Hewitt-Savage 0-1 law\\
+% Remark. 另一个强大数定律的证明，F_n\subset E_{n+1} （类似STATS116中circle的例子，n个变量，引入一个额外维度（origin）随机，于是并不影响原分布，且n+1个变量可交换 ），由此F_-infty\subset E，是P-trivial的
+% 可交换 conditional on E, 变量是 i.i.d的；直觉上，由于是可交换sigma域，给定其中某事件A，变量之间是可交换（完全混同），故i.i.d
+de Finetti's theorem
 \end{document}

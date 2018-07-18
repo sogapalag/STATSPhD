@@ -113,5 +113,21 @@
 		\item[(a)] since each gambler is MG with $E_0=0$, obvious total earn $M_n$ is MG with $M_0=0$ too.
 		\item[(b)] by Doob's optional, note when there are $\hat{\tau}-1$ gamblers losed, hence $E[(a-1) - (\hat{\tau}-1)]=0$, implies $E[\hat{\tau}]=a=26^{11}$. For latter case, bisides, number $n-3$ and $n$ gambler also wins since which is sub-prefix-string, thus by Doob's optional, $E[(a-1)+ (26^4-1)+(26-1) - (\tau-3)]=0$, that $E[\tau]=26^{11}+26^4+26$.\qed
 	\end{itemize}
+	% sample variance
+	\item[5.5.29]
+	\begin{itemize}
+		\item[(a)] by exchangable, given $\mathcal{F}_{-n}^W$, $E[h|.]=\frac{1}{m(m-1)}.= W_n$, thus RMG; and by Levy's downward thm, $E[W_{-\infty}]=E[E[h|\mathcal{F}_{-\infty}^W]]=E[h]$, since i.i.d, where
+		\begin{align}
+			E[h] &= E[\frac{(x-y)^2}{2}]\\
+				&= E[t^2-(E[t])^2]\\
+				&= \var(\xi)= \sigma^2
+		\end{align}
+		and recall Hewitt-Savage 0-1 law, thus $W_{-n}\stackrel{a.s.}{\rightarrow} \sigma^2$.\qed
+		\item[(b)] check formal solution (however, since $W_n$ converge, easily get $E[W_{-n}^2]\rightarrow E[W_{-\infty}]^2=(E[h])^2$)
+	\end{itemize}
+	% 5.5.30 The ballot problem, check solution.
+	% another proof by reflection, start with A,B are ono-to-one, and start with B prob is q/(p+q), thus 1- 2q/(p+q)=1-2r/n=(p-q)/(p+q)
+	% 以抵达b，和以抵达0的曲线正好是旋转180度一一对应；而R>n即未抵达0正好意味着ballot problem.
+	\item[5.5.31] left equality, bijective rotation; right equality, treat as ballot, $b=p-q$ is total more votes.\qed
 \end{itemize}
 \end{document}
