@@ -125,5 +125,18 @@ Levy's downward theorem\\
 Hewitt-Savage 0-1 law\\
 % Remark. 另一个强大数定律的证明，F_n\subset E_{n+1} （类似STATS116中circle的例子，n个变量，引入一个额外维度（origin）随机，于是并不影响原分布，且n+1个变量可交换 ），由此F_-infty\subset E，是P-trivial的
 % 可交换 conditional on E, 变量是 i.i.d的；直觉上，由于是可交换sigma域，给定其中某事件A，变量之间是可交换（完全混同），故i.i.d
-de Finetti's theorem
+de Finetti's theorem\\
+% P(X_{n+1}\in A|F_n) = P(X_{n+1}\in A|X_n) a.s. ; F_n =s(X k<=n), also Markov chain
+$\mathcal{F}_n$-Markov chain\\
+% 可用转移概率 p_n(X_n,A)描述 ,(a.s.)
+homogeneous\\
+% 对于任意停时成立
+Strong Markov property\\
+% x到y, 在k一定经过z，累加所有
+Chapman-Kolmogorov\\
+% Proposition 6.2.10:  P_x(T_y^k<infty) = rho_{xy} rho_{yy}^{k-1}； 即能够有限步内k次抵达的概率 = （有限步内单次）抵达概率 X 重返概率^{k-1}。于是期望抵达次数  E_x[N_infty(y)]= rho_{xy}/(1-rho_{yy})
+% Corollary 6.2.12: recurrent 一些等价描述
+% 即coutable state可分解为T（transient）部分和一系列disjoint的R_i（recurrent）部分；直觉上就是
+Decomposition theorem\\
+invariant measure\\
 \end{document}

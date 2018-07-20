@@ -1,0 +1,77 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+\usepackage{url}
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\def \cov {\text{Cov}}
+\def \var {\text{Var}}
+
+\title{Solutions}
+% Heard on the Street Quantitative Questions from Wall Street Job Interviews
+\author{sogapalag}
+
+\date{\normalsize\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+	\item[1.1] after first pouring in, alcohol jug is $V/(V+Q)$, which remains after second pouring out, thus water jug is $Q/(V+Q)$ since sum of total concentration of same-Vol is $1$.
+	\item[1.3] intuition there are $2*12$ states, which entopy $\log_3 (2*12)\leq 3$, so $3$ times is sufficient. note basic principles: (a) for unknown $N=s+r$ and $k$ times, which $s$ on scale, $r$ remain, and $s,2r \leq 3^{k-1}$; (b) for knowing great or less(i.e. each marble has only one-side unusual possibility, called OUP), next scale $g,l$ of two sides should be close. First is a necessary condition, second is a natural condition. follow which, easily get first scale must be $s=4+4,r=4$; if $=_1$, then $r_2=1$, $s_2=3$ add another known usual marble on scale, wlog if $>_1$, then scale $1_< + 2_>$ on each side; after which, remain $\leq 3$ OUP, then choose two with same-side UP on scale is done, or remain $1$ unknown, scale with usual is done.\qed\\
+	One might from $2N\leq 3^k$ guess all $N\leq \frac{3^k-1}{2}$ can be distinguish with $k$ times scale, then $13\leq \frac{3^3-1}{2}=13$ work well too, however which does not, since $s=9$ is odd, can't scale. So our beginning intuition is a necessary but not suffcient condition.\\
+	Consider general case, let $N_k = (3^k-1)/2$, note $r\leq N_{k-1}$, thus $N_k-r\geq 3^{k-1}$ which is maximal states that $k-1$ steps can distinguish and is odd, so $N_k$ won't work. Actually we will show $N_k^* = N_k-1 = 3N_{k-1}$ works. The subtle difference between $(N_k,k)$ and $(N_{k-1},k-1)$ is latter with known usual marbles. we use notation $S_k$ solvable in $k$ times scale.\\
+	(1) $N=a_<+b_>\leq 2N_k+1=3^k$ OUP is in $S_k$, $\forall k>0$.\\
+	note $a_<,b_>$ one of which is even, wlog let $a_<$ be even, then index $a_<,b_>$ to $\mathbb{N}^+$, choose odd on left, even on right, until reach $\min\{3^{k-1}, \lfloor N/2\rfloor\} =c=s/2$, which has same $<,>$ on two sides, so after one scale then $c,r=N-s \leq 3^{k-1}$ can recursively run, and $k=1$ is stated above.\\
+	(2) $N\leq N_k$ unknown, add another known usual marble is in $S_k$, $\forall k>0$.\\
+	let $s= \min\{2N_{k-1}+1, N\}$, since we has a usual marble, $s$ either even or odd, can scale. then $s\in S_{k-1}$ by (1), and $r=N-s\leq N_{k-1}$ can recursively run, and $k=1$, $N_1=1$ just scale with usual is done.\\
+	for $N_k^*$, $s=2N_{k-1}=2r$, after scale is in (1),(2).\qed
+	\item[1.4] $n=3$, $s=\sqrt{5}$. Consider general case, $2\leq n$-dim cube, from $\overrightarrow{0}=(0,...,0)$ to $\overrightarrow{1}=(1,...,1)$. wlog walk on surface $x_1=0$ then $x_n=1$, i.e. visit edge $\{x:x_1=0,x_n=1, 0\leq x_i\leq 1, 1<i<n\}$, a path is $\overrightarrow{0} \rightarrow (0,x_2,...,x_{n-1},1) \rightarrow \overrightarrow{1}$. length $s=\sqrt{1+ \sum_{i=2}^{n-1}x_i^2}+\sqrt{1+ \sum_{i=2}^{n-1}(1-x_i)^2}$. by partial $\frac{\partial}{\partial x_i}$, $x_i=1/2,1<i<n$ reach the minimum $s=2\sqrt{1+ (n-2)/2^2}=\sqrt{n+2}$. (note $s_2=2$ is correct, since surfaces of which is edges of square.)
+	\item[1.5] $10^3-8^3=488$.
+	\item[1.6] clearly $1/2$ since each children with probability $1/2$.(or consider $E$ or MG) 
+	\item[1.7] $\frac{2\pi}{12}\frac{1}{4}=\frac{\pi}{24}=7.5^\circ$.
+	\item[1.8] $x-15 = x/60 *5$, $x=16.3636$. another solution, except $0:00,12:00$, on top $10$ times, since clock hands constant speed, thus $3*12/11$ hours.
+	\item[1.9] $n = \prod_i p_i^{s_i}$, with distinct factors' number $\prod_i (1+s_i)$ is odd iff all $s_i$ are even, i.e. $n$ is square number. 
+	\item[1.10] by 1.9, there are $10$ square number $\leq 100$.
+\end{itemize}
+\end{document}
