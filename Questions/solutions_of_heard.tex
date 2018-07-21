@@ -58,6 +58,7 @@
 
 \begin{itemize}
 	\item[1.1] after first pouring in, alcohol jug is $V/(V+Q)$, which remains after second pouring out, thus water jug is $Q/(V+Q)$ since sum of total concentration of same-Vol is $1$.
+	\item[1.2] $n(n+1)/2$.
 	\item[1.3] intuition there are $2*12$ states, which entopy $\log_3 (2*12)\leq 3$, so $3$ times is sufficient. note basic principles: (a) for unknown $N=s+r$ and $k$ times, which $s$ on scale, $r$ remain, and $s,2r \leq 3^{k-1}$; (b) for knowing great or less(i.e. each marble has only one-side unusual possibility, called OUP), next scale $g,l$ of two sides should be close. First is a necessary condition, second is a natural condition. follow which, easily get first scale must be $s=4+4,r=4$; if $=_1$, then $r_2=1$, $s_2=3$ add another known usual marble on scale, wlog if $>_1$, then scale $1_< + 2_>$ on each side; after which, remain $\leq 3$ OUP, then choose two with same-side UP on scale is done, or remain $1$ unknown, scale with usual is done.\qed\\
 	One might from $2N\leq 3^k$ guess all $N\leq \frac{3^k-1}{2}$ can be distinguish with $k$ times scale, then $13\leq \frac{3^3-1}{2}=13$ work well too, however which does not, since $s=9$ is odd, can't scale. So our beginning intuition is a necessary but not suffcient condition.\\
 	Consider general case, let $N_k = (3^k-1)/2$, note $r\leq N_{k-1}$, thus $N_k-r\geq 3^{k-1}$ which is maximal states that $k-1$ steps can distinguish and is odd, so $N_k$ won't work. Actually we will show $N_k^* = N_k-1 = 3N_{k-1}$ works. The subtle difference between $(N_k,k)$ and $(N_{k-1},k-1)$ is latter with known usual marbles. we use notation $S_k$ solvable in $k$ times scale.\\
@@ -73,5 +74,45 @@
 	\item[1.8] $x-15 = x/60 *5$, $x=16.3636$. another solution, except $0:00,12:00$, on top $10$ times, since clock hands constant speed, thus $3*12/11$ hours.
 	\item[1.9] $n = \prod_i p_i^{s_i}$, with distinct factors' number $\prod_i (1+s_i)$ is odd iff all $s_i$ are even, i.e. $n$ is square number. 
 	\item[1.10] by 1.9, there are $10$ square number $\leq 100$.
+	%number of socks is misleading info.
+	\item[1.11] $3$.
+	\item[1.12] think backwards, remain $r=11$ is winning strategy, since for any $x\in\{1,...,10\}$, one can choose $y=r-x$; so every $n\equiv 0 \mod 11$ is a winning for B, every $n\neq 0 \mod 11$ is a winning for A, since A take $(n \mod 11)$ remain a winning for A.\qed
+	\item[1.13] last number can pass in one round, since correctness will immediately open. $40^2=1600$.
+	\item[1.14] recall 1.3.
+	\item[1.15] recall Liouville's theorem.
+	\item[1.16] $30-\log_2 8=27$.
+	\item[1.17] $\lceil\log_2 \frac{6000}{27}\rceil = 8$.
+	\item[1.18] use $1/16=0.25/4= 0.0625$, then $13/16= 0.75+0.0625 = 0.8125$, $9/16=0.5+0.0625=0.5625$.
+	\item[1.19] $5$. Consider general case, climb $n$ total, $0<a$ up every day, $0\leq b<a$ down every night. End day $0<r\leq a$, thus for $n>a$ required days $x= \lceil\frac{n-a}{a-b}\rceil +1$.
+	\item[1.20] turn on one long time then off, and turn on one of others, i.e. use the physical property. If only math way, into two groups, no $100\%$ way, but guess probability in that group with $2$ elements, is $50\%$.
+	\item[1.21] A's words, means at aleast one of B and C is blue; B's words means C is not red since he knows A's words. Thus C is blue.
+	\item[1.22] which implies $n+1$ is least common multiple of $\{2,...,10\}$, is $2520-1=2519$.
+	\item[1.23] $\frac{25}{20+30}*40 = 20$ miles.
+	\item[1.24] combine (1)(4), $E=5$, combine (1)(2),(3)(4), $A=5+F$, $I=5+D$. combine (2)(3), $B+C=G+H=15-D-F$. once $D,F\in\{1,2,3,4\}$ set, $4*3=12$ ways, then $B$ four choices, then $G$ two choices, total $12*4*2=96$ solutions.
+	\item[1.25] by Archimedes' principle, boat vol $V_b'<V_b$, since water vol $V_w$ remains, thus $V_b'+V_w < V_b+V_w$, i.e. level down. 
+	\item[1.26] check proofs of Heron's formula. %cot proof is interesting
+	\item[1.27] Solution 1: recall hat match problem, condition on first $i$ is $1$ or not, then for person $i$ condition on hold $1$ or not, then fail probability 
+	\begin{align}
+		&f_n = \frac{n-1}{n}(\frac{1}{n-1} f_{n-2}+ f_{n-1}), n> 2,f_1=0,f_2=1/2\\
+		\Rightarrow &f_n - f_{n-1} = -\frac{1}{n}(f_{n-1}-f_{n-2}), n>2\\
+		\Rightarrow & f_n= \sum_{i=0}^n \frac{(-1)^i}{i!} , n>0
+	\end{align}
+	$f_n\rightarrow e^{-1}$ as $n\rightarrow \infty$, thus probability of at aleast one match is $1-f_n \rightarrow 1-e^{-1}$.\\
+	Solution 2: denote $A_k$ event $k$th person match. thus at least one match is 
+	\begin{align}
+		P(\bigcup_{k=1}^n A_k) &= \sum_{r=1}^n (-1)^{r+1}\sum_{1\leq i_1<...<i_r\leq n} P(\bigcap_{l=1}^r A_{i_l})\\
+			&= \sum_{r=1}^n (-1)^{r+1} {n \choose r}  P(\bigcap_{l=1}^r A_{i_l})\\
+			&= \sum_{r=1}^n (-1)^{r+1} {n \choose r} \frac{1}{r! {n\choose r}}\\
+			&= \sum_{r=1}^n \frac{(-1)^{r+1}}{r!}\\
+			&= 1 - \sum_{i=0}^n \frac{(-1)^i}{i!}
+	\end{align}
+	Solution 3: since $n$ is large, each person match asympt-independent, thus no match $(1-1/n)^n\rightarrow e^{-1}$.
+	\item[1.28] there are some equiv problems, e.g. hat color, or eyes color, denote $P$ the set with that property, all information is public, except each $k$ doesn't know whether $k\in P$ or not, after accept a public information $|P|>0$. The answer is well known, after $|P|$ days, forall $k\in P$ will deduce they are in $P$.\\
+	Solution 1: induction, let $n=|P|$, that $n=1$, trivial holds, suppose $S_n$ holds, for $n+1$, after $n$ days, since each $k\in P$ knows $S_n$, and others didn't deduce that, so he find out $n\neq |P|=n+1$, hence $S_{n+1}$.\qed \\
+	one might confuse $n>1$, each $k\in P$ already knows information $|P|>0$, why need stranger to tell them. The intrinsic difference is latter is public information, e.g. for former, $n=2$, A doesn't sure B whether know $|P|>0$ or not; for general $n$, $A_1$ doesn't sure whether $A_2$ sure whether $A_3$ sure ... whether $A_n$ know $|P|>0$. Denote $C_n$ the information chain, $C_n=1$ for sure chain, one can use induction to show $C_n\neq 1$, for the persen saw $n-1$ in $P$, with them establish information chain. We will show the subtle logic after public information $|P|>0$.\\
+	% like inception, dream of dream of ...
+	Solution 2: wlog, consider one specific permutation, $\{1,...,n\}\in P$ and $|P|=n$, for $A_1$, he pretend to be $A_2$, say $A_{(2)}$, and pretend to be $A_3$ of eyes of $A_{(2)}$, say $A_{(3)}$,... thus he has $n$ thoughts $A_1,A_{(2)},...,A_{(n)}$; so for $A_1$, $P(A_1\notin P)>0$ result that $P(A_{(2)}\notin P)>0$,... result $P(A_{(n)}\notin P)>0$, i.e. IC $C_n\neq 1$. After public information $|P|>0$, for $A_{(n)}$, he sure $A_{(n)}\in P$; next day, $A_{(n-1)}$ find $A_{(n)}$ didn't deduce himself, deduce that $A_{(n-1)}\in P$;... after $n-1$ days, $A_1$ find $A_{(2)}$ didn't deduce himself, deduce that $A_1\in P$; so after $n$ days $A_1$ will tell.\qed
+	\item[1.29] recall Tower of Hanoi, $f_n = 2f_{n-1} +1$, $f_1=1$, thus $f_n=2^n-1$.
+	\item[1.30] recall damping ratio, and second-order ODE.
 \end{itemize}
 \end{document}
