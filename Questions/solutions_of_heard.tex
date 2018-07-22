@@ -114,5 +114,132 @@
 	Solution 2: wlog, consider one specific permutation, $\{1,...,n\}\in P$ and $|P|=n$, for $A_1$, he pretend to be $A_2$, say $A_{(2)}$, and pretend to be $A_3$ of eyes of $A_{(2)}$, say $A_{(3)}$,... thus he has $n$ thoughts $A_1,A_{(2)},...,A_{(n)}$; so for $A_1$, $P(A_1\notin P)>0$ result that $P(A_{(2)}\notin P)>0$,... result $P(A_{(n)}\notin P)>0$, i.e. IC $C_n\neq 1$. After public information $|P|>0$, for $A_{(n)}$, he sure $A_{(n)}\in P$; next day, $A_{(n-1)}$ find $A_{(n)}$ didn't deduce himself, deduce that $A_{(n-1)}\in P$;... after $n-1$ days, $A_1$ find $A_{(2)}$ didn't deduce himself, deduce that $A_1\in P$; so after $n$ days $A_1$ will tell.\qed
 	\item[1.29] recall Tower of Hanoi, $f_n = 2f_{n-1} +1$, $f_1=1$, thus $f_n=2^n-1$.
 	\item[1.30] recall damping ratio, and second-order ODE.
+	\item[1.31] note
+	\begin{align}
+		\var(S) &= \cov(aX+bY, aX+bY)\\
+			&= a^2\sigma_X^2 + b^2\sigma_Y^2  + 2ab\rho \sigma_X\sigma_Y
+	\end{align}
+	use Lagrange's method, or just use $b=1-a$; get $a^* = \frac{\sigma_Y^2-\rho \sigma_X\sigma_Y}{\sigma_X^2+\sigma_Y^2-2\rho\sigma_X\sigma_Y}$, when $rho=1$, $a^*= \frac{\sigma_Y}{\sigma_X+\sigma_Y}$, else, note $0\leq a\leq 1$, so constraint $a^*$ in that interval.
+	\item[1.32] note $\theta = \omega t$, $S=L\tan \theta$, so $\frac{dS}{dt}=\frac{\omega L}{\cos^2\theta}$.
+	\item[1.33] we will consider serveral general cases.
+	\begin{itemize}
+		\item[(1)] $n\times n$ matrix\\
+			Solution 1: compute
+			\begin{align}
+				S &= \sum_{i=1}^n\sum_{j=1}^n (i+j-1)\\
+					&= \sum_{i=1}^n \frac{(2i+n-1)n}{2}\\
+					&= n^3
+			\end{align}
+			Solution 2: consider add a self-rotation of $\pi$, then each entry is $2n$, hence $2S = n^2*2n$, $S=n^3$.
+		\item[(2)] $m\times n$ matrix\\
+			Solution 1: compute
+			\begin{align}
+				S &= \sum_{i=1}^m \sum_{j=1}^n (i+j-1)\\
+					&= \sum_{i=1}^m \frac{(2i+n-1)n}{2}\\
+					&= \frac{mn(m+n)}{2}
+			\end{align}
+			Solution 2: still, add a rotation, each entry is $m+n$, thus $2S=mn(m+n)$, $S=mn(m+n)/2$.
+		\item[(3)] $n^{\times d}=n\times \dots\times n$\\
+			Solution 1: compute
+			\begin{align}
+				S_d &= \sum_{i_1 = 1}^n\dots\sum_{i_d = 1}^n (i_1+\dots+i_d-(d-1))\\
+					&= nS_{d-1} + \frac{n^d(n-1)}{2}\\
+					&= n^{d-2} S_2 + (d-2)\frac{n^d(n-1)}{2}\\
+					&= n^{d+1} + (d-2)\frac{n^d(n-1)}{2}\\
+					&= \frac{d}{2}n^{d+1} - \frac{d-2}{2}n^d
+			\end{align}
+			Solution 2: consider the rotation $\pi: (i_1,i_2,...,i_d)\mapsto (n+1-i_1,n+1-i_2,...,n+1-i_d)$, add which then each entry is
+			\begin{align}
+				e &= \sum_{l=1}^d i_l -(d-1) + \sum_{l=1}^d (n+1-i_l) -(d-1)\\
+					&= \sum_{l=1}^d (n+1)-2(d-1)\\
+					&= nd - (d-2)
+			\end{align}
+			thus 
+			\begin{align}
+				2S_d &= n^d e\\
+					&= dn^{d+1} - (d-2)n^d
+			\end{align}
+		\item[(4)] $n_1\times n_2\times\dots\times n_d$\\
+			Solution 1: compute
+			\begin{align}
+				S_d &= \sum_{i_1 = 1}^{n_1}\dots\sum_{i_d = 1}^{n_d} (i_1+\dots+i_d-(d-1))\\
+					&= n_d S_{d-1} + \frac{n_d-1}{2}\prod_j n_j\\
+					&= n_d\dots n_2 S_1 + \frac{\sum_{i=2}^d (n_i-1)}{2} \prod_jn_j\\
+					&= n_d\dots n_2(n_1 +\frac{n_1(n_1-1)}{2})+ \frac{\sum_{i=2}^d (n_i-1)}{2}\prod_jn_j\\
+					&= \left[1+ \frac{1}{2}\sum_{i=1}^d (n_i-1)\right]\prod_j n_j
+			\end{align}
+			Solution 2: consider the rotation $\pi: (i_1,i_2,...,i_d)\mapsto (n_1+1-i_1,n_2+1-i_2,...,n_d+1-i_d)$, add which then each entry is
+			\begin{align}
+				e &= \sum_{l=1}^d i_l -(d-1) + \sum_{l=1}^d (n_l+1-i_l) -(d-1)\\
+					&= \sum_{l=1}^d (n_l+1)-2(d-1)\\
+					&= \sum_l n_l - (d-2)
+			\end{align}
+			thus $2S_d = e\prod_j n_j$.\qed
+	\end{itemize}
+	\item[1.34] for $\lambda<\pi$ we can use naive strategy. Note at circle of radius $R/4$, man and dog are perfectly match, that $\theta -\varphi$ constant, then we can use a trick strategy first get to $R/4 -\epsilon$, use the advantegy eventually furtherest, then just simply along radius to outside, $(3R/4+\epsilon)/v < \pi R/4v$ for some small $\epsilon>0$. suppose speed of dog is $\lambda v$, then use this strategy, we want
+	\begin{align}
+		(1-\frac{1}{\lambda})\frac{R}{v} + \frac{\epsilon}{v}< \frac{\pi R}{\lambda v}\\
+			(1-\frac{1}{\lambda}) < \frac{\pi}{\lambda}\\
+			\lambda < 1+\pi
+	\end{align}
+	hence $\lambda<1+\pi$, we can use the strategy to escape. However we can do better use other strategies. wlog let $R=v=1$, denote $v(t),\omega(t)$ the velocity along radius and angular velocity, which satisfy $v^2(t) + \omega^2(t)r^2(t) = 1$, note we can get $(1/\lambda)_-$ furtherest, start at this time $t=0$, $r(0)=1/\lambda$, the question is equiv that we want to find a bounded $0<v(t)\leq 1$, s.t.
+	\begin{align}
+		\int_0^\tau v(t)dt = 1 - \frac{1}{\lambda}
+	\end{align}
+	which minimize
+	\begin{align}
+		\int_0^\tau (\lambda - \omega(t))dt < \pi
+	\end{align}
+	consider each $dr=1dt_1=vdt_2$, greedily minimize $(\lambda-\omega)dt_2$,
+	\begin{align}
+		f(v) = (\lambda - \frac{\sqrt{1-v^2}}{r})\frac{1}{v}\\
+		\frac{\partial f}{\partial v} = -\frac{1}{v^2}(\lambda - \frac{1}{r\sqrt{1-v^2}})\\
+		\omega^* r= \sqrt{1- (v^*)^2} =\frac{1}{\lambda r}\\
+		\left.\frac{\partial f}{\partial v}\right|_{<v^*}<0<\left.\frac{\partial f}{\partial v}\right|_{>v^*}
+	\end{align}
+	note 
+	\begin{align}
+		\frac{dr}{dt} = v = \sqrt{1 - \frac{1}{\lambda^2r^2}}\\
+		\int_{1/\lambda}^r \frac{dr}{\sqrt{1 - \frac{1}{\lambda^2r^2}}} =\int_0^t dt\\
+		\sqrt{r^2 - \frac{1}{\lambda^2}} = t\\
+		r = \sqrt{t^2 + \frac{1}{\lambda^2}}\\
+		v = \sqrt{1 - \frac{1}{\lambda^2r^2}} = \sqrt{1 - \frac{1}{\lambda^2t^2+1}}\\
+		\omega = \frac{1}{\lambda r^2} = \frac{\lambda}{\lambda^2t^2+1}
+	\end{align}
+	thus stopping time is
+	\begin{align}
+		\tau = \sqrt{1 - \frac{1}{\lambda^2}}\\
+		\int_0^\tau (\lambda - \omega) dt = \lambda \tau - \arctan(\lambda\tau)<\pi\\
+		\lambda \tau = \sqrt{\lambda^2-1}< 4.493\\
+		\lambda < 4.603
+	\end{align}
+	thus we get the maximal eacape bound. also we can deduce the polar-coord 
+	\begin{align}
+		r = \frac{1}{\lambda \cos\theta}
+	\end{align}
+	and combine $t<0$ that
+	\begin{align}
+		\omega = \lambda\\
+		\frac{dr}{dt} = v = \sqrt{1-\lambda^2r^2}\\
+		\arcsin (\lambda r) = \lambda t = \theta \\
+		r = \frac{\sin\theta}{\lambda}
+	\end{align}
+	note last $\theta$ is based on $-\pi/2$, we set $r(\theta=0)=\frac{1}{\lambda}$, conclude the polar-coord
+	\begin{align}
+		r = \begin{cases} \frac{\cos\theta}{\lambda}, -\frac{\pi}{2}\leq \theta\leq 0 \\
+			\frac{1}{\lambda \cos\theta}, 0<\theta\leq \arccos \frac{1}{\lambda}\end{cases}
+	\end{align}
+	which is exactly a half-circle with radius $\frac{1}{2\lambda}$ and a up-straight line, showed in 1.34.py.\qed
+	\item[1.35] standard normal; $I^2$ to polar integral; Gamma function.
+	\item[1.36] tech: $d(\sin )$, and $1/(1-\sin) + 1/(1+\sin)$.
+	\item[1.37] cannot use ratio test or root test, we use integral test that
+	\begin{align}
+		\sum_{i=1}^\infty e^{-\sqrt{n}} &\leq \int_0^\infty e^{-\sqrt{x}}dx\\
+			&= \int_0^\infty e^{-u}2udu\\
+			&= 2 \Gamma(2)=2
+	\end{align}
+	\item[1.38] recall Faulhaber's formula. or recall 1.33 note $n^3$ is $S_2$ board, so $\sum n^3$ is $n$ boards from $1$ to $n$, imagine take $(n-1),...,1$'s $n$ from $B_n$ to complete board $B_{n-1},...,B_1$, and take $(n-2),...,1$'s $n-1$ from $B_{n-1}$ to complete $B_{n-2},...,B_1$,... thus we get $1,2,...,n$'s $\sum n$, i.e. $\sum n^3 = (\sum n)^2$.\qed
+	\item[1.39] recall 1.3 lemma(1), $8<3^2$ in $S_2$.
+	\item[1.40] for most cases, a 'simple' radical symmetry, one just put center, the winning strategy. but note it's neither necessary nor sufficient. consider a triangle which contain center of coin at most one,the span area obvious not radical. and consider a ring which each center of coin in a circle, thus after put one coin, it equiv to a rectangle, a simple radical symmetry.
 \end{itemize}
 \end{document}
