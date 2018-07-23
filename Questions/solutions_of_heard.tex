@@ -278,5 +278,55 @@
 		\sum_{k=1}^{\lfloor \log_5 n \rfloor} \lfloor \frac{n}{5^k}\rfloor
 	\end{align}
 	so for $100!$, is $100/5 + 100/25= 24$.
+	\item[1.51] one explaination it's not, since left is left side, up is on up side. another explaination it's indeed 'reflection' left-right. the trick is that we assumed a front-gravity coordinates, the 'left-right' is defined(spaned) by that coords.
+	\item[1.52] two plane cut space into 3 region.
+	\item[1.53] means is between, consective is no between.
+	\item[4.1] since $E=3.5$, so ticket price is $3.5+\epsilon$.
+	\item[4.2] note last roll $E_3=3.5$, thus second roll is $1,2,3$ then reroll, else stop, hence $E_2 = (3.5*3+4+5+6)/6=4.25$, thus first roll is $1,2,3,4$ then reroll, else stop. $E_1 = (4.25*4+5+6)/6=4.67$.
+	\item[4.3] this paradox is that prior is not measure, since we assume a uniform $1/2$ chance, then means for some $\delta>0$
+	\begin{align}
+		P(\frac{1}{2}(x-\delta)<X<\frac{1}{2}(x+\delta)) = P(x-\delta<X<x+\delta)=P(2(x-\delta)<X<2(x+\delta))=\epsilon
+	\end{align}
+	let $\delta = x/3$, that $P(\mathbb{R}^+)=1 =\sum_{i=1}^\infty \epsilon$, which is not measure, since countable measure-zero still zero.
+	\item[4.4] despite the words game, we wanna know optimal strategy expected payoff. Since we can switch each round, obvious optimal strategy is bet on every match point. this problem is $k=4$, and $p=0.7$, we focus on general case, wlog $p\geq 1/2$, $p+q=1$, since the strategy is clear, one can recursively calculate probability to show the specific stopping rule, or the payoff. Trick is every match point has only one possible winner except played $2(k-1)$ rounds with no winner, so quickly get the payoff:
+	\begin{align}
+		P = {2k-2 \choose k-1} p^{k-1}q^{k-1}\\
+		E = (1-P) + P(p-q) = 1- 2Pq
+	\end{align}
+	for this problem, $P= {6\choose 3} 0.7^3*0.3^3 = 0.185$, $E=0.889$.
+	\item[4.5] $(2+\dots+6)/5= 4$.
+	\item[4.6] $\frac{4*3}{52*51}= 0.0045$.
+	\item[4.7] recall Monty Hall.
+	\item[4.8] intuition, $(w_1,b_1)=(1,0), (w_2,b_2)=(49,50)$, hence $p=\frac{74}{99}$. formal proof that
+	\begin{align}
+		f = \frac{1}{2}(\frac{w_1}{w_1+b_1} + \frac{w_2}{w_2+b_2})\\
+		\frac{\partial^2 f}{(\partial b_1)^2}> 0
+	\end{align}
+	wlog $b_1=0$, thus $w_1=1$ reach maximum.\qed
+	\item[4.9] for $0.9$ same situation, for $0.1$ obviously elimate the better player, so either order if one decide to shoot one should shoot the better player. denote $A_{i,j}$ the event $i$ shot $j$ success and is first success. $W_i$ for $i$ win, thus
+	\begin{align}
+		P(W_2| A_{1,3}) = \frac{p_2}{1-q_2q_1} = 0.811\\
+		P(W_1| A_{1,3}) = 1 -0.811= 0.189\\
+		P(W_1| A_{2,3}) = \frac{p_1}{1-q_1q_2} = 0.270\\
+		P(W_2| A_{2,3}) = 1 - 0.270 = 0.730\\
+		P(W_1| A_{3,2}) = \frac{p_1}{1-q_1q_3} = 0.156\\
+		P(W_3| A_{3,2}) = 1 - 0.156 = 0.844
+	\end{align}
+	note $X_2$ must shoot since $X_3$ will shoot him. then $X_1$ choose not to shoot with winning probability
+	\begin{align}
+		P(W_1 | A_{2,3} or A_{3,2}) &= \frac{p_2}{1-q_2q_3} P(W_1|A_{2,3}) + \frac{q_2p_3}{1-q_2q_3} P(W_1|A_{3,2}) \\
+			&= 0.204\\
+			&> P(W_1| A_{1,3})
+	\end{align}
+	so $X_1$'s strategy is choose not to shoot.\\
+	When order is $X_1,X_3,X_2$; that $X_1$ not to shoot winning probability is 
+	\begin{align}
+		P(W_1 | A_{2,3} or A_{3,2}) &= \frac{p_3}{1-q_2q_3}P(W_1|A_{3,2}) + \frac{q_3p_2}{1-q_2q_3} P(W_1|A_{2,3}) \\
+			&= 0.175\\
+			&< P(W_1| A_{1,3})
+	\end{align}
+	thus $X_1$'s strategy is choose to shoot $X_3$.\\
+	Causious: there is a subtle assumption that $X_2,X_3$ will shoot each other based on the reason opponent will shoot him, which is a cyclic assumption.
+	\item[4.10] $0.4>0.7*0.5$.
 \end{itemize}
 \end{document}
