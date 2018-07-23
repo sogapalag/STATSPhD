@@ -229,7 +229,7 @@
 		r = \begin{cases} \frac{\cos\theta}{\lambda}, -\frac{\pi}{2}\leq \theta\leq 0 \\
 			\frac{1}{\lambda \cos\theta}, 0<\theta\leq \arccos \frac{1}{\lambda}\end{cases}
 	\end{align}
-	which is exactly a half-circle with radius $\frac{1}{2\lambda}$ and a up-straight line, showed in 1.34.py.\qed
+	which is exactly a half-circle with radius $\frac{1}{2\lambda}$ and a up-straight line, showed in 1.34\_polar.py.\qed
 	\item[1.35] standard normal; $I^2$ to polar integral; Gamma function.
 	\item[1.36] tech: $d(\sin )$, and $1/(1-\sin) + 1/(1+\sin)$.
 	\item[1.37] cannot use ratio test or root test, we use integral test that
@@ -241,5 +241,42 @@
 	\item[1.38] recall Faulhaber's formula. or recall 1.33 note $n^3$ is $S_2$ board, so $\sum n^3$ is $n$ boards from $1$ to $n$, imagine take $(n-1),...,1$'s $n$ from $B_n$ to complete board $B_{n-1},...,B_1$, and take $(n-2),...,1$'s $n-1$ from $B_{n-1}$ to complete $B_{n-2},...,B_1$,... thus we get $1,2,...,n$'s $\sum n$, i.e. $\sum n^3 = (\sum n)^2$.\qed
 	\item[1.39] recall 1.3 lemma(1), $8<3^2$ in $S_2$.
 	\item[1.40] for most cases, a 'simple' radical symmetry, one just put center, the winning strategy. but note it's neither necessary nor sufficient. consider a triangle which contain center of coin at most one,the span area obvious not radical. and consider a ring which each center of coin in a circle, thus after put one coin, it equiv to a rectangle, a simple radical symmetry.
+	\item[1.41] for product is 36, there are 
+	\begin{align}
+		1+1+36=38\\
+		1+2+18=21\\
+		1+3+12=16\\
+		1+4+9=14\\
+		1+6+6=13\\
+		2+2+9=13\\
+		2+3+6=11\\
+		3+3+4=10
+	\end{align}
+	since Mary cannot tell based on sum, i.e. sum is $13$ which has two combinations, then John tells oldest, means exist oldest that $(2,2,9)$.
+	\item[1.42] without specific detail of optimal strategy, we will show which recursively, denote $E[r,b]$ the expected payoff using optimal strategy while number of reds and blacks are $r,b$, obviously $E[r,b]\geq 0$, since one can choose not to play. note that
+	\begin{align}
+		E[1,0]=1, E[0,1]=0\\
+		E[r-1,b]\leq E[r,b]\leq E[r,b-1]
+	\end{align}	
+	when one take this round
+	\begin{align}
+		E[r,b] = \max\left\{0, \frac{r}{r+b}\left(1+E[r-1,b]\right) + \frac{b}{r+b}\left(-1+E[r,b-1]\right)\right\}
+	\end{align}
+	so the stopping rule is right in max item $<0$. $E[26,26]= 2.624$ showed in 1.42\_optimalstop.py.
+	\item[1.43] color each square black and white adjecently, thus two 'X' is same color, and each domino is cover a black and a white, hence there is not a total cover.\qed
+	\item[1.44] when prime $p>3$, then $p-1,p+1$ one divided by 2, another by 4, and since $p$ must between some $3k<p<3k+3$, thus one of $p-1,p+1$ divided by 3. Hence $p^2-1$ divided by $24$.\qed
+	\item[1.45] Obivious $1\leq p\leq 2$ optimal at $p=1$; Suppose bid $0\leq p\leq 1$, then expected payoff is
+	\begin{align}
+		E = \int_0^p (2x-p) dx =  0
+	\end{align}
+	\item[1.46] burn double sides.
+	\item[1.47] one is north pole; another is a circle is a specific south latitude, which satisfy go south one mile is on a circle whose perimeter is one mile.
+	\item[1.48] take distinct coins from each region.
+	\item[1.49] 1,2,4.
+	\item[1.50] for $n!$, $2$'s obvious enough, note there $5k,k>0$ can make zero, $25k,k>0$ make additional zero, $5^3k,k>0$ make additional zero, i.e. the trailing zeros of $n!$ is
+	\begin{align}
+		\sum_{k=1}^{\lfloor \log_5 n \rfloor} \lfloor \frac{n}{5^k}\rfloor
+	\end{align}
+	so for $100!$, is $100/5 + 100/25= 24$.
 \end{itemize}
 \end{document}
