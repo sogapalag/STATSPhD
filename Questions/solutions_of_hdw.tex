@@ -1,0 +1,115 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+\usepackage{url}
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\def \cov {\text{Cov}}
+\def \var {\text{Var}}
+
+\title{Solutions}
+% http://ai.stanford.edu/~hdwang/puzzle.html
+\author{sogapalag}
+
+\date{\normalsize\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+	\item[1.1] recall heard1.47.
+	\item[1.2] optimal strategy is that one see double same color, guess another, else guess 'don't know'. thus $P(R|BB)=P(B|RR) = 3/4$.\\
+	Consider general case $2^k -1$ with formal proof.\\
+	(1) Upper bound $1 - 1/2^k$.\\
+	note i.i.d, for guess of any fixed person, which right-wrong probability equals, denote $N_r,N_w$ the number of guess right and wrong, thus $E[N_r]=E[N_w]$, and note win for at least one right, lose for at most $2^k-1$ wrongs, i.e.
+	\begin{align}
+		P(\text{win}) \leq E[N_r] &= E[N_w] \leq P(\text{lose}) (2^k-1)\\
+		P(\text{win}) &\leq  1 - \frac{1}{2^k}
+	\end{align}
+	(2) upper bound can reach with optimal strategy.\\
+	decode people to nonzero $x\in \mathbb{Z}_2^k$, denote $R$ the set of reds, define bitwise XOR operation as $\oplus$, then let $S$ be $\oplus$-sum of $R$, i.e. 
+	\begin{align}
+		S = \bigoplus_{x\in R} x
+	\end{align}
+	then any $x$'s strategy is that: if $x\in,\notin R$ makes $S=0$, guess $x\notin,\in R$; else guess 'don't know'.\\
+	then if $S=0$, obviously all guess wrong, since each guess implies nonzero $S$; if $S\neq 0$, that $y=S$ obviously the only one make the guess and is right either in $R$ or not. i.e. win iff $S\neq 0$.\\
+	denote $\mathcal{N}$ the collection of sets make $S=0$, i.e.
+	\begin{align}
+		\bigoplus_{x\in N} x = 0, \forall N\in \mathcal{N}
+	\end{align}
+	denote $y\mathcal{N}$ the collection of sets make $S=y>0$, which is exactly equiv to another definition that take XOR $y$ from $\mathcal{N}$, i.e.
+	\begin{align}
+		 \bigoplus_{x\in Y} x = y, \forall Y\in y\mathcal{N}\\
+		 y\mathcal{N}:=\{N\bigtriangleup \{y\}: N\in\mathcal{N}\}
+	\end{align}
+	where $\bigtriangleup$ is defined by $A\bigtriangleup B = (A\cap B^c)\cup (A^c\cap B)$, in this case is simply as $N-y,N\cup y$ depend on $y\in,\notin N$. recall i.i.d and the bijective, hence
+	\begin{align}
+		P(R\in \mathcal{N}) = \frac{1}{2^k}
+	\end{align}
+	thus the winning probablity is
+	\begin{align}
+		P(\text{win}) = 1 - \frac{1}{2^k}
+	\end{align}\qed
+	\item[1.3] recall heard1.28.
+	\item[1.4] think backwards, easily to get when $N=2k+1,2k+2$, $0\leq k\leq 100$ whose proposal would be $(100-k,0,1,0,1,...)$, proof by induction:\\
+	when $k=0$, $p_1=(100)$, $p_2=(100,0)$ obviously holds, suppose $k=i<100$ holds, while $k=i+1\leq 100$, follow this proposal which is exactly satisfy the priorities.\qed\\
+	thus first proposal $p_{100} = (51,0,1,0,1,...)$ will be accepted.\\
+	when $k>100, N>202$, first note that $p_{202} = (0,0,1,0,1,...,0)$. implies whatever $p_{203}$ is, whom will be killed, thus he must support $p_{204}=(0,0)+(.)$ where we despite the switch $1,0$ for now. then $205,206,207$ will be killed for their proposal, they support $p_{208}$ to pass. easily get the survival proposals $204,208,216,...,200+2^m,...$; thus $435$ will be killed.
+	 \item[1.5] wlog suppose they coming in order $n,n-1,...,1$, conditional on $n$ take the seat $i$, denote $P_k$ the success probability when scenario is $k$. $P_2=1/2$ that
+	 \begin{align}
+	 	P_k = \frac{1}{k}+ \sum_{i=2}^{k-1} \frac{1}{k} P_i, k>2\\
+	 	P_k = \frac{1}{2}, k\geq 2
+	 \end{align}
+	 this neat constant formula explaination, when $k\geq 2$ one choose his own seat probability equal to choose $1$'s seat; if both not happen, just pass the 'coin' to some $k>i>1$ continue the process.\qed
+	 \item[1.6] separate 5 races, then get Tier1, Tier2, Tier3. then arrange a race of Tier1, wlog rank is $1,2,3$, then obviously first surly 1-Tier1, the possible second is 1-Tier2 and 2-Tier1, possible third is 1-Tier3, 2-Tier2 and 3-Tier1. Arrange which to get top2 be 2nd and 3rd. thus total 7 races.
+	 \item[1.7] we tie ends to several groups, $1+2+3+\dots+11=66$, thus when we go to top floor, these groups can be distinguished, since we know wire $W_{1,1}$ of $G_1$, which means $W_{2,1}, W_{2,2}$ of $G_{2}$ can be distinguished, by connect $W_1$ to one of which, since $G_2$ is clear, thus can be used to distinguish $G_3$ and so on... (detail connection as forall $j$, tie $\{W_{i,j}, i\}$) so one up and one down is enough. when there are 67 wires, clearly $G_1,G_1'$ is distinguished once down ground floor. for any other number, suppose equal to $1+\dots+n +x$, $1<x\leq n$, we separate $x$ to $G_1', G_{x-1}'$, we wanna distinguish $G_{x-1},G_{x-1}'$, wlog suppose $G_{x-1}$ is normal connection defined above, we connect $G_{x-1}'$ by take step-up, i.e. $W_{x-1,j}'$ connect $W_{.,j+1}$. Hence proved for any number, one up and one down is enough.\qed
+	 \item[1.9] burn $S_{1,l},S_{1,r},S_{2,l}$, then when $S_1$ meet(30 min), then burn $S_{2,r}$, thus total 45 min.\qed
+	 \item[1.10] a naive approach is to set $x=10$ then at most $19$ test. then realize when there still $k$ to test, $\sqrt{k} < x$, implies should dynamically change, i.e. we need dynamic programming. Suppose $f(k)$ the at most test times when there are $k$ stories to test while still has two cell phones. $f(1)=0$, then
+	 \begin{align}
+	 	f(k) = \min_{1\leq i< k} \max \{i, 1+f(k-i)\}, k>1
+	 \end{align}
+	 without running code, we denote that $m=f(k)$, note which is minimax, after choose drop at $m$, there remain $m-1$ chances, i.e. next would choose another $m-1$ for not breaking, hence $m+(m-1)+\dots + 2+1\geq k$ implies $m(m+1)/2\geq k$. for $k=100$, $m=14$.\qed
+	 % 8/ (1/3)
+	 \item[1.11] $8/(3-8/3)$.
+\end{itemize}
+\end{document}
