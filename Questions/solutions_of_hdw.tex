@@ -104,6 +104,8 @@
 	 \item[1.6] separate 5 races, then get Tier1, Tier2, Tier3. then arrange a race of Tier1, wlog rank is $1,2,3$, then obviously first surly 1-Tier1, the possible second is 1-Tier2 and 2-Tier1, possible third is 1-Tier3, 2-Tier2 and 3-Tier1. Arrange which to get top2 be 2nd and 3rd. thus total 7 races.
 	 \item[1.7] we tie ends to several groups, $1+2+3+\dots+11=66$, thus when we go to top floor, these groups can be distinguished, since we know wire $W_{1,1}$ of $G_1$, which means $W_{2,1}, W_{2,2}$ of $G_{2}$ can be distinguished, by connect $W_1$ to one of which, since $G_2$ is clear, thus can be used to distinguish $G_3$ and so on... (detail connection as forall $j$, tie $\{W_{i,j}, i\}$) so one up and one down is enough. when there are 67 wires, clearly $G_1,G_1'$ is distinguished once down ground floor. for any other number, suppose equal to $1+\dots+n +x$, $1<x\leq n$, we separate $x$ to $G_1', G_{x-1}'$, we wanna distinguish $G_{x-1},G_{x-1}'$, wlog suppose $G_{x-1}$ is normal connection defined above, we connect $G_{x-1}'$ by take step-up, i.e. $W_{x-1,j}'$ connect $W_{.,j+1}$. Hence proved for any number, one up and one down is enough.\qed
 	 \item[1.9] burn $S_{1,l},S_{1,r},S_{2,l}$, then when $S_1$ meet(30 min), then burn $S_{2,r}$, thus total 45 min.\qed
+	 % a fully explaination
+	 % http://datagenetics.com/blog/july22012/index.html
 	 \item[1.10] a naive approach is to set $x=10$ then at most $19$ test. then realize when there still $k$ to test, $\sqrt{k} < x$, implies should dynamically change, i.e. we need dynamic programming. Suppose $f(k)$ the at most test times when there are $k$ stories to test while still has two cell phones. $f(1)=0$, then
 	 \begin{align}
 	 	f(k) = \min_{1\leq i< k} \max \{i, 1+f(k-i)\}, k>1
@@ -111,5 +113,27 @@
 	 without running code, we denote that $m=f(k)$, note which is minimax, after choose drop at $m$, there remain $m-1$ chances, i.e. next would choose another $m-1$ for not breaking, hence $m+(m-1)+\dots + 2+1\geq k$ implies $m(m+1)/2\geq k$. for $k=100$, $m=14$.\qed
 	 % 8/ (1/3)
 	 \item[1.11] $8/(3-8/3)$.
+	 \item[2.1] a naive approach is let some $50$ tell the other $50$'s color. However we can do even better. note $1$ is lower bound, since last person always possible be killed. we will show the lower bound can reach, by define XOR$\oplus$(or $\mod 2$), denote the $R$ the set of reds last one saw. then last one just tell
+	 \begin{align}
+	 	S = (\sum_{x\in R} 1) \mod 2
+	 \end{align}
+	 thus obvious every one before last one will guess right, since they know other $n-2$s' color already.\qed
+	 \item[2.2] a repeat of 1.4.
+	 \item[2.3] this can achieve for any $n<\infty$, note board is infinity, hence we can find $2^n$ regions which are far enough. then first step is to put one black in each region, note $a=2,b=1$, thus after which there are $2^{n-1}$ regions with only one black in each, then continue the process in these regions, obviously A can always win.
+	 \item[2.4] recall heard1.34. an elegant thought, for $\tau$, note $v_r\geq 0$, that predator is a fixed angle for $\tau$, hence obvious one should run alonge a straight line to the outside. Then remains to consider $\theta(\tau),\varphi(\tau)$.
+	 % more detail
+	 % https://www.duckware.com/tech/worldshardesteasygeometryproblem.html
+	 \item[2.5] draw a line from $D$ parallel to $\overline{AB}$, intersection $F$ of $\overline{BC}$, line $\overline{AF}$ intersect $G$ of $\overline{BD}$. Then easily to verify $\bigtriangleup DFG,\bigtriangleup ABG$ are equilateral.\\
+	 line $\overline{CG}$, thus
+	 \begin{align}
+	 	\bigtriangleup ACG \cong \bigtriangleup CAE \\
+	 	\overline{FE} = \overline{FC} -\overline{EC} = \overline{FA} - \overline{GA} = \overline{FG}\\
+	 	\overline{FD} = \overline{FE}
+	 \end{align}
+	 thus $a+30 = (180-80)/2$, $a = 20$.
+	 \item[2.6] the question is "if I ask 'should turn left?' will you answer YES?".
+	 % more detail
+	 % https://sites.math.washington.edu/~morrow/336_11/papers/yisong.pdf
+	 \item[2.7] a naive approach is to select one counter. if knowing days, we can use multi-layer counter strategy. each layer count $1,2,4,8,...$ tokens collected.
 \end{itemize}
 \end{document}
