@@ -287,7 +287,7 @@
 	\begin{align}
 		P(\frac{1}{2}(x-\delta)<X<\frac{1}{2}(x+\delta)) = P(x-\delta<X<x+\delta)=P(2(x-\delta)<X<2(x+\delta))=\epsilon
 	\end{align}
-	let $\delta = x/3$, that $P(\mathbb{R}^+)=1 =\sum_{i=1}^\infty \epsilon$, which is not measure, since countable measure-zero still zero.
+	let $\delta = x/3$, that $P(0<X < 2x/3) = 1/2$, forall $x$, which is not measure space.
 	\item[4.4] despite the words game, we wanna know optimal strategy expected payoff. Since we can switch each round, obvious optimal strategy is bet on every match point. this problem is $k=4$, and $p=0.7$, we focus on general case, wlog $p\geq 1/2$, $p+q=1$, since the strategy is clear, one can recursively calculate probability to show the specific stopping rule, or the payoff. Trick is every match point has only one possible winner except played $2(k-1)$ rounds with no winner, so quickly get the payoff:
 	\begin{align}
 		P = {2k-2 \choose k-1} p^{k-1}q^{k-1}\\
