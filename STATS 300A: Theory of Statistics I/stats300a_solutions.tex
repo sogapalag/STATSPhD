@@ -1,0 +1,150 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,bm} % Math packages
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+\usepackage{url}
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\def \cov {\text{Cov}}
+\def \var {\text{Var}}
+
+\title{Solutions of STATS 300A: Theory of Statistics I}
+% https://web.stanford.edu/~lmackey/stats300a/
+% Theoretical Statistics: Topics for a Core Course
+% Testing Statistical Hypotheses, 3rd
+\author{sogapalag}
+
+\date{\normalsize\today}
+
+\begin{document}
+
+\maketitle
+\begin{itemize}
+	\item[H1P1]
+	\begin{itemize}
+		\item[(a)] note $f(x_i,y_i)= f(y_i|x_i)q_i(x_i)$, hence for $((x_i,y_i),1\leq i\leq n)$, that 
+		\begin{align}
+			f &= \prod_{i=1}^n [q_i(x_i)f(y_i|x_i)]\\
+				&= \prod_{i=1}^n \frac{q_i(x_i)}{\sqrt{2\pi}} \exp(-\frac{1}{2}(\sum_{i=1}^n (y_i-\langle x_i,\beta\rangle)^2))\\
+				&= \prod_{i=1}^n \frac{q_i(x_i)}{\sqrt{2\pi}} \exp (\frac{1}{2}\sum_{i=1}^n y_i^2 + \sum_{j=1}^p [\beta_j(\sum_{i=1}^n y_ix_{i,j})]  -\frac{1}{2} \sum_{1\leq j,k\leq p}(\sum_{i=1}^n(x_{i,j}x_{i,k})\beta_{j}\beta_k)     ) 
+		\end{align}
+		i.e. with $p$ ss $T_j = \sum_{i=1}^n y_i x_{i,j}$, and $p^2$ ss $T_{j,k} = \sum_{i=1}^n (x_{i,j}x_{i,k})$ total $p^2+p$ dimension by NFFC.\qed
+		\item[(b)] easy to see $T_j,T_{j,k}$ can be updated by plus $y_ix_i$ and  $x_i\times x_i$.
+	\end{itemize}
+	\item[H1P2]
+	\begin{itemize}
+		\item[(a)] note $E[f(X)]=G(f,\eta)/G(1,\eta)$, and $\exp(\langle\eta,T(x)\rangle)h(x)g(x)\rightarrow 0$ as $x\rightarrow \pm\infty$. Hence
+		\begin{align}
+			E[g'(X)] &= G(g',\eta)/G(1,\eta)\\
+				&= \frac{\exp(\langle\eta,T(x)\rangle)h(x)g(x)|_{-\infty}^\infty}{G(1,\eta)} - \frac{\int (h'(x)\exp(.)+ \langle \eta,T'(x)\rangle \exp(.)h(x)))g(x)dx}{G(1,\eta)}\\
+				&= 0 - \frac{G((\frac{h'}{h}+ \langle \eta,T'\rangle)g,\eta)}{G(1,\eta)}\\
+				&= - E[(\frac{h'(X)}{h(X)}+ \langle \eta,T'(X)\rangle)g(X)]
+		\end{align}\qed
+		\item[(b)] let $\eta = (\frac{1}{2\sigma^2}, \frac{\mu}{\sigma^2})$, $T(x)=(-x^2,x)$, $h$ is constant, hence by (a)
+		\begin{align}
+			E[\frac{-X+\mu}{\sigma^2} g(X)] = -E[g'(X)]\\
+			E[g(X)(X-\mu)] = \sigma^2 E[g'(X)]
+		\end{align}\qed
+		\item[(c)] let $g(x)=x^2$, that
+		\begin{align}
+			E[X^2(X-\mu)] = \sigma^2E[2X] = 2\mu\sigma^2\\
+			E[X^3] = \mu E[X^2] + 2\mu\sigma^2 = \mu^3+ 3\mu\sigma^2
+		\end{align}
+		let $g(x)=x^3$, that
+		\begin{align}
+			E[X^3(X-\mu)] = \sigma^2 E[3X^2] = 3\sigma^2(\mu^2+\sigma^2)\\
+			E[X^4] = \mu^4 + 6\mu^2\sigma^2+3\sigma^4
+		\end{align}
+	\end{itemize}
+	\item[H1P3]
+	\begin{itemize}
+		\item[(a)] note Bernoulli $f(x;\theta) = \theta^x(1-\theta)^{1-x} = \exp(x\ln \theta +(1-x)\ln(1-\theta))$, hence for $X_{ij},i<j$
+		\begin{align}
+			f(\mathbf{X};\theta) &= \prod_{i<j} f(x_{ij};\theta)\\
+				&= \exp( \sum_{i<j} (\ln\frac{p_{ij}}{1-p_{ij}}x_{ij})  + \sum_{i<j}\ln(1-p_{ij}) )
+		\end{align}
+		that $T=(x_{ij})_{i<j}$ is ss, obviously $x=y$ whenever $T(x)=T(y)$, that pdf ratio 1, implies minimal ss.
+		\item[(b)] take $p$ formula into (a) to get
+		\begin{align}
+			f(\mathbf{X};\theta) &= \exp( \sum_{i<j}((\beta_i+\beta_j)x_{ij}) - \sum_{i<j} \ln(1+\exp(\beta_i+\beta_j))  )
+		\end{align}
+		note
+		\begin{align}
+			\sum_{i<j}((\beta_i+\beta_j)x_{ij}) = \sum_i (\beta_i \sum_{j\neq i} x_{ij}) =\langle \beta, s\rangle
+		\end{align}
+		showed the minimal ss $T=s$.
+		\item[(c)] by the form of $f$, given $T$, is irrelevent to $x$, i.e. uniform, implies sufficiency.\qed
+	\end{itemize}
+	\item[H1P4]
+	\begin{itemize}
+		\item[(a)] let $Z_i = (X_i-a)/b$, note $X_i\sim F_{a,b}$ implies $Z_i\sim F$. and
+		\begin{align}
+			(X_1-X_i)/b = Z_1 - Z_i \sim F_1 -F_i
+		\end{align}
+		which not depend on parameter since $F,b$ known, i.e. ancillary.
+		\item[(b)]
+		\begin{align}
+			(X_1-a)/(X_i-a) = Z_1/Z_i \sim F_1/F_i
+		\end{align}
+		which not depend on parameter since $F,a$ known, i.e. ancillary.
+		\item[(c)]
+		\begin{align}
+			(X_1-X_i)/(X_2-X_i) = (Z_1-Z_i)/(Z_2-Z_i) \sim (F_1-F_i)/(F_2-F_i)
+		\end{align}
+		which not depend on parameter since $F$ known, i.e. ancillary.\qed
+	\end{itemize}
+	\item[H1P5]
+	\begin{itemize}
+		\item[(a)] note bivariate
+		\begin{align}
+			f(x,y) = \frac{1}{2\pi \sqrt{1-\theta^2}} \exp(-\frac{x^2+y^2-2\theta xy}{2(1-\theta^2)} )
+		\end{align}
+		hence for $(X_i,Y_i),1\leq i\leq n$,
+		\begin{align}
+			f = c(\theta) \exp( -\frac{1}{2(1-\theta^2)}\sum_i(x_i^2+y_i^2)+ \frac{\theta}{1-\theta^2}\sum_i(x_iy_i) )
+		\end{align}
+		hence $T_1 = \sum_i(x_i^2+y_i^2)$, $T_2=\sum_i(x_iy_i)$ is 2-dim min-ss.
+		\item[(b)] let $g(T)=T_1$, obviously $E[g(T)]=c$ forall $\theta$, however $T_1\neq c$ a.e., so $T$ is not complete by definition3.14.\qed
+		\item[(c)] obviously $Z_1,Z_2$ are chi-squad not depend on $\theta$, i.e. ancillary. $X_i,Y_i$ dependent, i.e. $(Z_1,Z_2)$ not ancillary.\qed
+	\end{itemize}
+\end{itemize}
+
+\end{document}
