@@ -145,6 +145,47 @@
 		\item[(b)] let $g(T)=T_1$, obviously $E[g(T)]=c$ forall $\theta$, however $T_1\neq c$ a.e., so $T$ is not complete by definition3.14.\qed
 		\item[(c)] obviously $Z_1,Z_2$ are chi-squad not depend on $\theta$, i.e. ancillary. $X_i,Y_i$ dependent, i.e. $(Z_1,Z_2)$ not ancillary.\qed
 	\end{itemize}
+	
+	\item[H2P1]
+	\begin{itemize}
+		\item[(a)] trivially $E_\lambda[S_1] = P_\lambda(X_1=0) = g(\lambda)$; and by linearity of expectation and i.i.d, trivially $E_\lambda[S_2]=E_\lambda[S_1]$. Both unbiased.\qed
+		% 正比即不考虑A(eta),和h(x)了
+		\item[(b)] verify joint prob $p\propto \lambda^T$, trivially by NFFC.\qed
+		\item[(c)] note the form of joint prob given $T$ is $h(x)\propto \frac{1}{x_1!\dots x_n!}$ is multinomial of $T$, thus
+		\begin{align}
+			S_1^*= E[S_1|T] = P(S_1|T) = \frac{(n-1)^T}{n^T}, n>1\\
+			S_2^*= S_1^*
+		\end{align}
+		recall full-rank EF, implies complete.
+	\end{itemize}
+	\item[H2P2]
+	\begin{itemize}
+		\item[(a)] recall CF, $E[e^{itY}]=E[e^{it\lambda X}]=(1-it)^{-1}$ i.e. $Y\sim \text{Exp}(1)$.
+		\item[(b)] write the joint prob, recall full-rank EF, i.e. $\overline{X}$ is CS; and let $Y_i = \lambda X_i$, thus
+		\begin{align}
+			\frac{\sum_{i=1}^n X_i^2}{\overline{X}^2} = \frac{\sum_{i=1}^n Y_i^2}{\overline{Y}^2}
+		\end{align}
+		since by(a) $Y_i\sim \text{Exp}(1)$ not depend on $\lambda$, i.e. RHS is ancillary, then by Basu's theorem, implies independent.\qed
+		\item[(c)] similar to (b), $X_{(1)}/X_{(n)} = Y_{(1)}/Y_{(n)}$ is ancillary, then by Basu's theorem, implies independent.\qed
+	\end{itemize}
+	\item[H2P3]
+	\begin{itemize}
+		\item[(a)] given $T$, prob is choose two be end, others uniform in $[X_{(1)}, X_{(n)}]$, not depend on $\theta$, i.e. sufficient.\qed
+		\item[(b)] note quadratic loss $L$ is strictly convex, recall Rao-Blackwell theorem, thus median $\eta = E[\overline{X}|T]=\frac{X_{(1)}+X_{(n)}}{2}$ is strictly better than $\overline{X}$.
+	\end{itemize}
+	\item[H2P5]
+	\begin{itemize}
+		\item[(a)] let $T=\frac{X+Y}{2}$, is CS and unbiased, by Lehmann-Scheffe theorem, implies UMVUE.
+		\item[(b)] for UMVUE, MSE is $\frac{1}{2\theta^2}$; note $\sqrt{X}\sim \text{Rayleigh}(1/\sqrt{2\theta})$, thus MSE of geometric mean is
+		\begin{align}
+			m &= E[(\sqrt{XY}-E[\sqrt{XY}])^2]\\
+				&= EXY - (E\sqrt{XY})^2\\
+				&= (EX)^2 - (E\sqrt{X})^4\\
+				&= \frac{1}{\theta^2} - \frac{\pi^2}{16\theta^2}\\
+				&< \frac{1}{2\theta^2}
+		\end{align}
+		\item[(c)] a naive $\frac{\sqrt{XY}}{2}$.
+	\end{itemize}
 \end{itemize}
 
 \end{document}

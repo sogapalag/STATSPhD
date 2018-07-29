@@ -81,5 +81,23 @@ notice $ A(\bm{\eta})=\ln G(1,\bm{\eta})$, $E_{\bm{\eta}}[f(\mathbf{X})] = G(f,\
 	\frac{\partial A}{\partial \eta_i} = E_{\bm{\eta}}[T_i(\mathbf{x})]; \frac{\partial^2 A}{\partial \eta_i \partial \eta_j} = \cov_{\bm{\eta}}(T_i(\mathbf{x}),T_j(\mathbf{x}))
 \end{align}
 def, minimal SS $T$: if all SS $T'$ that $T$ is  function of $T'$; equiv, $T(x)=T(y)$ whenever $T'(x)=T'(y)$.\\
-Thm, $T$ is min-SS if $T(x)=T(y) \Leftrightarrow c_{x,y} = f(x;\theta)/f(y;\theta)$ independent of $\theta$.
+Thm, $T$ is min-SS if $T(x)=T(y) \Leftrightarrow c_{x,y} = f(x;\theta)/f(y;\theta)$ independent of $\theta$.\\
+def, ancillary, which distribution not depend on $\theta$.\\
+def, first-order ancillary, $E[V]$ not depend on $\theta$.\\
+% 即只有常数函数f(T)的期望为常数，其它都与theta相关
+def, complete, no non-constant function of $T$ is first-order ancillary. i.e. $E[f(T)]=0,\forall \theta$, implies $f(T)\stackrel{a.e.}{=}0$.\\
+Bahadur's theorem: complete sufficient $\Rightarrow$ minimal sufficient.\\
+Thm, EF, full-rank $\Rightarrow$ complete sufficient.\\
+Basu's theorem: CS $T$, ancillary $V$ $\Rightarrow$ $T\perp V$, i.e. independent.\\
+% 可用于优化估计
+Rao-Blackwell Theorem: sufficient $T$, estimator $\delta$, define $\eta(T)=E[\delta(X)|T]$, for convex $L(\theta,.)$, Then $R(\theta,\eta)\leq R(\theta,\delta)$. Furthermore strictly convex, then equality when $\delta(X)=\eta(T)$ a.s.\\
+% 即估计的期望等于 想估计的g(theta)
+def, unbiased, $E[\delta(X)]=g(\theta)$.\\
+% 虽然一致最小Risk的估计是不存在的，但对于 unbiased估计‘空间 可以找到一致最小Risk的
+def, uniformly minimum risk unbiased estimator(UMRUE).\\
+def, uniformly minimum variance unbiased estimator(UMVUE), i.e. when $L(\theta,d)=(\theta-d)^2$.\\
+% 注：随意缩写CS（css），一些唯一、相等的，可能是a.s.，会有的省略不写
+% CS 无偏估计h(T)的 一些'唯一'性质
+Lehmann-Scheffe Theorem: CS $T$, unbiased $h(T)$ for $g(\theta)$, Then (a) only function of $T$ that is unbiased; (b) UMRUE under any convex loss function; (c) unique UMRUE under any strictly convex loss func; (d) unique UMVUE.
+% 结合R-B,L-S thm，即有一些方法策略找UMRUE，一些例子Lec.4
 \end{document}
