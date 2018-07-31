@@ -143,6 +143,66 @@ Markov perfect equilibrium, consists of only Markov-s, NE regardless of start st
 Thm, every $n$-player, general-sum, discounted reward, stochastic game has a MPE.\\
 Thm, every $2$-player, general-sum, average reward, irreducible stochastic game has a NE.\\
 % 类似folk thm
-Thm, for every $2$-player, general-sum, irreducible stochastic game, feasiable and enforceable $r$, there $\exists$ NE, for average reward, as well as large discount.
+Thm, for every $2$-player, general-sum, irreducible stochastic game, feasiable and enforceable $r$, there $\exists$ NE, for average reward, as well as large discount.\\
 
+% def7.1.1 即games有一个分布，（简单情况，初始分布是common prior）,然后I，对game的区分集
+Bayesian game: information sets.\\
+% 即type分布有common prior，但每个人持有自己的type，（即knowledge his own payoff function, beliefs about others' and own payoffs, etc higher-order beliefs.）
+Bayesian game: types.\\
+% 即i的期望收益，知道type
+\textit{Ex post} expected utility:
+\begin{align}
+	EU_i(s,\theta) = \sum_{a\in A}(\prod_{j\in N}s_j(a_j|\theta_j)) u_i(a,\theta)
+\end{align}
+% 即只知道i的type时
+\textit{Ex interim} expected utility:
+\begin{align}
+	EU_i(s,\theta_i) = \sum_{\theta_{-i}\in \Theta_{-i}} p(\theta_{-i}|\theta_i) EU_i(s, (\theta_i, \theta_{-i}))
+\end{align}
+% 即谁的type也不知道时
+\textit{Ex ante} expected utility:
+\begin{align}
+	EU_i(s) = \sum_{\theta\in\Theta} p(\theta) EU_i(s,\theta) =\sum_{\theta_i\in\Theta_i} p(\theta_i) EU_i(s,\theta_i)
+\end{align}
+Best response: $BR_i(s_{-i})=\arg\max_{s_i'} EU_i(s_i',s_{-i})$.\\
+Bayes-Nash equilibrium $s$: $\forall i, s_i\in BR_i(s_{-i})$.\\
+% 即对任意type都是BR
+\textit{Ex post} equilibrium $s$: $\forall\theta,i$.\\
+
+% 即payoff是对group的
+Coalitional game with transferable utility: $(N,v)$, $v:2^N\mapsto \mathbb{R}$.\\
+% 即多个disjoint group合作收益不会比各自group的收益和少
+Superadditive game, if $\forall S\cap T=\emptyset$ implies $v(S\cup T)\geq v(S)+v(T)$.\\
+% 即上述为=
+Additive game, $=$.\\
+% 即两个disjoint总共为N的收益是constant； 显然additive game => constant-sum game
+Constant-sum game, $v(S)+v(N\setminus S)=v(N)$.\\
+% 比Superadd-更强
+Convex game, $v(S\cup T)\geq v(S)+v(T)-v(S\cap T)$.\\
+% Figure 8.1关系图
+Simple game, $v(S)\in \{0,1\}$.
+% 即单值和 leq 全合作收益
+Feasible payoff\\
+% =
+Pre-imputation\\
+% P里面 单值 geq 单收益
+Imputation\\
+% 即对于所有不含i,j的S   i,j分别参与S的 group收益是相同的
+interchangeable\\
+% 即对于interchangeable的， i,j个人回报应该是相同的，（显然为了公平性）
+Axiom, Symmetry.\\
+% 即i参与任何S的额外收益都是v({i})， 所以i个人回报应该就是这个值，（显然，没有给group更多收益）
+Axiom, Dummy player\\
+% 即回报 收益函数可加性
+Axiom, Additivity\\
+%
+Thm, given a coalitional game, $\exists$ unique pre-imputation satisfy above three axioms.\\
+% 即平均边际贡献；这个回报'fair'但不一定stable，采取更小group合作可能回报更高
+Shapley value.\\
+% 即任意S，单值和要不比v(S)少；即core没有动机采取其它合作
+Core\\
+Thm, constant-sum, not additive game has empty core.\\
+% veto 即v(N\{i})=0即一票否决
+Thm, simple game, core empty iff no veto. if vetos, core consist of vectors nonvetos' payoff zero.\\
+Thm, convex game has nonempty core and Shapley value in core.
 \end{document}
