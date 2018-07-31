@@ -57,6 +57,7 @@
 
 \maketitle
 % players set, action profile, utility function.
+% matrix
 Normal form game, $(N,A,u)$.\\
 % 即目标一致，共同优化
 Common-payoff Games(pure coordination), $u_i(a)=u_j(a),\forall i,j,a$.\\
@@ -101,5 +102,47 @@ $\epsilon$-Nash $s$: fix $\epsilon>0$, $\forall i,\forall s_i'$, $u_i(s_i,s_{-i}
 Evolutionarily stable strategy: given symmetric two-player normal-form game, ESS $S$ iff $\exists\epsilon>0$, $\forall$ other $S'$, $u(S,(1-\epsilon)S+\epsilon S')>u(S',(1-\epsilon)S+\epsilon S')$; equiv $u(S,S)>u(S',S)$ or both $u(S,S)=u(S',S)$ and $u(S,S')>u(S',S')$.\\
 weakly ESS, for equiv, last inequi $\geq$.\\
 Thm, given symmetric two-player normal-form game, ESS $S$ $\Rightarrow$ NE $(S,S)$.\\
-Thm, given symmetric two-player normal-form game, strict NE $(S,S)$ $\Rightarrow$ ESS $S$.
+Thm, given symmetric two-player normal-form game, strict NE $(S,S)$ $\Rightarrow$ ESS $S$.\\
+
+% tree
+Perfect-information game (in extensive-form)\\
+% 直觉上即backward induction
+Thm, every (finite) perfect-information game in extensive form has a pure-strategy NE.\\
+% 即某个节点为根及其后裔组成的game
+Subgame\\
+% 即在所有subgame里都是NE; 显然SPE=>NE；另外SPE仍然存在 PIGiEF
+Subgame-perfect equilibrium(SPE)\\
+% 显然SPE就是没有noncredible threat
+(non)credible threat\\
+% def5.1.1 即增加一个信息集（表示一些当前节点的不可区分）
+Imperfect-information game (in extensive-form), attached information set $I$.\\
+% 即i对于他的各节点行动是独立的
+behavioral strategies\\
+% 即i对于他的信息集，历史长度一样、等深历史节点同信息集，他的行动历史相同；直觉上，即i回溯历史也无法区分当前位置。game of PC, 即所有i都是PC; 显然PIG => gPC，因为信息集都是单的。
+Perfect recall of $i$; game of perfect recall, $\forall i$.\\
+% 在收益分布的意义上有等价替换
+Thm, for gPR, mixed- equiv behavioral-.\\
+% 即推广子game在等价信息集的意义上
+Sequential equilibrium\\
+Thm, every finite gPR, has a SE.\\
+Thm, SPE $\Rightarrow$ SE.\\
+% 定义无限repeated game的收益
+Average reward; Discounted reward.\\
+% v, minmax vectors
+Enforceable, $r\geq v$.\\
+Feasible, $r = \sum_a \alpha_a u(a)$, $\alpha_a\in \mathbb{Q}^+, \sum \alpha_a=1$.\\
+% 直觉上即(1)显然比minmax要优，然后(2)可构造minmax作为惩罚的NE
+Folk Theorem: (1) $r$ for NE of IR $G$ $\Rightarrow$ $r$ enforceable. (2) $r$ enforceable and feasible $\Rightarrow$ $r$ is some NE of IR $G$ with average reward.\\
+Stochastic game(Markov game).\\
+Behavioral strategy, $s_i(h_t,a_{i_j})$ the probability of playing $a_{i_j}$ for history $h_t$.\\
+% 即given t, 策略只与当前状态有关
+Markov strategy, $s_i(h_t, a_{i_j}) = s_i(h_t', a_{i_j})$ if $q_t=q_t'$ final state of which.\\
+% 即任意t, 策略只与当前状态有关
+Stationary strategy, $t_1,t_2$.\\
+Markov perfect equilibrium, consists of only Markov-s, NE regardless of start states.\\
+Thm, every $n$-player, general-sum, discounted reward, stochastic game has a MPE.\\
+Thm, every $2$-player, general-sum, average reward, irreducible stochastic game has a NE.\\
+% 类似folk thm
+Thm, for every $2$-player, general-sum, irreducible stochastic game, feasiable and enforceable $r$, there $\exists$ NE, for average reward, as well as large discount.
+
 \end{document}
