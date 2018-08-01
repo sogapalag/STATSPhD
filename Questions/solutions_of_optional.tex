@@ -1,0 +1,128 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+\usepackage{url}
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\def \cov {\text{Cov}}
+\def \var {\text{Var}}
+
+\title{Solutions of Optional Questions}
+% some questions collected anywhere 
+\author{sogapalag}
+
+\date{\normalsize\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+	\item[1] There are $n$ circular spots, one ball start at $0$, with probability $1/2$ (counter)clockwise move $1$ step, end visit probability?\\
+	The answer is $1/(n-1)$ for each $i\neq 0$. A generalized conclusion: for visited $0,...,i$, current at $0\leq k\leq i$, then $P(i+1)= (i-k)/(n-1)$, $P(-1)= (k+1)/(n-1)$, else $1/(n-1)$.\\
+	One can prove it with elementary math. However since we already know martingale and recall Gambler's ruin. The procedure is indeed the ruin procedure of s-SRW. Thus $P(i+1),P(-1)$ is trivial. And for else spots $j$, there are two ruins scenario, (counter)clockwise, hence with $1$ minus the two ruins probability to get the $1/(n-1)$.\qed
+	\item[2] Six distinct weights from $S=\{1,...,6\}$, use a scale(only to show $>=<$) how many times, one can judge $x_i=i$ for each $i$.\\
+	Answer is $2$ times. First $1+2+3=6$, then $1+6<3+5$.
+	\item[3] A secure lock with $3$digits password $\mathbb{Z}_{10}^3$, how many times needed if (a) there is a broken digit(but don't know which), other two right will open. (b) any two right will open.\\
+	for (a), let $z = (x+y+1)\mod 10$, thus $(x,y)$ tried $00\sim 99$, also $(x,z)$ and $(y,z)$, so $100$ times optimal.\\
+	for (b), divide $\mathbb{Z}_{10}$ to two groups $a,b$, thus there must two in same group, then use method of (a) to try each group, $a^2+b^2$ times, reach minimum $|a|=|b|=5$, i.e. $50$ times.
+	\item[4] two children, learned (a) one is boy, (b) one is boy born in Fri. another also boy prob?\\
+	recall Bayes, $P_a = 1/3$, $P_b=(2*7-1)/(2*14-1)= 13/27$.
+	\item[5] $\forall 0\leq k\leq 10^n-1, k\in\mathbb{Z}$, multiply nonzero digits, then take sum of all, what is right-most?\\
+	$x=(1+1+2+\dots+9)^n \mod 10 = 6$.
+	\item[6] a deck of $52=4*13$ cards, Alice take $5$ randomly, show $4$ one-by-one, Bob know remaining card for sure, how they did?\\
+	note there must be two cards in same suit $X$, wlog $m,n$; then there must be $(n-m)\mod 13\leq 6$ or $(m-n)\mod 13\leq 6$, wlog latter hold. We define an order for deck, then Alice first show $(n,X)$, then use $3$ cards which orders $3!=6$ sufficient to show distance to $m$.
+	\item[7] $R(n)$ is uniform$([n]=\{0,1,...,n-1\})$, $N=10^{99}$, apply $R$ repeatly untill $R^k(N)=0$, what is $E[k]$?\\
+	intuitively $\log N$.\\
+	Solution 1: let $f_n=E_n[k]$, thus
+	\begin{align}
+		f_n = 1+\frac{1}{n}\sum_{i=1}^{n-1} f_i\\
+		\Rightarrow nf_n-(n-1)f_{n-1} = 1 + f_{n-1}\\
+		\Rightarrow f_n-f_{n-1} = 1/n\\
+		\Rightarrow f_n = \sum_{i=1}^n \frac{1}{i} \approx \ln n
+	\end{align}
+	Solution 2(not rigorous): for $i$, move forward one step need effort $1/i$, thus total effort $\sum 1/i$.
+	\item[8] use $2\times 1$ to tile (a) $2\times n$, (b) $3\times 2n$.
+		\begin{itemize}
+			\item[(a)] contion on left-most situation, that $f_n=f_{n-1}+f_{n-2}, n>2$. and note $f_1=1, f_2=2$. Hence $f_n= F_{n+1}$ Fibonacci.
+			\item[(b)] let $f_{2n}$ the number of tiles $3\times 2n$, $g_{2n}$ the number of tiles when attached additional vertical $2\times 1$. that
+			\begin{align}
+				f_{2n} = f_{2n-2} + 2g_{2n-2}\\
+				g_{2n} = f_{2n} + g_{2n-2}\\
+				f_2 = 3, g_0 = 1; g_2= 4, f_4= 11\\
+				\Rightarrow f_{2n} = f_{2n-2}+ 2(f_{2n-2}+\dots+ f_2)+ g_0\\
+				\Rightarrow f_{2n} = 4f_{2n-2}-f_{2n-4}\\
+				\Rightarrow f_{2n} = (\frac{5n+1}{4})2^n, n>0
+			\end{align}
+		\end{itemize}
+	\item[9] \$$a=50$, gamble coin filp, $+2,-1$, probability run out of money?\\
+	intuitively $0$ since $E=1$ every step, formal proof below.\\
+	recall Gambler's ruin, this is asymmetry RW. let rvs $\xi_i=+2,-1$ with $1/2$ each. note $E[e^{\lambda \xi_i}]= e^{2\lambda}/2+ e^{-\lambda}/2 = 1$ for $\lambda=\log \frac{-1+\sqrt{5}}{2}$. Then $M_n=\exp(\lambda S_n)=\prod \exp(\lambda \xi_i)$, a product martingale. By Doob's optional, that
+	\begin{align}
+		r e^{-\lambda a}+(1-r)e^{\lambda b}=1
+	\end{align}
+	(here, reach $b$ could be $b+1$, not rigorous), however when we let $b\rightarrow\infty$, this term is zero. i.e.
+	\begin{align}
+		r = e^{\lambda a}=(\frac{-1+\sqrt{5}}{2})^a\approx 0
+	\end{align}
+	\item[10] to win an award, each contestant pick a positive integer, then unique least win the award, if no uniqueness, no one get the award. There are only $3$ contestants, they know that. what's your strategy?\\
+	obviously NE is mixed-strategy, recall indifferent and symmetry, suppose probability $p(\mathbb{N}^+)$. Thus
+	\begin{align}
+		\sum_{i=1}^{k-1} p_i^2 + \left(1-\sum_{i=1}^k p_i\right)^2 = c, \forall k\in\mathbb{N}^+\\
+		\Rightarrow (p_k+p_{k+1})^2 = 2(1-\sum_{i=1}^{k-1}p_i)p_{k+1}
+	\end{align}
+	By stumble and observe, let $p_{k+1}=a p_k,\forall k$, thus
+	\begin{align}
+		(p_k+p_{k+1})^2 = 2(p_k+p_{k+1})\frac{1}{1-a^2}p_{k+1}\\
+		\Rightarrow 1 + a = \frac{2a}{1-a^2}\\
+		\Rightarrow a^3+a^2+a-1=0\\
+		\Rightarrow a\approx 0.54369
+	\end{align}
+	then for consistent $\sum p_i=1$, just let $p_1=1-a\approx 0.45631$ enough.\\
+	For this NE, one's win probability is
+	\begin{align}
+		c = (1-p_1)^2=a^2\approx 0.2956
+	\end{align}
+	which is close to $0.3333$, not a bad NE.
+\end{itemize}
+
+\end{document}
