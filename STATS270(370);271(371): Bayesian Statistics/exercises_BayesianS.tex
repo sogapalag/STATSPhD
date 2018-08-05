@@ -83,6 +83,90 @@
 	\begin{align}
 		P(i|tb) = \frac{p_i}{p_i+p_f*0.5}=\frac{5}{11}
 	\end{align}
+	\item[2.1]
+	\begin{align}
+		p(\theta|y<3) \propto \theta^3(1-\theta)^3\sum_{y=0}^2{10\choose y} \theta^y(10-\theta)^{10-y}\\
+		C = \sum_{y=0}^2 {10\choose y} B(3+y+1, 3+10-y+1)=0.00103426
+	\end{align}
+	\item[2.2] first calculate
+	\begin{align}
+		P(C_1|TT) = \frac{.5 * 0.4^2}{.5 * .4^2 + .5 *.6^2} = 0.3076923
+	\end{align}
+	then recall geom-dist, hence $E=P/.6+(1-P)/.4 = 2.24359$.
+	\item[2.3] by CLT $\frac{Y-\mu}{\sqrt{n}\sigma}\sim N(0,1)$, where $n=1000$, $\mu=1000/6$, $\sigma=\sqrt{5/36}$, i.e. $Y\sim N(\mu, n\sigma^2)$. quatile numbers $147.2819, 158.7177, 166.6667, 174.6156, 186.0515$.
+	\item[2.4]
+	\begin{itemize}
+		\item[(a)] by CLT, $Y|\theta \sim N(n\theta, n\theta(1-\theta))$. thus $y$'s prior-dist is $\sum p(\theta)p(y|\theta)$, skectched in code.
+		\item[(b)] for $.05, .95$, use quantiles of left $.20$, right $.80$ to approx; for $.25,.75$, which is happend to be $\theta$ cdf, so use valleys of left-mid, mid-right to approx; $.5$ use quantile of mid $.5$ to approx.
+	\end{itemize}
+	\item[2.5]
+	\begin{itemize}
+		\item[(a)] recall beta func
+		\begin{align}
+			Pr(y=k) &= \int_0^1 {n\choose k} \theta^k(1-\theta)^{n-k}d\theta\\
+				&= {n\choose k} B(k+1,n-k+1)
+		\end{align}
+		\item[(b)] posterior
+		\begin{align}
+			p(\theta|y) &\propto \theta^{\alpha-1}(1-\theta)^{\beta-1} \theta^y(1-\theta)^{n-y}\\
+				&\sim \text{Beta}(\alpha+y,\beta+n-y)
+		\end{align}
+		thus post-mean $\frac{\alpha+y}{\alpha+\beta+n}$ lies between.
+		\item[(c)] recall beta dist var,
+		\begin{align}
+			\var(\theta|y) &= \frac{(y+1)(n-y+1)}{(n+2)^2(n+3)}\\
+				&\leq \frac{(n+2)^2/4}{(n+2)^2(n+3)}\\
+				&< \frac{1}{12} = \var(\theta)
+		\end{align}
+		\item[(d)] intuitively, observation far from prior beta, i.e. consider $\alpha\gg \beta$, $y=0,n=1$.
+	\end{itemize}
+	\item[2.8] recall sufficient S.
+	\item[2.9]
+	\begin{itemize}
+		\item[(a)] let $t=\alpha+\beta$, that $\frac{.6*.4}{t+1}=.3^2$, $t=5/3$, i.e. $\alpha=1, \beta=2/3$.
+		\item[(b)] recall 2.5(b), and $\alpha,\beta \ll y,n$, so approx Beta$(y,n-y)$, and note $y,n\gg 1$, i.e. $\sigma^2\sim 1/n\approx 0$, cdf step-func at $.65$.
+	\end{itemize}
+	\item[2.10]
+	\begin{itemize}
+		\item[(a)] $p(N|y)\propto p(N)\mathbb{I}_{N\geq y}/N$. $C=.0004705$.
+		\item[(b)] analytic mean
+		\begin{align}
+			E &= \sum p(N)\mathbb{I}_{N\geq y}/C\\
+				&= .99^{202}/C\\
+				&= 279.1
+		\end{align}
+		computation $sd=80.0$.
+	\end{itemize}
+	\item[2.11]
+	\begin{itemize}
+		\item[(a)] by grid approx, $p(\theta|y)\propto \frac{1}{100m}\prod_{i=1}^5 \frac{1}{1+(y_i-\theta)^2}$
+	\end{itemize}
+	\item[2.12] recall Jeffreys prior and Fisher information.
+	\item[2.15]
+	\begin{align}
+		E[Z^m(1-Z)^n] &= \frac{B(\alpha+m,\beta+n)}{B(\alpha,\beta)}\\
+			&= \frac{\Gamma(\alpha+m)\Gamma(\beta+n)\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)\Gamma(\alpha+\beta+m+n)}\\
+			&= \frac{(\alpha+m-1)\dots\alpha (\beta+n-1)\dots\beta}{(\alpha+\beta+m+n-1)\dots(\alpha+\beta)}
+	\end{align}
+	thus for mean $m=1,n=0$, $E[Z]=\frac{\alpha}{\alpha+\beta}$; for variance similar $EZ^2-E^2Z$.
+	\item[2.16]
+	\begin{align}
+		p(y) &\propto \int_0^1{n\choose y} \theta^{y+\alpha-1}(1-\theta)^{n-y+\beta-1}d\theta\\
+			&= {n\choose y}B(y+\alpha, n-y+\beta)
+	\end{align}
+	recall Gamma, trivially to see only when $\alpha=\beta=1$, $p(y)\propto 1$.
+	\item[2.20]
+	\begin{itemize}
+		\item[(a)]
+		\begin{align}
+			p(\theta|y\geq k) &\propto \int_{y\geq k} e^{-\theta y} \theta^{\alpha-1}e^{-\beta\theta}dy\\
+				&= \theta^{\alpha-2} e^{-(k+\beta)\theta}\\
+				&\sim \text{Gamma}(\alpha-1, k+\beta)
+		\end{align}
+		thus post-mean $E= (\alpha-1)/(k+\beta)$, post-var $\var = (\alpha-1)/(k+\beta)^2$.
+		\item[(b)] $\sim \text{Gamma}(\alpha, k+\beta)$.
+		\item[(c)] intuitively this information is worst situation, since else implies more restricted rate. mean-variance property related $E[\var(\theta|y)]$, not $\var(\theta|y)$ always less, so not contracting.
+	\end{itemize}
 \end{itemize}
 
 \end{document}
