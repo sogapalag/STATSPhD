@@ -1,0 +1,7 @@
+sa <- c(rep(0,100), 10*exp(-(1:100)/20)*cos(2*pi*1:100/4))
+xa <- sa + rnorm(200)
+sb <- c(rep(0,100), 10*exp(-(1:100)/200)*cos(2*pi*1:100/4))
+xb <- sb + rnorm(200)
+par(mfrow=c(2,1))
+plot.ts(xa)
+plot.ts(xb)

@@ -1,0 +1,149 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,bm} % Math packages
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+\usepackage{url}
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\def \cov {\text{Cov}}
+\def \var {\text{Var}}
+\def \arg {\text{arg}}
+\def \logit {\text{logit}}
+
+\title{Exercises of STATS 207 Time Series Analysis}
+% Time Series Analysis and Its Applications With R Examples. 4th ed. Robert H. Shumway  David S. Stoffer
+\author{sogapalag}
+
+\date{\normalsize\today}
+
+\begin{document}
+
+\maketitle
+\begin{itemize}
+	\item[1.6] note $\var(x_s,x_t)=\delta_{s,t}$, then shall be easy.
+	\item[1.8] (d) $\sqrt{\min/\max}$, (e) $x_t-x_{t-1}$.
+	\item[1.9] recall indep, mean-zero, and $\cos(\alpha-\beta)$.
+	\item[1.10] note $E[X_{t+l}X_t]=\gamma(l)$, thus $\text{MSE}(A)=(1+A^2)\gamma(0)-2A\gamma(l)$, implies $A=\gamma(l)/\gamma(0)=\rho(l)$ reach the minimum $(1-\rho^2(l))\gamma(0)$.
+	\item[1.11]
+	\begin{align}
+		\cov(x_{t+h}, x_t) &= \cov(\sum_k \psi_k w_{t+h-k}, \sum_j\psi_j w_{t-j})\\
+			&= \sum_i\psi_i\psi_{i+h}\var( w_{t-i})\\
+			&= \sigma^2\sum_i\psi_i\psi_{i+h}
+	\end{align}
+	recall Cauchy-criterion
+	\begin{align}
+		E[|S_m-S_n|^2] &= E[(\sum_{m\leq j\leq n}\psi_jw_{t-j})^2]\\
+			&= (\mu^2+\sigma^2)E[\sum_{m\leq j\leq n}\psi_j^2]\\
+			&\rightarrow 0
+	\end{align}
+	thus $x_t\stackrel{L2}{\rightarrow} x$.
+	\item[1.12] trivial by def.
+	\item[1.13] $\gamma(0)=\sigma_w^2(1+\theta^2)+\sigma_u^2$, $\gamma(\pm 1)=-\theta \sigma_w^2$, else $0$, easy to compute $\rho_y(h)$. for CCF, only $h=0,-1$ nonzero; trivial satisfy joint-S.
+	\item[1.14] recall mgf, $E[y_t]=\exp(\mu_x+\gamma(0)/2)$. note sum of correlated normal still normal, i.e. $x_{t+h}+x_t \sim N(2\mu_x, 2\gamma(0)+2\gamma(h)$, hence ACF of $y_t$ is
+	\begin{align}
+		\gamma_y(h) &= \cov(y_{t+h},y_t)\\
+			&= \exp(2\mu_x + \gamma(0)+\gamma(h)) - \exp^2(\mu_x+\gamma(0)/2)\\
+			&= (e^{\gamma(h)}-1)\exp(2\mu_x + \gamma(0))
+	\end{align}
+	\item[1.15] mean-zero, only $\gamma(0)=\sigma^4$, i.e. stationary.
+	\item[1.16] trivial mean-zero, and ACF, $h>0$
+	\begin{align}
+		\gamma(h) &= E[\sin(2\pi Ut)\sin(2\pi U(t+h))]\\
+			&= .5*E[\cos(2\pi hU) - \cos(2\pi(2t+h)U)]\\
+			&= 0\\
+		\gamma(0) &= .5*E[1]=.5
+	\end{align}
+	i.e. weakly stationary. since $x_t,x_s$ trivially not same, hence not strictly S.
+	\item[1.17] joint cf
+	\begin{align}
+		\phi &= E[\exp(i\sum_{i=1}^n t_i x_i)]\\
+			&= E[\exp(i(t_n w_n-t_1\theta w_0+\sum_{i=1}^{n-1}(t_i-t_{i+1}\theta)w_i]\\
+			&= \phi_w(t_n)\phi_w(-t_1\theta)\prod_{i=1}^{n-1}\phi_w(t_i-t_{i+1}\theta)
+	\end{align}
+	then use partial-d to calculate moments to show strcitly S(obvious).
+	\item[1.18]
+	\begin{align}
+		\sum_{h=-\infty}^\infty |\gamma(h)| &\leq \sum_{h=-\infty}^\infty \sigma^2 \sum_{j=-\infty}^\infty |\psi_j\psi_{j+h}|\\
+			&= \sigma^2 (\sum_{j=-\infty}^\infty |\psi_j|)^2\\
+			&< \infty
+	\end{align}
+	\item[1.19]
+	\begin{itemize}
+		\item[(d)]
+		\begin{align}
+			\var(\overline{x}) &= \frac{1}{n}(\gamma(0)+\frac{2(n-1)}{n}\gamma(1))\\
+			\var(\overline{x})|_{\theta=1} &= \frac{2(2n-1)}{n^2}\sigma_w^2\\
+			\var(\overline{x})|_{\theta=0} &= \frac{1}{n}\sigma_w^2\\
+			\var(\overline{x})|_{\theta=-1} &= \frac{2}{n^2}\sigma_w^2
+		\end{align}
+		\item[(e)] obviously $\theta=-1$ with $\rightarrow 0$ faster, which follow the intuition cancel most randomness.
+	\end{itemize}
+	\item[1.20] obvious $n$ larger, $\hat{\gamma}(h_{>0})$ more close to zero.
+	\item[1.25]
+	\begin{itemize}
+		\item[(a)] let $Y=a'X$, that $\var(Y)= a'\Gamma a\geq 0$, where $\Gamma$ is cov-matrix of that stationary process. i.e. non-negative definite.
+		\item[(b)] the estimate $\widehat{\var}(Y)=a'\widehat{\Gamma}a\geq 0$.
+	\end{itemize}
+	\item[1.26] obvious.
+	\item[1.27] since stationary, thus
+	\begin{align}
+		V_x(h) &= \frac{1}{2} E[((x_{s+h}-\mu_x)- (x_s-\mu_x))^2]\\
+			&= \gamma(0) - \gamma(h)
+	\end{align}
+	\item[1.28] by $x_t$'s formula, intuitively hold, formally each item's ratio $\frac{x_{t+h}-\overline{x}}{x_t-\overline{x}}=\frac{t+h-(n+1)/2}{t-(n+1)/2}\rightarrow 1$, for most $t$, since $h$ fixed. hence $\widehat{\rho}\rightarrow 1$.
+	\item[1.29] note $E[\sqrt{n}\overline{x}]=0$, and recall
+	\begin{align}
+		\var(\sqrt{n} \overline{x}) &= n\frac{1}{n}\sum_{h=-n}^n(1-\frac{|h|}{n})\gamma(h)\\
+			&\leq \sum_{h=-n}^n\gamma(h)\\
+			&\rightarrow 0
+	\end{align}
+	hence $\sqrt{n}\overline{x}\stackrel{p}{\rightarrow}0$.
+	\item[1.30]
+	\begin{align}
+		E[\overline{\gamma}(h)- \widehat{\gamma}(h)] &\sim \gamma(h)-(\gamma(h)+\var(\overline{x}))\\
+			&\sim \var(\overline{x})\\
+			&\sim \var((\sum_i \psi_i)\overline{w})\\
+			&\sim 1/\sqrt{n}
+	\end{align}
+	thus $\sqrt{n}(\overline{\gamma}(h)- \widehat{\gamma}(h)) \sim o(1)$ by Markov's.
+\end{itemize}
+
+\end{document}

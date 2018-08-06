@@ -1,0 +1,12 @@
+w <- rnorm(150)
+xa <- filter(w, c(0, -.9), method = 'recursive')[-(1:50)]
+xb <- cos(2*pi*1:100/4)
+xc <- xb + rnorm(100)
+v <- function(x)filter(x, rep(1/4, 4), side=1)
+par(mfcol=c(2,3))
+plot.ts(xa, type='l', ylim=c(-5,5))
+plot.ts(v(xa), type='l', lty=2)
+plot.ts(xb, type='l', ylim=c(-5,5))
+plot.ts(v(xb), type='l', lty=2, ylim=c(-1,1))
+plot.ts(xc, type='l', ylim=c(-5,5))
+plot.ts(v(xc), type='l', lty=2)
