@@ -66,5 +66,77 @@ Linear process\\
 % Linear regression
 % t-test; F-test; aov; AIC;BIC;AICc
 % lm, ksmooth, lowess
-
+% AR(p), x_t ~ x_{t-1}+...+x_{t-p}
+% B: backshift.    phi(B)x_t = w_t
+Autoregressive(AR); AR($p$) operator $\phi(B)=(1-\phi_1B-\dots-\phi_p B^p)$. $\phi(B)x_t=w_t$.\\
+% AR(1) ~ solution LP x_t=\sum_j phi^j w_{t-j}
+% solution技巧 展开1/(1-phiB)
+For AR(1) $|\phi|<1$ S. solution
+\begin{align}
+	x_t = \sum_{j=0}^\infty \phi^j w_{t-j}\\
+	\gamma(\pm h) = \frac{\sigma_w^2 \phi^h}{1-\phi^2}, h\geq 0\\
+	\rho(h) = \gamma(h)/\gamma(0) = \phi^h\\
+	\rho(h) = \phi \rho(h-1), h=1,2,...
+\end{align}
+$|\phi|>1$ S. solution $x_t=-\sum_{j=1}^\infty \phi^{-j}w_{t+j}$. (useless, future info)\\
+% MA(q), x_t = w_t + t_1w_{t-1} +...+ t_q w_{t-q}
+% x_t = t(B) w_t
+moving average(MA); MA($q$) operator $\theta(B)=1+\theta_1 B+\dots+\theta_q B^q$. $x_t=\theta(B)w_t$.\\
+% MA，non-uniqueness; 即有不同的（t,sigma）使得acf相同；所以无法区分，默认选择可以casual AR; (invertible). 即x,w看作符号对换, phi ~ -t
+% ARMA def 3.5
+autoregressive moving average(ARMA); ARMA($p,q$), i.e. $\phi(B)x_t=\theta(B)w_t$.\\
+% parameter redundant， 一个例子即x_t=w_t两边同乘上，看上去cor影响很大，实际上只是noise。
+% 冗余，即需要消因子
+def, AR,MA polynomial, $z\in\mathbb{C}$, that
+\begin{align}
+	\phi(z) = 1 -\phi_1 z - \dots - \phi_p z^p, \phi_p\neq 0\\
+	\theta(z) = 1 + \theta_1 z + \dots + \theta_q z^q, \theta_q \neq 0
+\end{align}
+% 即不依赖未来的单边LP
+def, casual, if time-series can be written as one-side linear process
+\begin{align}
+	x_t = \sum_{j=0}^\infty \psi_j w_{t-j} =\psi(B)w_t
+\end{align}
+where $\psi(B)=\sum_{j=0}^\infty \psi_jB^j$, $\sum_{j=0}^\infty |\psi_j|<\infty$, wlog set $\psi_0=1$.\\
+% 单位圆内无根
+prop, ARMA($p,q$) is casual iff $\phi(z)\neq 0,\forall|z|\leq 1$. coeff solved by $\psi(z) = \theta(z)/\phi(z)$.\\
+def, invertible, if can written as
+\begin{align}
+	\pi(B)x_t = \sum_{j=0}^\infty \pi_j x_{t-j} = w_t
+\end{align}
+where $\pi(B)=\sum_{j=0}^\infty\pi_jB^j$, $\sum_{j=0}^\infty |\pi_j|<\infty$; wlog set $\pi_0=1$.\\
+% 类似地
+prop, invertible iff $\theta(z)\neq 0,\forall |z|\leq 1$.\\
+% 某种情况视作给定 中间的变量时，的corr
+partial autocorrelation function(PACF)
+\begin{align}
+	\phi_{11}=\text{corr}(x_{t+1}, x_t)\\
+	\phi_{hh}=\text{corr}(x_{t+h}-\widehat{x}_{t+h}, x_t - \widehat{x}_t), h\geq 2
+\end{align}
+where $\widehat{x}$ is regression that
+\begin{align}
+	\widehat{x}_{t+h} = \beta_1 x_{t+h-1}+\dots +\beta_{h-1}x_{t+1}
+\end{align}
+% (3.54) S.回归，反演性
+% prop3.3, BLP (3.60) 最佳线性预测；（3.64）
+for one-step prediction, coeff and error
+\begin{align}
+	\phi_n = \Gamma_n^{-1}\gamma_n\\
+	E[(-)^2] = \gamma(0) - \gamma_n'\Gamma_n^{-1}\gamma_n
+\end{align}
+% iteratively计算coeff,error 解决避免求矩阵inverse
+The Durbin–Levinson Algorithm\\
+% iteratively计算predict, error
+The Innovations Algorithm\\
+% example3.23 直觉上stationary长预测显然几乎没额外信息，故-> mu, gamma(0)
+% def3.10 Yule-Walker estimator 即AR(p)系数，error的估计形式
+% 估计 的表现
+% large sample result, Y-W, PACF 渐近分布AN
+% 对于small sample, 可以bootstrap出参数分布
+% ex3.30 The Newton–Raphson and Scoring Algorithms； iteratively计算似然MLE
+% 即差分d次后 为 ARMA（p,q） 
+def3.11, ARIMA$(p,d,q)$.
+% 注意过度差分
+% Q-statistic, 即model后的residuals应该要iid的mean-zero的，（Gaussian不一定）
+% (seasonal) def,3.12, SARIMA; 即额外做周期差分
 \end{document}
