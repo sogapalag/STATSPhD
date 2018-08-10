@@ -144,6 +144,41 @@
 			&\sim 1/\sqrt{n}
 	\end{align}
 	thus $\sqrt{n}(\overline{\gamma}(h)- \widehat{\gamma}(h)) \sim o(1)$ by Markov's.
+	\item[3.24] $|\theta|,|\phi|<1$ implies casual and invertible, i.e. $x_t = \mu+ \psi(B)w_t$ a LP, by Theorem A.5, proved AN. note that
+	\begin{align}
+		\psi(B) = \frac{1 + \theta B}{1- \phi B}
+	\end{align}
+	by let $B=1$, which exactly
+	\begin{align}
+		\sum_j \psi_j = \frac{1 + \theta}{1-\phi}
+	\end{align}
+	thus variance is
+	\begin{align}
+		n^{-1}V = n^{-1}\sigma_w^2 \left(\frac{1 + \theta}{1-\phi}\right)^2
+	\end{align}
+	i.e. $\overline{x}\sim \text{AN}(\mu, n^{-1}V)$.\qed\\
+	which general result implies for casual ARMA, $V\propto \theta(1)/\phi(1)$.
+	\item[3.27] induction.
+	\item[3.29] (a) expand, omit between unknown. (b)by hint. (c) (3.145) heuristic think, given $n$ predict $m$ step approx start $0$ predict $m$, thus var is $\var(x_m)$ since we know LP $\psi$ and $w_{t<1}=0$, implies the result.
+	\item[3.32] use auto.arima (unseasonal), $(1,0,1)\sim -.526, .714$, but $(1,0,0), .132$ has similar performance, AIC; intuition one can notice $(1+.526)/(1+.714)\approx 1-.132$. so use less parameter, which match the knowledge trend-grow.
+	\item[3.33] intuitively with drift, thus $d=1$(auto.arima also showed). then between $(1,1,0)$ and $(1,1,1)$, latter has better AIC(not much) but var.coef worst(much), so choose former model. besides $(3,1,0)$ also var.coef worst. Hence $(1,1,0),-.231$ match our knowledge, temperature longterm drift, and diff converge in.
+	\item[3.45] by Projection theorem, $\widehat{x}_{n+1}=\langle x_{n+1},x\rangle x$.(though it's natural to cancel the $w_t$ noise). without detail calculation, note that $w_{n+1} \perp x$, and $x_{n+1}=\widehat{x}_{n+1}+w_{n+1}$, $\widehat{x}_{n+1}\in \text{span}(x)$ implies the answer.\qed
+	\item[3.47] we give a heuristic solution. note $x_t$ which inverse random-walk, thus we rewrite
+	\begin{align}
+		x_{n+1} &= w_{n+1} - \sum_{j=1}^{\infty}x_{n+1-j}\\
+			&=  w_{n+1} - \sum_{i=1}^n x_{i} - y
+	\end{align}
+	where $y=\sum_{j=-\infty}^0 x_j$. we omit orthogonal term $w_{n+1}$, that
+	\begin{align}
+		\widehat{x}_{n+1} + \widehat{y} = - \sum_{i=1}^n x_n
+	\end{align}
+	suppose $\widehat{x}_{n+1}= -\phi x$, let $\phi^*=(\phi_n,...,\phi_1)$, by backcast $y$, implies $\phi+\phi^*=1$. Then by the form estimate $\widehat{x}_{n+1}$ is to normalize $\widehat{x}_n -x_n$, with start $1/2$ when $n=1$. Thus implies the result.\qed\\
+	(b) follow the heuristic way, easy to get unnormalized
+	\begin{align}
+		E(x_{n+1}-\widehat{x}_{n+1})^2 &= (\frac{n+2}{n+1})^2 E(\widehat{x}_{n+2}^2)\\
+			&= (\frac{n+2}{n+1})^2 \sum(\phi - \phi_s)^2\sigma_w^2\\
+			&= \frac{n+2}{n+1}\sigma_w^2
+	\end{align}
 \end{itemize}
 
 \end{document}
