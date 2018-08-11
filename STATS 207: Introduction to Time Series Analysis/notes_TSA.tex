@@ -135,8 +135,39 @@ The Innovations Algorithm\\
 % 对于small sample, 可以bootstrap出参数分布
 % ex3.30 The Newton–Raphson and Scoring Algorithms； iteratively计算似然MLE
 % 即差分d次后 为 ARMA（p,q） 
-def3.11, ARIMA$(p,d,q)$.
+def3.11, ARIMA$(p,d,q)$.\\
 % 注意过度差分
 % Q-statistic, 即model后的residuals应该要iid的mean-zero的，（Gaussian不一定）
 % (seasonal) def,3.12, SARIMA; 即额外做周期差分
+% DFT
+% 4.1,4.2 (S.)ACF的谱分析（谱密度）(对称)
+for stationary process, $\sum|\gamma|<\infty$, that
+\begin{align}
+	\gamma(h) = \int_{-\frac{1}{2}}^{\frac{1}{2}} e^{2\pi i \omega h} f(\omega)d\omega, h=0,\pm 1,\pm 2,...\\
+	f(\omega) = \sum_{h=-\infty}^\infty \gamma(h)e^{-2\pi i \omega h}, -1/2\leq \omega\leq 1/2
+\end{align}
+% 4.20~4.22 (S.)input => output(卷积)的ACF谱关系
+for a linear filter $y_t = \sum a_j x_{t-j}$, $\sum |a_j|<\infty$, frequency response function $A(\omega)=\sum a_j e^{-2\pi i\omega j}$, that
+\begin{align}
+	f_y(\omega) = |A(\omega)|^2 f_x(\omega)
+\end{align}
+% 由noise f=gamma=1,(sigma^2); A即theta/phi结合上式可得。直接计算x的gamma,f可验证
+ARMA($p,q$)'s spectral density is
+\begin{align}
+	f_x(\omega) = \sigma_w^2 \frac{|\theta(e^{-2\pi i \omega})|^2}{|\phi(e^{-2\pi i \omega})|^2}
+\end{align}
+% 即S.P可以表示为（不相关increment）随机过程的积分
+for mean-zero stationary process with spectral distribution $F$, $\exists Z(\omega)$ complex-valued stochastic process on $\omega\in[-1/2,1/2]$, s.t.
+\begin{align}
+	x_t = \int_{-\frac{1}{2}}^{\frac{1}{2}} e^{2\pi i \omega t} dZ(\omega)
+\end{align}
+and $\var(Z(\omega_2) - Z(\omega_1)) = F(\omega_2)-F(\omega_1)$.\\
+% 周期图，与sample ACF的关系，类似 谱密度与ACF
+% as n->infty, E[I]->f
+periodogram, $I(\omega_j)=|D|^2=\sum_{|h|<n}\widehat{\gamma}(h)e^{-2\pi i\omega_j h}$.
+% ex4.11 ACF matrix, large n, 特征值～f, X=GY
+% (4.38)-(4.45) D_s（谱幅sin项）,D_c COV的一些性质
+% LP， 2I/f ->{d} xi_2^2(chi-squared 2维)（4.51）近似f置信区间
+% 于是， E[I]~f, var(I)~f^2 (by chisq, mean k, var 2k)
+% 由于上var不->0，section4.4 -（4.58）用一段（bandwidth）作平滑估计f
 \end{document}
