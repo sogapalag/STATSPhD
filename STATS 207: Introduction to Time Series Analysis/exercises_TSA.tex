@@ -179,6 +179,51 @@
 			&= (\frac{n+2}{n+1})^2 \sum(\phi - \phi_s)^2\sigma_w^2\\
 			&= \frac{n+2}{n+1}\sigma_w^2
 	\end{align}
+	\item[4.1](a)(b) trivial by hint. (c) 1. take $+,-$; 2. be $\sin -\sin$.
+	\item[4.7] let $e = (e^{-2\pi i\omega h})_{h\in \mathbb{Z}}$, note that $\forall h\in \mathbb{Z}$
+	\begin{align}
+		\gamma_x(h) = \gamma_s(h)(1+A^2)+A[\gamma_s(h+D)+\gamma_s(h-D)] + \gamma_n(h)
+	\end{align}
+	thus
+	\begin{align}
+		f_x(\omega) &= \langle \gamma_x,e\rangle \\
+			&= (1+A^2)f_s(\omega) + A(e^{2\pi i \omega D}+e^{-2\pi i \omega D})f_s(\omega) + f_n(\omega)\\
+			&= [1+A^2+2A\cos(2\pi \omega D)]f_s(\omega)+ f_n(\omega)
+	\end{align}\qed
+	\item[4.8] by indep, mean-zero, S. that
+	\begin{align}
+		\gamma_z(h) &= E[x_{t+h}y_{t+h}x_t y_t] \\
+			&= E[x_{t+h}x_t]E[y_{t+h}y_t]\\
+			&= \gamma_x(h)\gamma_y(h)
+	\end{align}
+	thus
+	\begin{align}
+		f_z(\omega) &= \sum \gamma_x \gamma_y e_\omega\\
+			&= \sum \gamma_x \int_{-1/2}^{1/2}e_{-\nu} f_y(\nu)d\nu  e_\omega\\
+			&= \int_{-1/2}^{1/2}\sum \gamma_x e_{\omega-\nu} f_y(\nu)d\nu\\
+			&= \int_{-1/2}^{1/2}f_x(\omega-\nu)f_y(\nu)d\nu
+	\end{align}\qed
+	\item[4.11]
+	\begin{itemize}
+		\item[(a)] by partial-d or orthogonal principle that
+		\begin{align}
+			\sum_t [x_t - \langle \widehat{\beta}, .\rangle].=0
+		\end{align}
+		and recall p4.1 formulas, get the answer.\qed
+		\item[(b)] it's sufficient to prove
+		\begin{align}
+			\sum_t x_t^2 - \text{SSE} &= \sum_t [2x_t -\langle \widehat{\beta}, .\rangle] \langle \widehat{\beta}, .\rangle\\
+				&= n(\widehat{\beta}_1^2 + \widehat{\beta}_2^2)- n/2 * (\widehat{\beta}_1^2 + \widehat{\beta}_2^2)\\
+				&= 2 (d_c^2 + d_s^2)\\
+				&= 2 I
+		\end{align}\qed
+	\end{itemize}
+	\item[4.12]
+	\begin{align}
+		\sum_s a_s x_{t-s} &= \sum_s \sum_k d_A(\omega_k)e^{2\pi i\omega_k s} x_{t-s}\\
+			&= \sum_k d_A(\omega_k)e^{2\pi i\omega_k t} \sum_s e^{-2\pi i\omega_k (t-s)}x_{t-s}\\
+			&= \sum_k d_A(\omega_k)d_x(\omega_k) e^{2\pi i\omega_k t}
+	\end{align}\qed
 \end{itemize}
 
 \end{document}
