@@ -4,5 +4,6 @@ dtlp <- resid(fit) # detrend
 dilp <- diff(lp) # first-diff
 P1 <- (Mod(2*fft(dtlp)/1020))^2
 P2 <- (Mod(2*fft(dilp)/1019))^2
+par(mfrow=c(2,1))
 plot(P1)
 plot(P2)

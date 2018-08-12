@@ -224,6 +224,32 @@
 			&= \sum_k d_A(\omega_k)e^{2\pi i\omega_k t} \sum_s e^{-2\pi i\omega_k (t-s)}x_{t-s}\\
 			&= \sum_k d_A(\omega_k)d_x(\omega_k) e^{2\pi i\omega_k t}
 	\end{align}\qed
+	\item[4.18]
+	\begin{itemize}
+		\item[(a)] trivial.
+		\item[(b)] by Linear filter
+		\begin{align}
+			f_x(\omega) = |1-e^{-2\pi i\omega}|^2\sigma_w^2 = 2(1-\cos(2\pi \omega))\\
+			f_y(\omega) = \frac{1}{4}|1+e^{-2\pi i\omega}|^2\sigma_w^2 = \frac{1}{2}(1+\cos(2\pi\omega))
+		\end{align}
+		\item[(c)] recall (4.58), rewrite
+		\begin{align}
+			\frac{\chi_{2L}(\alpha/2)f(\omega)}{2L} \leq \overline{f}(\omega)\leq \frac{\chi_{2L}(1-\alpha/2)f(\omega)}{2L} 
+		\end{align}
+		that $a=0.2465363, b=1.8982$.\qed
+	\end{itemize}
+	\item[4.25] first $f_{xx}=1,f_{yy}=1+\phi^2$, and note $\gamma_{yx}(h)=\phi$ only when $h=D$, $0$ otherwise, implies $f_{yx}=\phi e^{-2\pi i\omega D}$. Thus squared coherence is
+	\begin{align}
+		\rho_{yx}^2 = \frac{|f_{yx}|^2}{f_{xx}f_{yy}} = \frac{\phi^2}{1+\phi^2}
+	\end{align}
+	\item[4.29]
+	\begin{align}
+		y_t &= \sum_k a_k x_{t-k}\\
+			&= \sum_k a_k \frac{e^{2\pi i \omega (t-k)} + e^{-2\pi i \omega (t-k)}}{2}\\
+			&= \frac{1}{2}[A(\omega)e^{2\pi i\omega t} + A^*(\omega)e^{-2\pi i\omega t}]\\
+			&= |A(\omega)|\cos(2\pi \omega t + \phi(\omega))
+	\end{align}\qed
+	\item[4.33] directly by $f_{yx}=A f_{xx}$, $f_{yy}=|A|^2f_{xx}$ implies LP $\rho_{yx}^2=1$.\qed
 \end{itemize}
 
 \end{document}
