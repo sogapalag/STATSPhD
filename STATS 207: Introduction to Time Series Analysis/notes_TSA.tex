@@ -164,7 +164,7 @@ for mean-zero stationary process with spectral distribution $F$, $\exists Z(\ome
 and $\var(Z(\omega_2) - Z(\omega_1)) = F(\omega_2)-F(\omega_1)$.\\
 % 周期图，与sample ACF的关系，类似 谱密度与ACF
 % as n->infty, E[I]->f
-periodogram, $I(\omega_j)=|D|^2=\sum_{|h|<n}\widehat{\gamma}(h)e^{-2\pi i\omega_j h}$.
+periodogram, $I(\omega_j)=|D|^2=\sum_{|h|<n}\widehat{\gamma}(h)e^{-2\pi i\omega_j h}$.\\
 % ex4.11 ACF matrix, large n, 特征值～f, X=GY
 % (4.38)-(4.45) D_s（谱幅sin项）,D_c COV的一些性质
 % LP， 2I/f ->{d} xi_2^2(chi-squared 2维)（4.51）近似f置信区间
@@ -178,4 +178,13 @@ periodogram, $I(\omega_j)=|D|^2=\sum_{|h|<n}\widehat{\gamma}(h)e^{-2\pi i\omega_
 % prop4.9 推广到vector LP
 % optimal filter
 % section4.10, 推广到 多维(space)序列
+% sec5.1 Long Memory ARMA and Fractional Differencing; lib(fracdiff)
+% unit root test(测试RW)（5.32）；for ARMA, adf-test, pp-test, lib(tseries)
+% ARCH,GARCH; martingale
+GARCH, $z_t\sim N(0,1)$, $r_t$ return rate,
+\begin{align}
+	r_t = \sigma_t z_t\\
+	\sigma_t^2 = \alpha_0 +\sum_{i=1}^q \alpha_i r_{t-i}^2 + \sum_{j=1}^p \beta_j \sigma_{t-j}^2
+\end{align}
+$\theta=(\alpha_0,\bm{\alpha},\bm{\beta})$, (quasi)MLE.
 \end{document}
