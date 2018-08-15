@@ -1,0 +1,116 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,bm} % Math packages
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+\usepackage{url}
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\def \cov {\text{Cov}}
+\def \var {\text{Var}}
+\def \arg {\text{arg}}
+\def \logit {\text{logit}}
+
+\title{notes of STATS 318: Modern Markov Chains}
+% Markov Chains and Mixing Times. 2nd ed. David A. Levin, Yuval Peres, Elizabeth L. Wilmer
+% Finite Markov Chains and Algorithmic Applications. 2002. Olle Häggström.
+\author{sogapalag}
+
+\date{\normalsize\today}
+
+\begin{document}
+
+\maketitle
+\section{Introduction to Finite Markov Chains}
+% depend on current. so matrix P sufficient to describe
+Markov property\\
+state space $\mathcal{X}$, transition$\mathcal{X}\rightarrow \mathcal{X}$ matrix $P:\mathcal{X}\times \mathcal{X}\rightarrow \mathbb{R}^+$. $\sum_y P(x,y)=1,\forall x\in\mathcal{X}$.\\
+% 即状态转移 右乘P
+next distribution $\mu P$.\\
+% 即Pf的含义 为下步的f期望; 下标含义为init
+$Pf(x)=E_x[f(X_1)]$.\\
+% 即划分U[0,1],落在相应区域对应状态
+prop1.5, finite $P$ has random mapping representation.\\
+% 即所有状态可互相抵达
+def, irreducible, any $x,y$ $\exists t<\infty$ s.t. $P^t(x,y)>0$.\\
+% 注意gcd, 不代表t=gcd一定抵达
+def, period, gcd$T(x)$, where $T(x):=\{t\geq 1:P^t(x,x)>0\} $.\\
+% 因为x<->y, 所以x自抵经过y,加上任意T(y)仍可，故divide T(y)
+lemma, irreducible $\Rightarrow$ gcd$T(x)=c,\forall x$.\\
+def, aperiodic, $c=1$.\\
+% Schur, coin problem(Frobenius number, NP-hard)
+% 存在证明，对于coprime a,b, a(0~b-1)=Z_b, 然后平移相应kb 
+% 故由T(x)的加法封闭性可知， 大于某值后x->x一直，由于irreducible, x->任意y一直=>任意x->任意y一直
+prop, aperiodic, irreducible $\Rightarrow$ $\exists r_0$ s.t. $P^r(x,y)>0$, $\forall x,y\forall r\geq r_0$.\\
+def, stationary(S.) distribution, $\pi=\pi P$.\\
+% easytocheck 正好每条边传1份抵消
+for RW on graph, $\pi(y)=\frac{\text{deg}(y)}{2|E|}$.\\
+def, hitting time $\tau_x:=\min\{t\geq 0:X_t=x\}$.\\
+def, first return time, when $X_0=x$, $\tau_x^+:=\min\{t\geq 1:X_t=x\}$.\\
+lemma, irreducible $\Rightarrow$ $E_x[\tau_y^+]<\infty,\forall x,y$.\\
+% prop1.4, averge停留即为S.
+def, harmonic(on $D$), $Ph=h$.\\
+lemma, irreducible $\Rightarrow$ harmonic(on $\mathcal{X}$) $h$ is constant.\\
+coll, irreducible $\Rightarrow$ unique $\pi$.\\
+prop, irreducible $\Rightarrow$ $\pi(z)=1/E_z(\tau_z^+)$.\\
+% 即任意x-y 流出=流入
+def, detailed balance equations(dbe), $\pi(x)P(x,y)=\pi(y)P(y,x),\forall x,y$.\\
+prop, dbe $\Rightarrow$ S.\\
+% 即当init满足dbe时，(X0,...,Xn)与其reverse同分布; 显然，平衡反演
+def, reversible.\\
+% 直觉上即，水（气体）一直顺时针流，是S.（恒单位质量）但不是dbe的（截面有流出）
+e.g. for RW on $n$-cycle, $\pi(k)=1/n$ is S. but not dbe(reversible) when biased.\\
+% 想像时间反演
+def, time reversal of irreducible, $\widehat{P}(x,y):=\frac{\pi(y)P(y,x)}{\pi(x)}$.\\
+% prop1.23 显然反演S.; 当init为此，即原历程与反演同分布。
+prop, $\pi$ is S. for $\widehat{P}$ and $P_{\pi}(\rightarrow)=\widehat{P}_\pi(\leftarrow)$.\\
+def, accessible, $\exists 0<r<\infty, P^r(x,y)>0$, write $x\rightarrow y$.\\
+def, essential, $x\rightarrow y$ implies $y\leftarrow x$, $\forall y$.\\
+% e.g. 三维RW，每个点都是essential，都不是recurrent.
+remark. for finite, essential $\Leftrightarrow$ $\rho_{xx}=P_x(\tau_x^+<\infty)=1$(recurrent).\\
+def, communicates, $x \leftrightarrow y$ iff $x\rightarrow y,y\leftarrow x$, or $x=y$. denote c.class $[x]$.\\
+lemma, essential $x\rightarrow y$ $\Rightarrow$ $y$ essential.\\
+lemma, finite chain has at least one e.class.\\
+prop, finite, inessential $\pi(y)=0$.\\
+% recall 分解disjoint recurrents, transient; recurrent的S.分布组合显然仍为S.
+prop, unique S. iff $\exists$ unique e.c.class.\\
+
+
+\end{document}
