@@ -1,0 +1,100 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,bm} % Math packages
+\usepackage{amssymb}
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+\usepackage{url}
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+\def \cov {\text{Cov}}
+\def \var {\text{Var}}
+\def \arg {\text{arg}}
+\def \logit {\text{logit}}
+
+\title{exercises of MCMT}
+% Markov Chains and Mixing Times. 2nd ed. David A. Levin, Yuval Peres, Elizabeth L. Wilmer
+\author{sogapalag}
+
+\date{\normalsize\today}
+
+\begin{document}
+
+\maketitle
+\begin{itemize}
+	\item[1.1] $2,x=y$; least length path, $x\neq y$.
+	\item[1.2] connected $\Rightarrow$ llp$<\infty$ $\Rightarrow$ irreducible; inconnected $\Rightarrow$ $x\nrightarrow y$.\qed
+	\item[1.6] fix $x$, define
+	\begin{align}
+		C_k := \{y:\tau_y^+ \equiv k \mod b\}
+	\end{align}
+	obvious disjoint, and note $x\in C_0$ by definition period $b=\tau_x^+/c,c\in \mathbb{Z}^+$, and irreducible i.e. $\exists$ at least fisrt through another $b-1$ distinct states to visit $x$. Hence it is a well-defined partition.\\
+	for $P(y,z)>0$, suppose $y\in C_i$, note $x\rightarrow y\rightarrow z\rightarrow x$ and $x\rightarrow z \rightarrow x$ both divided by $b$ implies $z\in C_{i+1}$.\qed
+	\item[1.7] easy to verify follow dbe.
+	\item[1.8] recall Chapman-Kolmogorov's thm
+	\begin{align}
+		\pi(x)P^2(x,y) &= \pi(x)\sum_z P(x,z)P(z,y)\\
+			&= \pi(x) \sum_z \frac{\pi(z)P(z,x)}{\pi(x)} \frac{\pi(y)P(y,z)}{\pi(z)}\\
+			&= \pi(y) \sum_zP(y,z)P(z,x)\\
+			&= \pi(y) P^2(y,x)
+	\end{align}\qed
+	\item[1.9] denote $I_{t,y}$ event $X_t=y$, thus
+	\begin{align}
+		\tilde{\pi}(y) &= E_z(V_y)\\
+			&= \sum_{k=1}^\infty E_z(V_y|\tau_z^+=k)P(\tau_z^+=k)\\
+			&= \sum_{k=1}^\infty \sum_{t<k} E_z(I_{t,y}|\tau_z^+=k)P_z(\tau_z^+=k)\\
+			&= \sum_{t=0}^\infty \sum_{k>t} P_z(X_t=y|\tau_z^+=k)P_z(\tau_z^+=k)\\
+			&= \sum_{t=0}^\infty P_z(X_t=y, \tau_z^+>t)
+	\end{align}\qed
+	\item[1.10] assume maximum not in $B$, i.e. $\forall y\in B$, that $h(y)<M=h(x_0)$, where $x_0\in \mathcal{X}\setminus B$. harmonic implies any $z$  one-step accessible by $x$, there must be $h(z)=M$, and this relation can repeatly apply, since irreducible, thus $\exists y\in B,h(y)=M$.\qed 
+	\item[1.12]
+	\begin{itemize}
+		\item[(a)] trivial.
+		\item[(b)] $E_x[\tau_A] = \sum_y (1+E_y[\tau_A])P(x,y)= 1 + \sum_y P(x,y)f(y)$.
+		\item[(c)] by irreducible, note $\exists x\in B$ s.t. $\sum_{y\in B}P(x,y)<1$, thus $h=f_1-f_2$
+		\begin{align}
+			h(x) &= \sum_{y\in B}P(x,y)h(y)\\
+				&= \sum_{y\in B}P(x,y)\sum_{y_1\in B}P(y,y_1)\dots\sum_{z\in B}P(y_n,z)h(z)\\
+				&\rightarrow 0
+		\end{align}
+	\end{itemize}
+	\item[1.14] for each e.c.class, $\pi_1,\pi_2,...$, thus set S. is $\sum_i P(i)\pi_i$, where $\sum_i P(i)=1, P(i)\geq 0$, i.e. convex hull.\qed
+\end{itemize}
+\end{document}
