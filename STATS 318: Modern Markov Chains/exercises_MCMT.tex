@@ -96,5 +96,21 @@
 		\end{align}
 	\end{itemize}
 	\item[1.14] for each e.c.class, $\pi_1,\pi_2,...$, thus set S. is $\sum_i P(i)\pi_i$, where $\sum_i P(i)=1, P(i)\geq 0$, i.e. convex hull.\qed
+	\item[2.2] recall 2.1, $f_k/p$.
+	\item[2.3] recall Birth-and-Death Chains, (2.14) let $(p,r,q)=(1/2,0,1/2)$. thus $E_n[\tau_0] \rightarrow n(n+1)$. Rigorous proof as below, note Unif is stationary, by (2.13) $E_{l-1}[\tau_l]=2l$, thus $E_0[\tau_n]=\sum_{l=1}^n 2l=n(n+1)$.
+	\item[2.4] trivial, left apply right, right apply left.
+	\item[2.5] note ${n \choose k} = \frac{n}{k} {n-1 \choose k-1}$, combine to $P$, satisfy dbe. implies S.\qed
+	\item[2.6] $(\mathbb{Z}_3,+)$, with $\mu(1)+\mu(0)=1,\mu(1)>0$, which form a cycle-flow obvious not dbe. i.e. not reversible.
+	\item[2.7] note Unif is S., dbe $P(h,g)=P(g,h)$ implies $\mu(gh^{-1})=\mu(hg^{-1})$ implies symmetry.\qed
+	\item[2.8] for each pair $(x,y)$ transitive implies $\pi(\varphi(z))=\pi(z)$, thus implies 
+	\begin{align}
+		\widehat{P}(\varphi(z),\varphi(w)) &= \frac{\pi(\varphi(z))P(\varphi(z),\varphi(w))}{\pi(\varphi(w))}\\
+			&= \frac{\pi(z)P(z,w)}{\pi(w)}\\
+			&= \widehat{P}(z,w), \forall z,w
+	\end{align}
+	hence transitive time reversal.\qed
+	\item[2.9] obvious $\mapsto \mathbb{Z}_n$ is the projection.
+	\item[2.10] recall Amir-Ex5.1.14. or simply think when hit c, there at least $1/2$ still $\geq c$ by reflection principle.\qed
+	\item[2.11] by induction.
 \end{itemize}
 \end{document}
