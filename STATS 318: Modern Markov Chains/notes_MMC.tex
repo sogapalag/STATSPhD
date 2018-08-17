@@ -125,4 +125,28 @@ prop, unique S. iff $\exists$ unique e.c.class.\\
 % def, transitive, any pair exist bijection states remain P.
 % prop, transitive, finite => Unif is S.
 % Reflection Principle; recall Ballot problem on Amir-note, Ex5.5.30-31
+
+\section{Markov Chain Monte Carlo: Metropolis and Glauber Chains}
+% 即由对称Q，构造出一个pi的P
+% 注：构造出来的是dbe的
+(Symmetric base) Metropolis chain.
+\begin{align}
+	P(x,y) = \begin{cases} \Psi(x,y)[1\wedge \frac{\pi(y)}{\pi(x)}] &\mbox{if $y\neq x$,}\\
+		1 - \sum_{z\neq x} \Psi(x,z)[1\wedge \frac{\pi(z)}{\pi(x)}] &\mbox{if $y=x$.}\end{cases}
+\end{align}
+% 这个构造好处只依赖ratio
+(General base(irreducible)) Metropolis chain.
+\begin{align}
+	P(x,y) = \begin{cases} \Psi(x,y)[1\wedge \frac{\pi(y)\Psi(y,x)}{\pi(x)\Psi(x,y)}] &\mbox{if $y\neq x$,}\\
+		1 - \sum_{z\neq x} \Psi(x,z)[1\wedge \frac{\pi(z)\Psi(z,x)}{\pi(x)\Psi(x,z)}] &\mbox{if $y=x$.}\end{cases}
+\end{align}
+%（Gibbs）
+% def, j allowable at v， 即v的邻居没有使用的颜色
+% proc, 随机v, 随机重着色v（从allowable set）
+% 这样从一个q-coloring 生成了unif的q-color分布的chain
+Glauber dynamics for proper q-colorings.\\
+% hardcore configuration
+% Glauber dynamics for pi, (3.7)即从只同v的分布select
+% Hardcore model with fugacity
+% The Ising model. A spin system (3.12) create Gibbs-d. mu
 \end{document}
