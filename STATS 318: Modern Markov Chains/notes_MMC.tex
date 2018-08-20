@@ -149,4 +149,41 @@ Glauber dynamics for proper q-colorings.\\
 % Glauber dynamics for pi, (3.7)即从只同v的分布select
 % Hardcore model with fugacity
 % The Ising model. A spin system (3.12) create Gibbs-d. mu
+
+\section{Introduction to Markov Chain Mixing}
+% 1/2 L1
+def, total variation distance, $\max_A |\mu(A)-\nu(A)|=\frac{1}{2}\sum_x|\mu(x)-\nu(x)|$.\\
+% coupling, 即(X,Y) marginal分别为u,v
+% prop, TVd = inf {P(X != Y): coupling}, arg called optimal coupling.
+Convergence Theorem, irreducible, aperiodic $\Rightarrow$ $\exists \alpha\in(0,1)$ and $C>0$ s.t. $\max_x \|P^t(x,.)-\pi\|_{TV}\leq C\alpha^t$.\\
+% (4.22,23)
+$d(t),\overline{d}(t)$. lemma, $d(t)\leq \overline{d}(t)\leq 2d(t)$. $\overline{d}(s+t)\leq \overline{d}(s)\overline{d}(t)$.\\
+def, mixing time, $t_{mix}(\epsilon):=\min\{t:d(t)\leq \epsilon\}$.\\
+coll, RW on group, $t_{mix}=\widehat{t}_{mix}$.\\
+% def,(4.36), Lp-distance d^(p)(t); to define Lp mixing time.(4.44)
+% prop4.15, rever-MC, d(t) equality.
+
+
+
+% cutoff, lemma18.1
+% recurrent equiv form, prop21.3
+% 有限回归概率为1
+def, recurrent: $\rho_{xx}=P_x(\tau_x^+<\infty)=1$. Otherwise transient.\\
+% 回归期望时间有限
+def, positive recurrent: $E_x[\tau_x^+]<\infty$.\\
+% positive, 成立一个即所有
+prop, irreducible, that some $z$, $E_z[\tau_z^+]<\infty$ $\Leftrightarrow$ $E_x[\tau_y^+]<\infty, \forall x,y$.\\
+% 有限回归概率为1, 但回归期望时间无限
+def, null recurrent: recurrent but not positive recurrent.\\
+lemma(Kac), irreducible, $\forall S\subset \mathcal{X}$, $\sum_{x\in S}\pi(x)E_x[\tau_S^+]=1$. i.e. start with $\pi|_S$, expected return time $1/\pi(S)$.\\
+% 即pi需要是概率分布
+Thm, irreducible, that positive recurrent $\Leftrightarrow$ $\exists$ probability $\pi$.\\
+lemma, recurrent irreducible, that $P$-harmonic, non-negative $h$ $\Rightarrow$ $h$ constant.\\
+% S.在常系数意义上唯一
+prop, recurrent irreducible, that $\pi=\pi P,\mu=\mu P$ $\Rightarrow$ $\pi=c\mu$ for some constant $c$.\\
+% positive使得是概率测度，aperiodic使得任意init最终为pi  (->L1). 
+Thm, irreducible, aperiodic, positive recurrent $\Rightarrow$ unique probability $\pi$, and $\lim_{t\rightarrow\infty}\|P^t(x,.)-\pi\|_{TV}=0,\forall x$.\\
+Thm, null recurrent irreducible, $\Rightarrow$ $P^t(x,y)\rightarrow 0,\forall x,y$.\\
+% time average = space average.
+Ergodic Theorem, any init $\mu$, $t^{-1}\sum_t f(X_t)\stackrel{a.s.}{\rightarrow} E_\pi[f]$.
 \end{document}
